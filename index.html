@@ -7,8 +7,8 @@
   </head>
   <body>
     <h1>Home Assistant Control</h1>
-    <button onclick="turnOnLights()">Turn On Lights</button>
-    <button onclick="turnOffLights()">Turn Off Lights</button>
+    <button onclick="turnOnSwitch()">Turn On Switch</button>
+    <button onclick="turnOffSwitch()">Turn Off Switch</button>
 
     <script>
       const socket = new WebSocket("ws://homeassistant.local:8124/");
@@ -49,30 +49,30 @@
         socket.send(message);
       }
 
-      function turnOnLights() {
-        // Example: Send a command to turn on lights
+      function turnOnSwitch() {
+        // Example: Send a command to turn on Switch
         const message = JSON.stringify({
           id: 1,
           type: "call_service",
           domain: "switch",
           service: "turn_on",
           service_data: {
-            entity_id: "switch.thing2", // Replace with your light entity ID
+            entity_id: "switch.thing2", // Replace with your switch entity ID
           },
         });
 
         sendMessage(message);
       }
 
-      function turnOffLights() {
-        // Example: Send a command to turn off lights
+      function turnOffSwitch() {
+        // Example: Send a command to turn off Switch
         const message = JSON.stringify({
           id: 2,
           type: "call_service",
           domain: "switch",
           service: "turn_off",
           service_data: {
-            entity_id: "switch.thing2", // Replace with your light entity ID
+            entity_id: "switch.thing2", // Replace with your switch entity ID
           },
         });
 
