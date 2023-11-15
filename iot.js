@@ -1,7 +1,7 @@
 const socket = new WebSocket("ws://homeassistant.local:8123/api/websocket");
 
 socket.onopen = (event) => {
-  console.log("WebSocket connection opened:", event);
+  //console.log("WebSocket connection opened:", event);
 
   // Authenticate with Home Assistant
   socket.send(
@@ -13,11 +13,11 @@ socket.onopen = (event) => {
   );
 
   // Subscribe to events (optional)
-  socket.send(
-    JSON.stringify({
-      type: "subscribe_events",
-    })
-  );
+  // socket.send(
+  //   JSON.stringify({
+  //     type: "subscribe_events",
+  //   })
+  // );
 };
 
 let switchState;
@@ -25,7 +25,7 @@ let switchState;
 socket.onmessage = (event) => {
   try {
     const receivedData = JSON.parse(event.data);
-
+    // console.log(receivedData);
     // Check if the received data is an object with a 'result' property
     if (receivedData.type === "result" && Array.isArray(receivedData.result)) {
       const resultArray = receivedData.result;
