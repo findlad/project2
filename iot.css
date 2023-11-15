@@ -1,14 +1,163 @@
-.switch-container {
+/* .switch-container {
   width: 100px;
   height: 50px;
-  background-color: gray; /* Default color */
+  background-color: gray; 
 }
 
 .switch-container.on {
-  background-color: green; /* Color when the switch is ON */
+  background-color: green; 
 }
 
 .switch-container.off {
-  background-color: red; /* Color when the switch is OFF */
+  background-color: red; 
+} */
+
+p {
+  display:flex;
+  width : 25vw;
+  text-align: center;
+  font-size: 5vh;
 }
 
+.elementTitle {
+  display:flex;
+  align-items: center;
+  margin: auto
+}
+
+/* input[type=checkbox]{
+  height: 0;
+  width: 0;
+  visibility: hidden;
+  
+}
+
+label {
+  cursor: pointer;
+  text-indent: -9999px;
+  width: 200px;
+  height: 100px;
+  background: grey;
+  display: block;
+  border-radius: 100px;
+  position: relative;
+}
+
+label:after {
+  content: '';
+  position: absolute;
+  top: 5px;
+  left: 5px;
+  width: 90px;
+  height: 90px;
+  background: #fff;
+  border-radius: 90px;
+  transition: 0.3s;
+}
+
+input:checked + label {
+  background: #bada55;
+}
+
+input:checked + label:after {
+  left: calc(100% - 5px);
+  transform: translateX(-100%);
+}
+
+label:active:after {
+  width: 130px;
+}*/
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  font-family: 'Roboto', sans-serif;
+} 
+
+
+
+*, *:before, *:after {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+:root {
+	/* minFontSize + (maxFontSize - minFontSize) * (100vw - minVWidth)/(maxVWidth - minVWidth) */
+	font-size: calc(64px + (80 - 64) * (100vw - 320px)/(960 - 320));
+}
+body, input {
+	font-size: 1em;
+	line-height: 1.5;
+}
+
+input {
+	display: block;
+	margin-bottom: 1.5em;
+}
+main {
+	padding: 1.5em 0 0 0;
+	text-align: center;	
+}
+.l {
+	background-color: rgba(0,0,0,0.7);
+	border-radius: 0.75em;
+	box-shadow: 0.125em 0.125em 0 0.125em rgba(0,0,0,0.3) inset;
+	color: #fdea7b;
+	display: inline-flex;
+	align-items: center;
+	margin: auto;
+	padding: 0.15em;
+	width: 3em;
+	height: 1.5em;
+	transition: background-color 0.1s 0.3s ease-out, box-shadow 0.1s 0.3s ease-out;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
+}
+.l:before, .l:after {
+	content: "";
+	display: block;
+}
+.l:before {
+	background-color: #d7d7d7;
+	border-radius: 50%;
+	width: 1.2em;
+	height: 1.2em;
+	transition: background-color 0.1s 0.3s ease-out, transform 0.3s ease-out;
+	z-index: 1;
+}
+.l:after {
+	background:
+		linear-gradient(transparent 50%, rgba(0,0,0,0.15) 0) 0 50% / 50% 100%,
+		repeating-linear-gradient(90deg,#bbb 0,#bbb,#bbb 20%,#999 20%,#999 40%) 0 50% / 50% 100%,
+		radial-gradient(circle at 50% 50%,#888 25%, transparent 26%);
+	background-repeat: no-repeat;
+	border: 0.25em solid transparent;
+	border-left: 0.4em solid #d8d8d8;
+	border-right: 0 solid transparent;
+	transition: border-left-color 0.1s 0.3s ease-out, transform 0.3s ease-out;
+	transform: translateX(-22.5%);
+	transform-origin: 25% 50%;
+	width: 1.2em;
+	height: 1em;
+}
+/* Checked */
+.l:checked {
+	background-color: rgba(0,0,0,0.45);
+	box-shadow: 0.125em 0.125em 0 0.125em rgba(0,0,0,0.1) inset;
+}
+.l:checked:before {
+	background-color: currentColor;
+	transform: translateX(125%)
+}
+.l:checked:after {
+	border-left-color: currentColor;
+	transform: translateX(-2.5%) rotateY(180deg);
+}
+/* Other States */
+.l:focus {
+	/* Usually an anti-A11Y practice but set to remove an annoyance just for this demo */
+	outline: 0;
+}

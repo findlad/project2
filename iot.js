@@ -33,9 +33,16 @@ socket.onmessage = (event) => {
         let currentEntry = resultArray[i];
         if (currentEntry.entity_id === "switch.thing2") {
           switchState = currentEntry.state;
+          const iotThing = document.getElementById("switch");
+          if (switchState === "on") {
+            iotThing.checked = true;
+          } else {
+            iotThing.checked = false;
+          }
+
           //console.log(switchState);
-          switchContainer.classList.remove("on", "off"); //Remove both classes
-          switchContainer.classList.add(switchState); // Add the current state as a class
+          // switchContainer.classList.remove("on", "off"); //Remove both classes
+          // switchContainer.classList.add(switchState); // Add the current state as a class
           break;
         }
       }
@@ -71,7 +78,7 @@ function getCurrentSwitchState() {
 }
 
 // Call getCurrentSwitchState every second
-setInterval(getCurrentSwitchState, 500);
+setInterval(getCurrentSwitchState, 1000);
 
 // Call getCurrentSwitchState immediately when the page loads
 getCurrentSwitchState();
