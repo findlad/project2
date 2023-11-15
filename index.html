@@ -3,83 +3,16 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Home Assistant Control</title>
+    <title>IOT Control</title>
+    <link rel="stylesheet" href="iot.css" />
+    <script src="iot.js"></script>
   </head>
   <body>
-    <h1>Home Assistant Control</h1>
-    <button onclick="turnOnSwitch()">Turn On Switch</button>
-    <button onclick="turnOffSwitch()">Turn Off Switch</button>
+    <h1>Thing 2 Switch</h1>
+    <div id="switchContainer" class="switch-container">
+      <input type="button" onclick="toggleSwitch()" /> On/Off
+    </div>
 
-    <script>
-      const socket = new WebSocket(
-        "ws://homeassistant.local:8123/api/websocket"
-      );
-
-      socket.onopen = (event) => {
-        console.log("WebSocket connection opened:", event);
-
-        // Authenticate with Home Assistant
-        socket.send(
-          JSON.stringify({
-            type: "auth",
-            access_token:
-              "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiI1NGI2YTM5ZjhiZDU0ZjIxOGFlYzk5ZWNmYTA1OTU0NiIsImlhdCI6MTY5OTU2NjQzMSwiZXhwIjoyMDE0OTI2NDMxfQ.QbRxVeZxj0GxG-_4DvdoZrXlzfcUWBr-Dx0zr3Pt4GI", // Replace with your access token
-          })
-        );
-
-        // Subscribe to events (optional)
-        socket.send(
-          JSON.stringify({
-            type: "subscribe_events",
-          })
-        );
-      };
-
-      socket.onmessage = (event) => {
-        const data = JSON.parse(event.data);
-        console.log("Received message:", data);
-
-        // Process received messages if needed
-      };
-
-      socket.onclose = (event) => {
-        console.log("WebSocket connection closed:", event);
-      };
-
-      function sendMessage(message) {
-        console.log("Sending message:", message);
-        socket.send(message);
-      }
-
-      function turnOnSwitch() {
-        // Example: Send a command to turn on Switch
-        const message = JSON.stringify({
-          id: 1,
-          type: "call_service",
-          domain: "switch",
-          service: "turn_on",
-          service_data: {
-            entity_id: "switch.thing2", // Replace with your switch entity ID
-          },
-        });
-
-        sendMessage(message);
-      }
-
-      function turnOffSwitch() {
-        // Example: Send a command to turn off Switch
-        const message = JSON.stringify({
-          id: 2,
-          type: "call_service",
-          domain: "switch",
-          service: "turn_off",
-          service_data: {
-            entity_id: "switch.thing2", // Replace with your switch entity ID
-          },
-        });
-
-        sendMessage(message);
-      }
-    </script>
+    <script></script>
   </body>
 </html>

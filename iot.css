@@ -1,0 +1,14 @@
+.switch-container {
+  width: 100px;
+  height: 50px;
+  background-color: gray; /* Default color */
+}
+
+.switch-container.on {
+  background-color: green; /* Color when the switch is ON */
+}
+
+.switch-container.off {
+  background-color: red; /* Color when the switch is OFF */
+}
+
