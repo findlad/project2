@@ -17,12 +17,11 @@ socket.onopen = (event) => {
 };
 
 let switchState;
+let manualToggle = false; // Flag to track manual switch toggles
 
 socket.onmessage = (event) => {
   try {
     const receivedData = JSON.parse(event.data);
-    // console.log(receivedData);
-    // Check if the received data is an object with a 'result' property
     if (receivedData.type === "result" && Array.isArray(receivedData.result)) {
       const resultArray = receivedData.result;
       let background = document.getElementById("background");
@@ -40,10 +39,6 @@ socket.onmessage = (event) => {
             background.classList.remove("on", "off");
             background.classList.add("off");
           }
-
-          //console.log(switchState);
-          // switchContainer.classList.remove("on", "off"); //Remove both classes
-          // switchContainer.classList.add(switchState); // Add the current state as a class
           break;
         }
       }
@@ -56,6 +51,7 @@ socket.onmessage = (event) => {
   } catch (error) {
     console.error("Error parsing JSON:", error);
   }
+  manualToggle = false;
 };
 
 socket.onclose = (event) => {
@@ -68,6 +64,7 @@ function sendMessage(message) {
 }
 
 let incrimentalId = 1;
+
 //Add this function to get the current state of the switch
 function getCurrentSwitchState() {
   const message = JSON.stringify({
@@ -79,13 +76,17 @@ function getCurrentSwitchState() {
 }
 
 // Call getCurrentSwitchState every second
-setInterval(getCurrentSwitchState, 500);
+setInterval(() => {
+  if (!manualToggle) {
+    getCurrentSwitchState();
+  }
+}, 2000);
 
 // Call getCurrentSwitchState immediately when the page loads
 getCurrentSwitchState();
 
 function toggleSwitch() {
-  // Example: Send a command to turn on Switch
+  manualToggle = true;
   const message = JSON.stringify({
     id: incrimentalId,
     type: "call_service",
@@ -95,8 +96,6 @@ function toggleSwitch() {
       entity_id: "switch.thing2", // Replace with your switch entity ID
     },
   });
-
-  // delay(500);
   sendMessage(message);
   incrimentalId++;
 }
