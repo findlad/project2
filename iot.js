@@ -18,7 +18,7 @@ socket.onopen = (event) => {
 
 let switchState;
 let manualToggle = false; // Flag to track manual switch toggles
-
+//process recieved messages
 socket.onmessage = (event) => {
   try {
     const receivedData = JSON.parse(event.data);
@@ -28,14 +28,16 @@ socket.onmessage = (event) => {
       for (let i = 0; i < resultArray.length; i++) {
         let currentEntry = resultArray[i];
         if (currentEntry.entity_id === "switch.thing2") {
+          //when we find thing2......
           switchState = currentEntry.state;
           const iotThing = document.getElementById("switch");
           if (switchState === "on") {
+            //if its on, check the toggleswithc, and add "on" to the body
             iotThing.checked = true;
             background.classList.remove("on", "off");
             background.classList.add("on");
           } else {
-            iotThing.checked = false;
+            iotThing.checked = false; //if its off, check the toggle switch, and add "off" to the body
             background.classList.remove("on", "off");
             background.classList.add("off");
           }
@@ -51,21 +53,21 @@ socket.onmessage = (event) => {
   } catch (error) {
     console.error("Error parsing JSON:", error);
   }
-  manualToggle = false;
+  manualToggle = false; // make sure we know the button hasnt been pushed in the last wee bit
 };
-
+//closing the websocket
 socket.onclose = (event) => {
   console.log("WebSocket connection closed:", event);
 };
-
+//sending message to the pi
 function sendMessage(message) {
-  console.log("Sending message:", message);
+  //console.log("Sending message:", message);
   socket.send(message);
 }
-
+// start a counter so theres a different id every time
 let incrimentalId = 1;
 
-//Add this function to get the current state of the switch
+//get the current state of the switch
 function getCurrentSwitchState() {
   const message = JSON.stringify({
     id: incrimentalId,
@@ -75,7 +77,7 @@ function getCurrentSwitchState() {
   sendMessage(message);
 }
 
-// Call getCurrentSwitchState every second
+// Call getCurrentSwitchState every 2 seconds, unless theres been a manual switch recently
 setInterval(() => {
   if (!manualToggle) {
     getCurrentSwitchState();
@@ -85,6 +87,7 @@ setInterval(() => {
 // Call getCurrentSwitchState immediately when the page loads
 getCurrentSwitchState();
 
+//tell the switch to toggle
 function toggleSwitch() {
   manualToggle = true;
   const message = JSON.stringify({
@@ -93,7 +96,7 @@ function toggleSwitch() {
     domain: "switch",
     service: "Toggle",
     service_data: {
-      entity_id: "switch.thing2", // Replace with your switch entity ID
+      entity_id: "switch.thing2", // Replace with whatever the entity ID is when copying
     },
   });
   sendMessage(message);
