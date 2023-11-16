@@ -1,3 +1,6 @@
+const delay = (milliseconds) =>
+  new Promise((resolve) => setTimeout(resolve, milliseconds));
+
 const socket = new WebSocket("ws://homeassistant.local:8123/api/websocket");
 
 socket.onopen = (event) => {
@@ -11,13 +14,6 @@ socket.onopen = (event) => {
         "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiI1NGI2YTM5ZjhiZDU0ZjIxOGFlYzk5ZWNmYTA1OTU0NiIsImlhdCI6MTY5OTU2NjQzMSwiZXhwIjoyMDE0OTI2NDMxfQ.QbRxVeZxj0GxG-_4DvdoZrXlzfcUWBr-Dx0zr3Pt4GI", // Replace with your access token
     })
   );
-
-  // Subscribe to events (optional)
-  // socket.send(
-  //   JSON.stringify({
-  //     type: "subscribe_events",
-  //   })
-  // );
 };
 
 let switchState;
@@ -29,6 +25,7 @@ socket.onmessage = (event) => {
     // Check if the received data is an object with a 'result' property
     if (receivedData.type === "result" && Array.isArray(receivedData.result)) {
       const resultArray = receivedData.result;
+      let background = document.getElementById("background");
       for (let i = 0; i < resultArray.length; i++) {
         let currentEntry = resultArray[i];
         if (currentEntry.entity_id === "switch.thing2") {
@@ -36,8 +33,12 @@ socket.onmessage = (event) => {
           const iotThing = document.getElementById("switch");
           if (switchState === "on") {
             iotThing.checked = true;
+            background.classList.remove("on", "off");
+            background.classList.add("on");
           } else {
             iotThing.checked = false;
+            background.classList.remove("on", "off");
+            background.classList.add("off");
           }
 
           //console.log(switchState);
@@ -78,7 +79,7 @@ function getCurrentSwitchState() {
 }
 
 // Call getCurrentSwitchState every second
-setInterval(getCurrentSwitchState, 1000);
+setInterval(getCurrentSwitchState, 500);
 
 // Call getCurrentSwitchState immediately when the page loads
 getCurrentSwitchState();
@@ -95,6 +96,7 @@ function toggleSwitch() {
     },
   });
 
+  // delay(500);
   sendMessage(message);
   incrimentalId++;
 }
