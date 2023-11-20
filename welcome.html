@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="globals.css" />
+    <link rel="stylesheet" href="welcome.css" />
+  </head>
+  <body>
+    <div class="welcome-page" onclick="window.location.href='menu.html';">
+      <div class="overlap-wrapper">
+        <div class="overlap">
+          <div class="screen">
+            <header class="header">
+              <div class="overlap-group">
+                <div class="rectangle"></div>
+                <div class="text-wrapper">Welcome Home, Elizabeth</div>
+                <img
+                  class="asset"
+                  src="https://c.animaapp.com/EpME3NCM/img/asset-13-4x-1@2x.png"
+                />
+              </div>
+            </header>
+            <div class="date-time">
+              <div class="element-attempts">
+                <div class="flexcontainer">
+                  <p class="text">
+                    <span class="span">Tuesday, January 2, 2024<br /></span>
+                  </p>
+                  <p class="text"><span class="span">7:04 am</span></p>
+                </div>
+              </div>
+            </div>
+            <div class="element-attempts-wrapper">
+              <div class="element-attempts">
+                <p class="div">Your Garden Loft is 21°</p>
+              </div>
+            </div>
+            <div class="overlap-group-wrapper">
+              <div class="overlap-2">
+                <a
+                  class="weatherwidget-io"
+                  href="https://forecast7.com/en/51d05n114d07/calgary/"
+                  data-label_1="CALGARY"
+                  data-label_2="WEATHER"
+                  data-icons="Climacons Animated"
+                  data-days="5"
+                  >CALGARY WEATHER</a
+                >
+                <script>
+                  !(function (d, s, id) {
+                    var js,
+                      fjs = d.getElementsByTagName(s)[0];
+                    if (!d.getElementById(id)) {
+                      js = d.createElement(s);
+                      js.id = id;
+                      js.src = "https://weatherwidget.io/js/widget.min.js";
+                      fjs.parentNode.insertBefore(js, fjs);
+                    }
+                  })(document, "script", "weatherwidget-io-js");
+                </script>
+                <!-- <div class="flexcontainer-2">
+                  <p class="span-wrapper">
+                    <span class="text-wrapper-2">Currently: -5°<br /></span>
+                  </p>
+                  <p class="span-wrapper">
+                    <span class="text-wrapper-2">High: 5°<br /></span>
+                  </p>
+                  <p class="span-wrapper">
+                    <span class="text-wrapper-2">Low -10°</span>
+                  </p>
+                </div>
+                <img
+                  class="weather"
+                  src="https://c.animaapp.com/EpME3NCM/img/weather@2x.png"
+                /> -->
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

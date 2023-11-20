@@ -1,0 +1,200 @@
+.one-time-pass-code {
+  background-color: #4c4343;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 100%;
+}
+
+.one-time-pass-code .screen-wrapper {
+  background-color: #4c4343;
+  width: 1920px;
+  height: 1080px;
+}
+
+.one-time-pass-code .screen {
+  position: relative;
+  width: 1824px;
+  height: 1026px;
+  top: 27px;
+  left: 48px;
+  background-color: #000000;
+}
+
+.one-time-pass-code .overlap-group {
+  position: absolute;
+  width: 1307px;
+  height: 592px;
+  top: 55px;
+  left: 259px;
+}
+
+.one-time-pass-code .rectangle {
+  position: absolute;
+  width: 1307px;
+  height: 366px;
+  top: 0;
+  left: 0;
+  background-color: #fff9e6;
+  border-radius: 18px;
+  border: 15px solid;
+  border-color: #bcb88a;
+}
+
+.one-time-pass-code .welcome-home-please {
+  position: absolute;
+  width: 809px;
+  height: 156px;
+  top: 104px;
+  left: 59px;
+  font-family: "Roboto-Medium", Helvetica;
+  font-weight: 400;
+  color: #000000;
+  font-size: 70px;
+  text-align: center;
+  letter-spacing: 0.1px;
+  line-height: 50px;
+}
+
+.one-time-pass-code .text-wrapper {
+  font-weight: 500;
+}
+
+.one-time-pass-code .span {
+  font-family: "Roboto-Regular", Helvetica;
+}
+
+.one-time-pass-code .text-wrapper-2 {
+  font-family: "Roboto-Regular", Helvetica;
+  font-size: 55px;
+}
+
+.one-time-pass-code .asset {
+  position: absolute;
+  width: 397px;
+  height: 305px;
+  top: 87px;
+  left: 852px;
+  object-fit: cover;
+}
+
+.one-time-pass-code .verification-code {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 13.5px;
+  position: absolute;
+  top: 351px;
+  left: 45px;
+}
+
+.one-time-pass-code .input-with-label {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 13.5px;
+  position: relative;
+  align-self: stretch;
+  width: 100%;
+  flex: 0 0 auto;
+}
+
+.one-time-pass-code .label {
+  position: relative;
+  width: fit-content;
+  margin-top: -2.25px;
+  font-family: var(--text-14-normal-medium-font-family);
+  font-weight: var(--text-14-normal-medium-font-weight);
+  color: var(--gray-700);
+  font-size: var(--text-14-normal-medium-font-size);
+  letter-spacing: var(--text-14-normal-medium-letter-spacing);
+  line-height: var(--text-14-normal-medium-line-height);
+  font-style: var(--text-14-normal-medium-font-style);
+}
+
+.one-time-pass-code .input {
+  display: inline-flex;
+  align-items: center;
+  gap: 27px;
+  position: relative;
+  flex: 0 0 auto;
+}
+
+.one-time-pass-code .verification-input {
+  display: flex;
+  flex-direction: column;
+  width: 180px;
+  align-items: flex-start;
+  gap: 22.5px;
+  position: relative;
+  border-radius: 18px;
+}
+
+.one-time-pass-code .div-wrapper {
+  display: flex;
+  height: 180px;
+  align-items: center;
+  gap: 18px;
+  padding: 18px;
+  position: relative;
+  align-self: stretch;
+  width: 100%;
+  background-color: var(--white);
+  border-radius: 18px;
+  border: 2.25px solid;
+  border-color: var(--gray-300);
+  box-shadow: var(--shadow-elevation-1-e-1-rest-state);
+}
+
+.one-time-pass-code .text {
+  position: relative;
+  flex: 1;
+  font-family: var(--heading-48-normal-medium-font-family);
+  font-weight: var(--heading-48-normal-medium-font-weight);
+  color: var(--gray-500);
+  font-size: var(--heading-48-normal-medium-font-size);
+  text-align: center;
+  letter-spacing: var(--heading-48-normal-medium-letter-spacing);
+  line-height: var(--heading-48-normal-medium-line-height);
+  font-style: var(--heading-48-normal-medium-font-style);
+}
+
+.one-time-pass-code .group {
+  position: absolute;
+  width: 370px;
+  height: 203px;
+  top: 823px;
+  left: 728px;
+}
+
+.one-time-pass-code .emergency-call {
+  position: absolute;
+  width: 113px;
+  height: 113px;
+  top: 0;
+  left: 128px;
+  border-radius: 38px;
+  background: linear-gradient(180deg, rgb(255, 55.25, 115.18) 0%, rgb(224.19, 0, 0) 100%);
+}
+
+.one-time-pass-code .vector {
+  position: absolute;
+  width: 59px;
+  height: 59px;
+  top: 27px;
+  left: 27px;
+}
+
+.one-time-pass-code .EMERGENCY-CALL {
+  position: absolute;
+  width: 368px;
+  top: 129px;
+  left: 0;
+  font-family: "Roboto Flex-SemiBold", Helvetica;
+  font-weight: 600;
+  color: #ffffff;
+  font-size: 40px;
+  text-align: center;
+  letter-spacing: 0;
+  line-height: normal;
+}

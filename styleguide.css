@@ -1,0 +1,19 @@
+:root {
+  --gray-700: rgba(52, 64, 84, 1);
+  --gray-500: rgba(102, 112, 133, 1);
+  --white: rgba(255, 255, 255, 1);
+  --gray-300: rgba(208, 213, 221, 1);
+  --text-14-normal-medium-font-family: "Mulish-Regular", Helvetica;
+  --text-14-normal-medium-font-weight: 400;
+  --text-14-normal-medium-font-size: 14px;
+  --text-14-normal-medium-letter-spacing: 0px;
+  --text-14-normal-medium-line-height: 150%;
+  --text-14-normal-medium-font-style: normal;
+  --heading-48-normal-medium-font-family: "Mulish-Medium", Helvetica;
+  --heading-48-normal-medium-font-weight: 500;
+  --heading-48-normal-medium-font-size: 48px;
+  --heading-48-normal-medium-letter-spacing: -0.96px;
+  --heading-48-normal-medium-line-height: 120.00000476837158%;
+  --heading-48-normal-medium-font-style: normal;
+  --shadow-elevation-1-e-1-rest-state: 0px 1px 2px 0px rgba(16, 24, 40, 0.05);
+}
