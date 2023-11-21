@@ -14,6 +14,14 @@ socket.onopen = (event) => {
         "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiI1NGI2YTM5ZjhiZDU0ZjIxOGFlYzk5ZWNmYTA1OTU0NiIsImlhdCI6MTY5OTU2NjQzMSwiZXhwIjoyMDE0OTI2NDMxfQ.QbRxVeZxj0GxG-_4DvdoZrXlzfcUWBr-Dx0zr3Pt4GI", // Replace with your access token
     })
   );
+
+  // Listen to changes sent by IOT
+  socket.send(
+    JSON.stringify({
+      id: 1,
+      type: "subscribe_events",
+    })
+  );
 };
 
 let switchState;
@@ -22,28 +30,51 @@ let manualToggle = false; // Flag to track manual switch toggles
 socket.onmessage = (event) => {
   try {
     const receivedData = JSON.parse(event.data);
-    if (receivedData.type === "result" && Array.isArray(receivedData.result)) {
+
+    if (
+      receivedData.type === "event"
+      // && Array.isArray(receivedData.result)
+    ) {
       const resultArray = receivedData.result;
       let background = document.getElementById("background");
-      for (let i = 0; i < resultArray.length; i++) {
-        let currentEntry = resultArray[i];
-        if (currentEntry.entity_id === "switch.thing2") {
-          //when we find thing2......
-          switchState = currentEntry.state;
-          const iotThing = document.getElementById("switch");
-          if (switchState === "on") {
-            //if its on, check the toggleswithc, and add "on" to the body
-            iotThing.checked = true;
-            background.classList.remove("on", "off");
-            background.classList.add("on");
-          } else {
-            iotThing.checked = false; //if its off, check the toggle switch, and add "off" to the body
-            background.classList.remove("on", "off");
-            background.classList.add("off");
-          }
-          break;
+      const iotThing = document.getElementById("switch");
+
+      // console.log("receivedData.event");
+      console.log(receivedData.event);
+      if (receivedData.event.data.entity_id === "switch.thing2") {
+        const switchState = receivedData.event.data.new_state.state === "on";
+
+        if (switchState) {
+          //if its on, check the toggleswithc, and add "on" to the body
+          iotThing.checked = true;
+          background.classList.remove("on", "off");
+          background.classList.add("on");
+        } else {
+          iotThing.checked = false; //if its off, check the toggle switch, and add "off" to the body
+          background.classList.remove("on", "off");
+          background.classList.add("off");
         }
       }
+
+      // for (let i = 0; i < resultArray.length; i++) {
+      //   let currentEntry = resultArray[i];
+      //   if (currentEntry.entity_id === "switch.thing2") {
+      //     //when we find thing2......
+      //     switchState = currentEntry.state;
+      //     const iotThing = document.getElementById("switch");
+      //     if (switchState === "on") {
+      //       //if its on, check the toggleswithc, and add "on" to the body
+      //       iotThing.checked = true;
+      //       background.classList.remove("on", "off");
+      //       background.classList.add("on");
+      //     } else {
+      //       iotThing.checked = false; //if its off, check the toggle switch, and add "off" to the body
+      //       background.classList.remove("on", "off");
+      //       background.classList.add("off");
+      //     }
+      //     break;
+      //   }
+      // }
     } else {
       console.warn(
         "Received data does not match the expected format:",
@@ -65,7 +96,7 @@ function sendMessage(message) {
   socket.send(message);
 }
 // start a counter so theres a different id every time
-let incrimentalId = 1;
+let incrimentalId = 2;
 
 //get the current state of the switch
 function getCurrentSwitchState() {
@@ -78,11 +109,11 @@ function getCurrentSwitchState() {
 }
 
 // Call getCurrentSwitchState every 2 seconds, unless theres been a manual switch recently
-setInterval(() => {
-  if (!manualToggle) {
-    getCurrentSwitchState();
-  }
-}, 2000);
+// setInterval(() => {
+//   if (!manualToggle) {
+//     getCurrentSwitchState();
+//   }
+// }, 2000);
 
 // Call getCurrentSwitchState immediately when the page loads
 getCurrentSwitchState();

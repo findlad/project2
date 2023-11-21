@@ -416,7 +416,8 @@
 .elementTitle {
   display:flex;
   align-items: center;
-  margin: auto
+  margin: auto;
+  
 }
 
 body {
@@ -435,7 +436,7 @@ body {
 
 .off {
 	background-image: radial-gradient(rgb(211, 210, 210), rgb(86, 84, 84));
-	transition: background-image 1s linear ;
+	transition: background-image 1s linear ; 
 }
 
 
@@ -521,4 +522,7 @@ main {
 .l:focus {
 	/* Usually an anti-A11Y practice but set to remove an annoyance just for this demo */
 	outline: 0;
+}
+.background {
+  max-width: 200px;
 }
