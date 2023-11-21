@@ -35,7 +35,7 @@ socket.onmessage = (event) => {
       receivedData.type === "event"
       // && Array.isArray(receivedData.result)
     ) {
-      const resultArray = receivedData.result;
+      
       let background = document.getElementById("background");
       const iotThing = document.getElementById("switch");
 
@@ -55,7 +55,10 @@ socket.onmessage = (event) => {
           background.classList.add("off");
         }
       }
-
+      if (
+        receivedData.type ==='result' && Array.isArray(receivedData.result)
+        const resultArray = receivedData.result;
+      ) {
       // for (let i = 0; i < resultArray.length; i++) {
       //   let currentEntry = resultArray[i];
       //   if (currentEntry.entity_id === "switch.thing2") {
