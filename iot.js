@@ -1,6 +1,26 @@
 const delay = (milliseconds) =>
   new Promise((resolve) => setTimeout(resolve, milliseconds));
 
+// Function to calculate the mean of an array
+function calculateMean(array) {
+  // Check if the array is not empty
+  if (array.length === 0) {
+    return 0; // or you can choose to return NaN or any other value
+  }
+
+  // Calculate the sum of the array elements
+  let sum = 0;
+  for (let i = 0; i < array.length; i++) {
+    array[i] = Number.array[i];
+    sum += array[i];
+  }
+
+  // Calculate the mean
+  let mean = sum / array.length;
+
+  return mean;
+}
+
 const socket = new WebSocket("ws://homeassistant.local:8123/api/websocket");
 
 socket.onopen = (event) => {
@@ -23,7 +43,7 @@ socket.onopen = (event) => {
     })
   );
 };
-
+let weightArray = [];
 let switchState;
 let manualToggle = false; // Flag to track manual switch toggles
 //process recieved messages
@@ -65,30 +85,51 @@ socket.onmessage = (event) => {
         fallbox.classList.remove("fall");
         fallbox.classList.add("fall");
       }
+      if (
+        receivedData.event.data.entity_id ===
+        "sensor.smart_scale_c1_real_time_weight"
+      ) {
+        console.log(receivedData);
+
+        const instantWeight = receivedData.event.data.new_state.state;
+        console.log(instantWeight);
+        if ((instantWeight = !undefined)) {
+          weightArray.push(instantWeight);
+          console.log(weightArray);
+        }
+        if ((instantWeight = 0)) {
+          weightArray.splice(0, 3);
+          weightArray.splice(weightArray.length - 3, 3);
+          aveWeight = calculateMean(weightArray);
+        }
+        const weightbox = document.getElementById("weightbox");
+        weightbox.innerHTML = "Weight: " + aveWeight;
+      }
 
       // add listener for the other sensors
-      if (
-        receivedData.type === "result" &&
-        Array.isArray(receivedData.result)
-      ) {
-        const resultArray = receivedData.result;
-        for (let i = 0; i < resultArray.length; i++) {
-          let currentEntry = resultArray[i];
-          if (
-            currentEntry.entity_id ===
-            "binary_sensor.presence_sensor_fp2_1708_presence_sensor_1"
-          ) {
-            //when we find sensor......
-            console.log(currentEntry);
-            break;
-          }
-        }
-      } else {
-        console.warn(
-          "Received data does not match the expected format:",
-          receivedData
-        );
-      }
+
+      // if (
+      //   receivedData.type === "result" &&
+      //   Array.isArray(receivedData.result)
+      // ) {
+      //   const resultArray = receivedData.result;
+      //   for (let i = 0; i < resultArray.length; i++) {
+      //     let currentEntry = resultArray[i];
+      //     if (
+      //       currentEntry.entity_id ===
+      //       "binary_sensor.presence_sensor_fp2_1708_presence_sensor_1"
+      //     ) {
+      //       //when we find sensor......
+      //       console.log(currentEntry);
+      //       break;
+      //     }
+      //   }
+      // } else {
+      //   console.warn(
+      //     "Received data does not match the expected format:",
+      //     receivedData
+      //   );
+      // }
     }
   } catch (error) {
     console.error("Error parsing JSON:", error);
