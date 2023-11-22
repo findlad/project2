@@ -18,7 +18,7 @@ socket.onopen = (event) => {
   // Listen to changes sent by IOT
   socket.send(
     JSON.stringify({
-      id: 1,
+      id: incrimentalId,
       type: "subscribe_events",
     })
   );
@@ -39,6 +39,7 @@ socket.onmessage = (event) => {
       const iotThing = document.getElementById("switch");
 
       // console.log("receivedData.event");
+
       if (receivedData.event.data.entity_id === "switch.thing2") {
         const switchState = receivedData.event.data.new_state.state === "on";
 
@@ -53,30 +54,41 @@ socket.onmessage = (event) => {
           background.classList.add("off");
         }
       }
+      if (
+        receivedData.event.data.entity_id ===
+        "binary_sensor.presence_sensor_fp2_1708_presence_sensor_1"
+      ) {
+        const fall = true;
+        console.log("fall detected");
+        const fallbox = document.getElementById("fallbox");
+        fallbox.innerHTML = "FALL";
+        fallbox.classList.remove("fall");
+        fallbox.classList.add("fall");
+      }
 
       // add listener for the other sensors
-      // if (
-      //   receivedData.type === "result" &&
-      //   Array.isArray(receivedData.result)
-      // ) {
-      //   const resultArray = receivedData.result;
-      //   for (let i = 0; i < resultArray.length; i++) {
-      //     let currentEntry = resultArray[i];
-      //     if (
-      //       currentEntry.entity_id ===
-      //       "binary_sensor.presence_sensor_fp2_1708_presence_sensor_1"
-      //     ) {
-      //       //when we find sensor......
-      //       console.log(currentEntry);
-      //       break;
-      //     }
-      //   }
-      // } else {
-      //   console.warn(
-      //     "Received data does not match the expected format:",
-      //     receivedData
-      //   );
-      // }
+      if (
+        receivedData.type === "result" &&
+        Array.isArray(receivedData.result)
+      ) {
+        const resultArray = receivedData.result;
+        for (let i = 0; i < resultArray.length; i++) {
+          let currentEntry = resultArray[i];
+          if (
+            currentEntry.entity_id ===
+            "binary_sensor.presence_sensor_fp2_1708_presence_sensor_1"
+          ) {
+            //when we find sensor......
+            console.log(currentEntry);
+            break;
+          }
+        }
+      } else {
+        console.warn(
+          "Received data does not match the expected format:",
+          receivedData
+        );
+      }
     }
   } catch (error) {
     console.error("Error parsing JSON:", error);
