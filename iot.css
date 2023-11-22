@@ -20,6 +20,12 @@ body {
 	background-image: radial-gradient(rgb(211, 210, 210), rgb(86, 84, 84));
 } 
 
+.fall {
+font-size: 48PX;
+color: WHITE;
+background-color: red;
+
+}
 .on {
   background-image: radial-gradient(rgb(255, 255, 119), rgb(224, 224, 163));
   transition: background-image 1s linear ;
