@@ -103,6 +103,7 @@
 
 .welcome-page .flexcontainer {
   position: relative;
+  justify-content: center;
   width: 682px;
   height: 257px;
   display: flex;
