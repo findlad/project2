@@ -56,38 +56,33 @@ socket.onmessage = (event) => {
 
       // add listener for the other sensors
       // if (
-      //   receivedData.type ==='result' && Array.isArray(receivedData.result){
-      //   const resultArray = receivedData.result;}
+      //   receivedData.type === "result" &&
+      //   Array.isArray(receivedData.result)
       // ) {
-      // for (let i = 0; i < resultArray.length; i++) {
-      //   let currentEntry = resultArray[i];
-      //   if (currentEntry.entity_id === "switch.thing2") {
-      //     //when we find thing2......
-      //     switchState = currentEntry.state;
-      //     const iotThing = document.getElementById("switch");
-      //     if (switchState === "on") {
-      //       //if its on, check the toggleswithc, and add "on" to the body
-      //       iotThing.checked = true;
-      //       background.classList.remove("on", "off");
-      //       background.classList.add("on");
-      //     } else {
-      //       iotThing.checked = false; //if its off, check the toggle switch, and add "off" to the body
-      //       background.classList.remove("on", "off");
-      //       background.classList.add("off");
+      //   const resultArray = receivedData.result;
+      //   for (let i = 0; i < resultArray.length; i++) {
+      //     let currentEntry = resultArray[i];
+      //     if (
+      //       currentEntry.entity_id ===
+      //       "binary_sensor.presence_sensor_fp2_1708_presence_sensor_1"
+      //     ) {
+      //       //when we find sensor......
+      //       console.log(currentEntry);
+      //       break;
       //     }
-      //     break;
       //   }
+      // } else {
+      //   console.warn(
+      //     "Received data does not match the expected format:",
+      //     receivedData
+      //   );
       // }
-    } else {
-      console.warn(
-        "Received data does not match the expected format:",
-        receivedData
-      );
     }
   } catch (error) {
     console.error("Error parsing JSON:", error);
   }
-  manualToggle = false; // make sure we know the button hasnt been pushed in the last wee bit
+
+  // manualToggle = false; // make sure we know the button hasnt been pushed in the last wee bit
 };
 //closing the websocket
 socket.onclose = (event) => {
@@ -99,10 +94,10 @@ function sendMessage(message) {
   socket.send(message);
 }
 // start a counter so theres a different id every time
-let incrimentalId = 2;
+let incrimentalId = 1;
 
 //get the current state of the switch
-function getCurrentSwitchState() {
+function getCurrentState() {
   const message = JSON.stringify({
     id: incrimentalId,
     type: "get_states",
@@ -112,14 +107,12 @@ function getCurrentSwitchState() {
 }
 
 // Call getCurrentSwitchState every 2 seconds, unless theres been a manual switch recently
-// setInterval(() => {
-//   if (!manualToggle) {
-//     getCurrentSwitchState();
-//   }
-// }, 2000);
+setInterval(() => {
+  getCurrentState();
+}, 2000);
 
 // Call getCurrentSwitchState immediately when the page loads
-getCurrentSwitchState();
+getCurrentState();
 
 //tell the switch to toggle
 function toggleSwitch() {
