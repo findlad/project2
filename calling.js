@@ -33,7 +33,7 @@ emergencyCallDiv.addEventListener("click", function () {
 
 // Your Twilio credentials
 const accountSid = "AC64a6c99ef0352b5944d417f4dafb3513";
-const authToken = "71a4e7bdd50c303c7fa70d49fc6d1852";
+const authToken = "----";
 
 // URL and data for the Twilio API request
 const apiUrl = "https://api.twilio.com/2010-04-01/Accounts/AC64a6c99ef0352b5944d417f4dafb3513/Calls.json";
@@ -45,7 +45,7 @@ const requestData = {
   },
   body: new URLSearchParams({
     "Url": "http://demo.twilio.com/docs/voice.xml",
-    "To": "+18259949649",
+    "To": "+1xxx",
     "From": "+19496823519"
   }).toString()
 };
