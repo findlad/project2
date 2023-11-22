@@ -1,3 +1,11 @@
+.item:hover {
+  transform: scale(1.1);
+  transition: transform 0.2s ease;
+  box-shadow: 1px 2px 4px 5px white;
+  border-radius: 36px;
+ }
+  
+
 .element-home {
   background-color: #4c4343;
   display: flex;

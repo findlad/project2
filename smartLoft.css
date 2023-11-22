@@ -1,3 +1,10 @@
+.item:hover {
+  transform: scale(1.1);
+  transition: transform 0.2s ease;
+  box-shadow: 1px 2px 4px 5px white;
+  border-radius: 36px;
+ }
+
 .smart-loft {
   background-color: #4c4343;
   display: flex;
@@ -471,8 +478,8 @@ main {
 	align-items: center;
 	margin: auto;
 	padding: 0.15em;
-	width: 3em;
-	height: 1.5em;
+	width: 1.5em;
+	height: 0.75em;
 	transition: background-color 0.1s 0.3s ease-out, box-shadow 0.1s 0.3s ease-out;
 	-webkit-appearance: none;
 	-moz-appearance: none;
@@ -485,8 +492,8 @@ main {
 .l:before {
 	background-color: #d7d7d7;
 	border-radius: 50%;
-	width: 1.2em;
-	height: 1.2em;
+	width: 0.6em;
+	height: 0.6em;
 	transition: background-color 0.1s 0.3s ease-out, transform 0.3s ease-out;
 	z-index: 1;
 }
@@ -502,8 +509,8 @@ main {
 	transition: border-left-color 0.1s 0.3s ease-out, transform 0.3s ease-out;
 	transform: translateX(-22.5%);
 	transform-origin: 25% 50%;
-	width: 1.2em;
-	height: 1em;
+	width: 0.6em;
+	height: 0.5em;
 }
 /* Checked */
 .l:checked {

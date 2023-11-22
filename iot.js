@@ -35,12 +35,10 @@ socket.onmessage = (event) => {
       receivedData.type === "event"
       // && Array.isArray(receivedData.result)
     ) {
-      
       let background = document.getElementById("background");
       const iotThing = document.getElementById("switch");
 
       // console.log("receivedData.event");
-      console.log(receivedData.event);
       if (receivedData.event.data.entity_id === "switch.thing2") {
         const switchState = receivedData.event.data.new_state.state === "on";
 
@@ -55,10 +53,12 @@ socket.onmessage = (event) => {
           background.classList.add("off");
         }
       }
-      if (
-        receivedData.type ==='result' && Array.isArray(receivedData.result)
-        const resultArray = receivedData.result;
-      ) {
+
+      // add listener for the other sensors
+      // if (
+      //   receivedData.type ==='result' && Array.isArray(receivedData.result){
+      //   const resultArray = receivedData.result;}
+      // ) {
       // for (let i = 0; i < resultArray.length; i++) {
       //   let currentEntry = resultArray[i];
       //   if (currentEntry.entity_id === "switch.thing2") {
