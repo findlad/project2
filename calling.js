@@ -3,7 +3,6 @@ const emergencyCallDiv = document.getElementById("emergency-call");
 
 // Add a click event listener to the div
 emergencyCallDiv.addEventListener("click", function () {
-
   console.log("Emergency call initiated");
 
   // Create the "calling" popup container
@@ -31,39 +30,39 @@ emergencyCallDiv.addEventListener("click", function () {
   // Append the container to the body
   document.body.appendChild(callingPopupContainer);
 
-// Your Twilio credentials
-const accountSid = "AC64a6c99ef0352b5944d417f4dafb3513";
-const authToken = "----";
+  // Your Twilio credentials
+  const accountSid = "AC64a6c99ef0352b5944d417f4dafb3513";
+  const authToken = "";
 
-// URL and data for the Twilio API request
-const apiUrl = "https://api.twilio.com/2010-04-01/Accounts/AC64a6c99ef0352b5944d417f4dafb3513/Calls.json";
-const requestData = {
-  method: "POST",
-  headers: {
-    "Content-Type": "application/x-www-form-urlencoded",
-    "Authorization": `Basic ${btoa(`${accountSid}:${authToken}`)}` // Base64 encoded credentials
-  },
-  body: new URLSearchParams({
-    "Url": "http://demo.twilio.com/docs/voice.xml",
-    "To": "+1xxx",
-    "From": "+19496823519"
-  }).toString()
-};
+  // URL and data for the Twilio API request
+  const apiUrl =
+    "https://api.twilio.com/2010-04-01/Accounts/AC64a6c99ef0352b5944d417f4dafb3513/Calls.json";
+  const requestData = {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/x-www-form-urlencoded",
+      Authorization: `Basic ${btoa(`${accountSid}:${authToken}`)}`, // Base64 encoded credentials
+    },
+    body: new URLSearchParams({
+      Url: "http://demo.twilio.com/docs/voice.xml",
+      To: "+14038629883",
+      From: "+19496823519",
+    }).toString(),
+  };
 
-// Make the Twilio API request using fetch
-fetch(apiUrl, requestData)
-  .then(response => response.json())
-  .then(data => {
-    console.log("Twilio API response:", data);
-  })
-  .catch(error => {
-    console.error("Error making Twilio API request:", error);
-  });
+  // Make the Twilio API request using fetch
+  fetch(apiUrl, requestData)
+    .then((response) => response.json())
+    .then((data) => {
+      console.log("Twilio API response:", data);
+    })
+    .catch((error) => {
+      console.error("Error making Twilio API request:", error);
+    });
 
   // Use setTimeout to remove the popup after 5 seconds
   setTimeout(function () {
     // Remove the "calling" popup
     document.body.removeChild(callingPopupContainer);
   }, 5000);
-
 });

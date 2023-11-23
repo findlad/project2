@@ -36,12 +36,12 @@ socket.onopen = (event) => {
   );
 
   // Listen to changes sent by IOT
-  socket.send(
-    JSON.stringify({
-      id: incrimentalId,
-      type: "subscribe_events",
-    })
-  );
+  // socket.send(
+  //   JSON.stringify({
+  //     id: incrimentalId,
+  //     type: "subscribe_events",
+  //   })
+  // );
 };
 let weightArray = [];
 let switchState;
@@ -169,7 +169,7 @@ getCurrentState();
 
 //tell the switch to toggle
 function toggleSwitch() {
-  manualToggle = true;
+  // manualToggle = true;
   const message = JSON.stringify({
     id: incrimentalId,
     type: "call_service",
