@@ -79,7 +79,7 @@ socket.onmessage = (event) => {
         receivedData.event.data.entity_id ===
         "binary_sensor.presence_sensor_fp2_1708_presence_sensor_1"
       ) {
-        sendFallDetectionSMS();
+        sendSMS("CRITICAL ALERT: Your loved one just had a fall, we are dialing 911");
         const fall = true; //using the presence sensor as fall detection for now
         console.log("fall detected");
         const fallbox = document.getElementById("fallbox");

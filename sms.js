@@ -1,4 +1,4 @@
-function sendFallDetectionSMS() {
+function sendSMS(message) {
   // Your Twilio credentials
   const accountSid = "AC64a6c99ef0352b5944d417f4dafb3513";
   const authToken = "";
@@ -11,7 +11,7 @@ function sendFallDetectionSMS() {
   const smsData = {
     To: "+14038629883",
     From: "+19496823519",
-    Body: "CRITICAL ALERT: Your loved one just had a fall, we are dialing 911",
+    Body: message,
   };
 
   // Create a form-urlencoded string from the SMS data
