@@ -1,7 +1,7 @@
 function sendSMS(message) {
   // Your Twilio credentials
-  const accountSid = "AC64a6c99ef0352b5944d417f4dafb3513";
   const authToken = "";
+  const accountSid = "AC64a6c99ef0352b5944d417f4dafb3513";
 
   // URL for Twilio SMS API
   const apiUrl =
