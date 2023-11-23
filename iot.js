@@ -79,7 +79,7 @@ socket.onmessage = (event) => {
         receivedData.event.data.entity_id ===
         "binary_sensor.presence_sensor_fp2_1708_presence_sensor_1"
       ) {
-        sendFallDetectionSMS()
+        sendFallDetectionSMS();
         const fall = true; //using the presence sensor as fall detection for now
         console.log("fall detected");
         const fallbox = document.getElementById("fallbox");
@@ -161,7 +161,7 @@ socket.onclose = (event) => {
 };
 //sending message to the pi
 function sendMessage(message) {
-  console.log("Sending message:", message);
+  //console.log("Sending message:", message);
   socket.send(message);
 }
 // start a counter so theres a different id every time

@@ -1,3 +1,7 @@
+// Your Twilio credentials
+const accountSid = "AC64a6c99ef0352b5944d417f4dafb3513";
+const authToken = "";
+
 // Select the "Emergency Call" div by its id
 const emergencyCallDiv = document.getElementById("emergency-call");
 
@@ -29,10 +33,6 @@ emergencyCallDiv.addEventListener("click", function () {
 
   // Append the container to the body
   document.body.appendChild(callingPopupContainer);
-
-  // Your Twilio credentials
-  const accountSid = "AC64a6c99ef0352b5944d417f4dafb3513";
-  const authToken = "";
 
   // URL and data for the Twilio API request
   const apiUrl =
