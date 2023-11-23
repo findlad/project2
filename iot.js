@@ -99,7 +99,7 @@ socket.onmessage = (event) => {
           weightArray.push(Number(instantWeight));
           console.log("Weight Array: " + weightArray);
 
-          if (instantWeight < 15) {
+          if (instantWeight < 30) {
             weightArray.splice(0, 3);
             weightArray.splice(weightArray.length - 3, 3);
             console.log("trimmed Weight Array: " + weightArray);
