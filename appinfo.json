@@ -1,0 +1,9 @@
+{
+  "id": "com.sample.gardenloft",
+  "version": "1.0.0",
+  "type": "web",
+  "main": "welcome.html",
+  "title": "Garden Loft",
+  "icon": "icon.png",
+  "largeIcon": "largeIcon.png"
+}

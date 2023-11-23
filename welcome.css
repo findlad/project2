@@ -99,6 +99,7 @@
   overflow: hidden;
   border: 15px solid;
   border-color: #bcb88a;
+
 }
 
 .welcome-page .flexcontainer {
@@ -139,6 +140,17 @@
   height: 257px;
   top: 428px;
   left: 1056px;
+}
+.element-attempts-wrapper .element-attempts .text {
+  position: relative;
+  align-self: stretch;
+  font-family: "Roboto", Helvetica;
+  font-weight: 400;
+  color: #000000;
+  font-size: 50px;
+  text-align:center;  
+  letter-spacing: 0.1px;
+  line-height: 250px;
 }
 
 .item:hover {
