@@ -5,6 +5,15 @@ p {
   font-size: 5vh;
 }
 
+.weight {
+font-size: 36px;
+
+}
+.stability {
+	font-size: 36px;
+	color: red;
+	}
+
 .elementTitle {
   display:flex;
   align-items: center;

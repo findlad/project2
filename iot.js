@@ -49,7 +49,7 @@ let manualToggle = false; // Flag to track manual switch toggles
 //process recieved messages
 socket.onmessage = (event) => {
   try {
-    console.log(event);
+    // console.log(event);
     const receivedData = JSON.parse(event.data);
 
     if (
@@ -59,7 +59,7 @@ socket.onmessage = (event) => {
       let background = document.getElementById("background");
       let iotSwitch = document.getElementById("switch");
 
-      console.log("receivedData.event");
+      // console.log("receivedData.event");
 
       if (receivedData.event.data.entity_id === "switch.thing2") {
         switchState = receivedData.event.data.new_state.state === "on";
@@ -90,21 +90,28 @@ socket.onmessage = (event) => {
         receivedData.event.data.entity_id ===
         "sensor.smart_scale_c1_real_time_weight"
       ) {
-        console.log(receivedData);
+        //console.log(receivedData);
 
         const instantWeight = receivedData.event.data.new_state.state;
         console.log(instantWeight);
-        if (instantWeight > 0) {
-          weightArray.push(instantWeight);
-          console.log(weightArray);
-        }
-        if (instantWeight === 0) {
-          weightArray.splice(0, 3);
-          weightArray.splice(weightArray.length - 3, 3);
-          aveWeight = calculateMean(weightArray);
-          console.log("average weight = " + aveWeight);
-          const weightbox = document.getElementById("weightbox");
-          weightbox.innerHTML = "Weight: " + aveWeight;
+        if (instantWeight >= 0) {
+          console.log("Instant Weight: " + instantWeight);
+          weightArray.push(Number(instantWeight));
+          console.log("Weight Array: " + weightArray);
+
+          if (instantWeight < 15) {
+            weightArray.splice(0, 3);
+            weightArray.splice(weightArray.length - 3, 3);
+            console.log("trimmed Weight Array: " + weightArray);
+            aveWeight = calculateMean(weightArray);
+            console.log("average weight = " + aveWeight);
+            let stabilityIndex =
+              Math.max(...weightArray) - Math.min(...weightArray);
+            const weightbox = document.getElementById("weightbox");
+            weightbox.innerHTML = aveWeight.toFixed(1) + " Kg";
+            const stablebox = document.getElementById("stablebox");
+            stablebox.innerHTML = stabilityIndex.toFixed(1);
+          }
         }
       }
 
@@ -134,10 +141,10 @@ socket.onmessage = (event) => {
           }
         }
       } else {
-        console.warn(
-          "Received data does not match the expected format:",
-          receivedData
-        );
+        // console.warn(
+        //   "Received data does not match the expected format:",
+        //   receivedData
+        // );
       }
     }
   } catch (error) {
