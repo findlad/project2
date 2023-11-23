@@ -146,6 +146,7 @@ socket.onmessage = (event) => {
 
   // manualToggle = false; // make sure we know the button hasnt been pushed in the last wee bit
 };
+
 //closing the websocket
 socket.onclose = (event) => {
   console.log("WebSocket connection closed:", event);
