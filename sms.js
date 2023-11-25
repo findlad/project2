@@ -1,6 +1,6 @@
 function sendSMS(message) {
   // Your Twilio credentials
-  const authToken = "";
+  const authToken = "3d8c301961c45018ad823e1d3601a05d";
   const accountSid = "AC64a6c99ef0352b5944d417f4dafb3513";
 
   // URL for Twilio SMS API
@@ -9,8 +9,8 @@ function sendSMS(message) {
 
   // SMS data
   const smsData = {
-    To: "+14038629883",
-    From: "+19496823519",
+    To: "+14038629883", //Duncan
+    //To: "+14036148363", // John
     Body: message,
   };
 

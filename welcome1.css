@@ -1,0 +1,81 @@
+.banner {
+display: flex;
+width: 822px;
+height: 136px;
+flex-direction: column;
+justify-content: center;
+text-align: center;
+font-family: Roboto;
+font-size: 65px;
+font-style: normal;
+font-weight: 500;
+line-height: 125%; 
+letter-spacing: 0.1px;
+    }
+
+.glLogo {
+  display: block;
+  margin:auto;
+  margin-top: 17px;
+}
+
+.image_container{
+  display: flex;
+  align-items: flex-start;
+  margin-top: 40px;
+}
+
+.container{
+  border: 15px solid #BCB88A;
+  background: rgba(255, 249, 230, 0.60);
+  flex-direction: row;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 1400px;
+  height: 160px;
+  text-align: center;
+  margin:auto;
+  margin-top: 25px;
+  color: #000;
+  border-radius: 18px;
+
+  }
+
+.lower{
+    flex-direction: row;
+    display: flex;
+    align-items: center; 
+    justify-content: center;
+    }
+
+.box{ 
+    border: 15px solid #BCB88A;
+    background: rgba(255, 249, 230, 0.60);
+    /* display: flex; */
+    
+    align-items: center;
+    width: 572px;
+    height: 234px;
+    margin:40px;
+    margin-top: 621px;
+    color: #000;
+    border-radius: 18px;
+    /* text-align: center;
+    font-family: Roboto;
+    font-size: 65px;
+    font-style: normal;
+    font-weight: 500; */
+    /* line-height: 125%; 
+    letter-spacing: 0.1px; */
+  }
+
+body {background: url(<path-to-image>), lightgray 50% / cover no-repeat;}
+
+p {
+  color: #000;
+  font-family: Roboto;
+  font-size: 50px;
+  text-align: center;
+}
+

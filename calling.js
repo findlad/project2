@@ -1,6 +1,6 @@
 // Your Twilio credentials
-const accountSid = "AC64a6c99ef0352b5944d417f4dafb3513";
-const authToken = "";
+const accountSid1 = "AC64a6c99ef0352b5944d417f4dafb3513";
+const authToken1 = "";
 
 // Select the "Emergency Call" div by its id
 const emergencyCallDiv = document.getElementById("emergency-call");
@@ -41,11 +41,12 @@ emergencyCallDiv.addEventListener("click", function () {
     method: "POST",
     headers: {
       "Content-Type": "application/x-www-form-urlencoded",
-      Authorization: `Basic ${btoa(`${accountSid}:${authToken}`)}`, // Base64 encoded credentials
+      Authorization: `Basic ${btoa(`${accountSid1}:${authToken1}`)}`, // Base64 encoded credentials
     },
     body: new URLSearchParams({
       Url: "http://demo.twilio.com/docs/voice.xml",
-      To: "+14038629883",
+      To: "+14038629883", //Duncan
+      //To: "+14036148363", // John
       From: "+19496823519",
     }).toString(),
   };
