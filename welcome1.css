@@ -52,8 +52,6 @@ letter-spacing: 0.1px;
 .box{ 
     border: 15px solid #BCB88A;
     background: rgba(255, 249, 230, 0.60);
-    /* display: flex; */
-    
     align-items: center;
     width: 572px;
     height: 234px;
@@ -61,13 +59,7 @@ letter-spacing: 0.1px;
     margin-top: 621px;
     color: #000;
     border-radius: 18px;
-    /* text-align: center;
-    font-family: Roboto;
-    font-size: 65px;
-    font-style: normal;
-    font-weight: 500; */
-    /* line-height: 125%; 
-    letter-spacing: 0.1px; */
+    
   }
 
 body {background: url(<path-to-image>), lightgray 50% / cover no-repeat;}
@@ -82,17 +74,14 @@ body {
   width: 100vw;
   height: 100vh;
   background-size: cover;
-  transition: background-image 0.5s ease-in-out;
+  transition: background-image 1s ease-in-out;
+  background-repeat: no-repeat;
+  background-position: center center;
 }
-
-/* .text {
-  position: relative;
-  align-self: stretch;
-  font-family: "Roboto", Helvetica;
-  font-weight: 400;
-  color: #000000;
-  font-size: 50px;
-  text-align: center;
-  letter-spacing: 0.1px;
-  line-height: 50px;
-} */
+#backdrop {
+  width: 100vw;
+  height: 100vh; background-size: cover; background-position: center;
+}
+.weather{
+  font-size: 36px;
+}

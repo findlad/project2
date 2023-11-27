@@ -19,70 +19,77 @@
     />
   </head>
 
-  <body id="background">
-    <div class="container">
-      <div class="image_container">
-        <img
-          src="gardenLoftImage.svg"
-          alt="Garden loft logo"
-          width="218"
-          height="183"
-          class="glLogo"
-        />
+  <body onclick="window.location.href='menu.html';">
+    <div id="backdrop">
+      <div class="container">
+        <div class="image_container">
+          <img
+            src="gardenLoftImage.svg"
+            alt="Garden loft logo"
+            width="218"
+            height="183"
+            class="glLogo"
+          />
+        </div>
+        <div class="banner">Welcome home Elizabeth</div>
+        <div class="avatar">
+          <img src="avatar.svg" alt="old lady logo" width="93" height="129" />
+        </div>
       </div>
-      <div class="banner">Welcome home Elizabeth</div>
-      <div class="avatar">
-        <img src="avatar.svg" alt="old lady logo" width="93" height="129" />
-      </div>
-    </div>
-    <div class="lower">
-      <div class="time box">
-        <p class="text">
-          <span class="span" id="date_2"></span>
-        </p>
-        <p class="text"><span class="span" id="time"></span></p>
-      </div>
-      <div class="weather box">
-        <a
-          class="weatherwidget-io"
-          href="https://forecast7.com/en/51d05n114d07/calgary/"
-          data-label_1="CALGARY"
-          data-label_2="WEATHER"
-          data-font="Roboto"
-          data-icons="Climacons Animated"
-          data-days="5"
-          >CALGARY WEATHER</a
-        >
-        <script>
-          !(function (d, s, id) {
-            var js,
-              fjs = d.getElementsByTagName(s)[0];
-            if (!d.getElementById(id)) {
-              js = d.createElement(s);
-              js.id = id;
-              js.src = "https://weatherwidget.io/js/widget.min.js";
-              fjs.parentNode.insertBefore(js, fjs);
-            }
-          })(document, "script", "weatherwidget-io-js");
-        </script>
+      <div class="lower">
+        <div class="time box">
+          <p class="text">
+            <span class="span" id="date"></span>
+          </p>
+          <p class="text"><span class="span" id="time"></span></p>
+        </div>
+        <div class="weather box">
+          <a
+            class="weatherwidget-io"
+            href="https://forecast7.com/en/51d05n114d07/calgary/"
+            data-label_1="CALGARY"
+            data-label_2="WEATHER"
+            data-font="Roboto"
+            data-icons="Climacons Animated"
+            data-days="5"
+            style="font-size: 20px"
+            >CALGARY WEATHER</a
+          >
+          <script>
+            !(function (d, s, id) {
+              var js,
+                fjs = d.getElementsByTagName(s)[0];
+              if (!d.getElementById(id)) {
+                js = d.createElement(s);
+                js.id = id;
+                js.src = "https://weatherwidget.io/js/widget.min.js";
+                fjs.parentNode.insertBefore(js, fjs);
+              }
+            })(document, "script", "weatherwidget-io-js");
+          </script>
+        </div>
       </div>
     </div>
   </body>
   <script>
     let imageArray = [
-      "np_couple.jpg",
       "np_Excited.jpg",
       "np_Happy.jpg",
       "np_Little.jpg",
       "np_Portrait.jpg",
+      "np_couple.jpg",
     ];
 
-    let backdrop = document.getElementById("background");
+    let backdrop = document.getElementById("backdrop");
     let i = 0;
 
+    // Set the initial background image when the page loads
+    backdrop.style.backgroundImage = `url(${imageArray[i]})`;
+
+    // Change the background image every 30 seconds
     setInterval(function () {
-      backdrop.style.backgroundImage = `url(${imageArray[i]})`;
       i = (i + 1) % imageArray.length;
+      backdrop.style.backgroundImage = `url(${imageArray[i]})`;
     }, 30000);
   </script>
 </html>
