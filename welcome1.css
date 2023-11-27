@@ -75,7 +75,24 @@ body {background: url(<path-to-image>), lightgray 50% / cover no-repeat;}
 p {
   color: #000;
   font-family: Roboto;
-  font-size: 50px;
+  font-size: 40px;
   text-align: center;
 }
+body {
+  width: 100vw;
+  height: 100vh;
+  background-size: cover;
+  transition: background-image 0.5s ease-in-out;
+}
 
+/* .text {
+  position: relative;
+  align-self: stretch;
+  font-family: "Roboto", Helvetica;
+  font-weight: 400;
+  color: #000000;
+  font-size: 50px;
+  text-align: center;
+  letter-spacing: 0.1px;
+  line-height: 50px;
+} */

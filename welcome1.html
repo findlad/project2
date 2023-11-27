@@ -10,7 +10,7 @@
     <script src="sms.js"></script>
     <script src="iot.js"></script>
     <script src="calling.js"></script>
-    <script src="time_script.js"></script>
+    <script src="time_script.js" defer></script>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -19,7 +19,7 @@
     />
   </head>
 
-  <body>
+  <body id="background">
     <div class="container">
       <div class="image_container">
         <img
@@ -38,7 +38,7 @@
     <div class="lower">
       <div class="time box">
         <p class="text">
-          <span class="span" id="date"></span>
+          <span class="span" id="date_2"></span>
         </p>
         <p class="text"><span class="span" id="time"></span></p>
       </div>
@@ -68,4 +68,21 @@
       </div>
     </div>
   </body>
+  <script>
+    let imageArray = [
+      "np_couple.jpg",
+      "np_Excited.jpg",
+      "np_Happy.jpg",
+      "np_Little.jpg",
+      "np_Portrait.jpg",
+    ];
+
+    let backdrop = document.getElementById("background");
+    let i = 0;
+
+    setInterval(function () {
+      backdrop.style.backgroundImage = `url(${imageArray[i]})`;
+      i = (i + 1) % imageArray.length;
+    }, 30000);
+  </script>
 </html>
