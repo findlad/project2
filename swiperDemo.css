@@ -1,13 +1,14 @@
 /* Add your custom styles here if needed */
 .swiper-container {
   width: 1900px;
-  height: 700px;
+  height: 900px;
+  background-color: black;
 }
 
 .swiper-slide {
   text-align: center;
   font-size: 18px;
-  background: #fff;
+  background: black;
   /* Center image in slide */
   display: flex;
   justify-content: center;

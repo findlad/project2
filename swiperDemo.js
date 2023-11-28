@@ -15,7 +15,7 @@ var swiper = new Swiper(".swiper-container", {
   on: {
     init: function () {
       // Set the initial size of the centered slide
-      this.slides[this.activeIndex].style.transform = "scale(1.2)";
+      this.slides[this.activeIndex].style.transform = "scale(1.4)";
     },
     slideChangeTransitionEnd: function () {
       // Reset the size of all slides
@@ -23,7 +23,7 @@ var swiper = new Swiper(".swiper-container", {
         this.slides[i].style.transform = "";
       }
       // Set the size of the centered slide
-      this.slides[this.activeIndex].style.transform = "scale(1.2)";
+      this.slides[this.activeIndex].style.transform = "scale(1.4)";
     },
   },
 });
