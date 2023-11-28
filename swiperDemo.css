@@ -1,0 +1,23 @@
+/* Add your custom styles here if needed */
+.swiper-container {
+  width: 1900px;
+  height: 700px;
+}
+
+.swiper-slide {
+  text-align: center;
+  font-size: 18px;
+  background: #fff;
+  /* Center image in slide */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+img {
+  max-width: 100%;
+  max-height: 100%;
+}
+ body{
+  background-color: black;
+ }
