@@ -537,3 +537,21 @@ main {
 .background {
   max-width: 200px;
 }
+.topbox {
+  margin: auto;
+  margin-top: 25px;
+  color: white;
+  font-size: 80px;
+  font-family: Roboto;
+  /* width: 1920px; */
+  display: flex;
+  /* align-items: center;  */
+  justify-content: space-around;
+  
+  
+}
+.glLogo {
+  display: block;
+  margin:auto;
+  /* margin-top: 17px; */
+}

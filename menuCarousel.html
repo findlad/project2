@@ -14,43 +14,64 @@
 
   <body>
     <div class="topbox">
-      <div class="wrapper">
-        <img
-          src="img_Schedule.png"
-          alt="schedule logo"
-          height="120px"
-          padding="25px"
-        />
-        <p class="textBeside">SCHEDULE</p>
-      </div>
-
       <div>
         <img
           src="gardenLoftImage.svg"
           alt="garden loft logo"
           class="glLogo"
-          height="227"
+          height="380"
         />
+      </div>
+      <div class="weather box">
+        <div class="container">
+          <p>
+            <span class="span" id="date"></span>
+          </p>
+          <p class="text"><span class="span" id="time"></span></p>
+        </div>
+        <a
+          class="weatherwidget-io container"
+          href="https://forecast7.com/en/51d05n114d07/calgary/"
+          data-label_1="CALGARY"
+          data-label_2="WEATHER"
+          data-font="Roboto"
+          data-icons="Climacons Animated"
+          data-mode="Current"
+          data-textcolor="#ffffff"
+          >CALGARY WEATHER</a
+        >
+        <script>
+          !(function (d, s, id) {
+            var js,
+              fjs = d.getElementsByTagName(s)[0];
+            if (!d.getElementById(id)) {
+              js = d.createElement(s);
+              js.id = id;
+              js.src = "https://weatherwidget.io/js/widget.min.js";
+              fjs.parentNode.insertBefore(js, fjs);
+            }
+          })(document, "script", "weatherwidget-io-js");
+        </script>
       </div>
     </div>
     <div class="emergeButton">
       <img
-        src="Emerg.svg"
+        src="img_callSupport.png"
         alt="Supporter"
-        height="113px"
+        height="166px"
         id="emergency-call"
         class="item emergency-call"
       />
     </div>
 
-    <p class="textBelow">CALL SUPPORTER</p>
+    <!-- <p class="textBelow">CALL SUPPORTER</p> -->
     <section id="tranding">
       <div class="swiper tranding-slider">
         <div class="swiper-wrapper">
           <!-- Slide-start -->
           <div
             class="swiper-slide tranding-slide"
-            onclick="window.location.href='smartLoft.html';"
+            onclick="window.location.href='smartLoftCarousel.html';"
           >
             <div class="tranding-slide-img">
               <img src="img_smartLoft.png" alt="SmartLoft-logo" />
@@ -138,14 +159,14 @@
           <div class="swiper-pagination"></div>
         </div>
       </div>
-      <!-- <div class="lower">
-          <img
-            src="homeButton.png"
-            alt="home"
-            onclick="window.location.href='menuGrid.html';"
-            class="item"
-          />
-        </div> -->
+      <div class="lower">
+        <img src="img_enFr.png" alt="english or french" class="item" />
+        <img
+          src="img_supportedSettingsButton.png"
+          alt="settings"
+          class="item"
+        />
+      </div>
     </section>
 
     <script
@@ -158,5 +179,8 @@
     ></script>
     <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
     <script src="menuCarousel.js"></script>
+    <script src="time_script.js"></script>
+    <script src="sms.js"></script>
+    <script src="iot.js"></script>
   </body>
 </html>

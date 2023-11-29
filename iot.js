@@ -116,6 +116,23 @@ socket.onmessage = (event) => {
             stablebox.innerHTML = stabilityIndex.toFixed(1);
           }
         }
+        if (
+          receivedData.event.data.entity_id ===
+          "binary_sensor.g8t1_sj02_3294_01vr_motion"
+        ) {
+          const closeModalButton = document.getElementById("closeModalButton");
+          const modal = document.getElementById("modalBox");
+          modal.style.display = "flex";
+
+          // Clear the previous chart, if any
+          const modalContent = document.querySelector(".modal-content");
+          modalContent.innerHTML =
+            '<canvas>  <iframe src="URL_TO_YOUR_HOME_ASSISTANT_LOVELACE_UI" width="100%"          height="600px" frameborder="0" allowfullscreen></iframe> </canvas>';
+
+          closeModalButton.addEventListener("click", () => {
+            modal.style.display = "none";
+          });
+        }
       }
 
       // initial state sensing
@@ -250,3 +267,15 @@ function allOn() {
   sendMessage(message1);
   incrimentalId++;
 }
+
+const closeModalButton = document.getElementById("closeModalButton");
+const modal = document.getElementById("modalBox");
+modal.style.display = "flex";
+
+// Clear the previous chart, if any
+const modalContent = document.querySelector(".modal-content");
+modalContent.innerHTML = '<canvas id="graph"></canvas>';
+
+closeModalButton.addEventListener("click", () => {
+  modal.style.display = "none";
+});

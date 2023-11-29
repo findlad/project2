@@ -23,7 +23,7 @@ html {
 
 /* @media (min-width: 1920px) {
   html {
-    zoom: 1;
+    zoom: 1.5;
   }
 }
 
@@ -63,34 +63,35 @@ body {
 }
 
 .container {
+  display : flex;
   max-width: 100%;
-  padding: 1rem;
+  padding: 1.5rem;
   margin: 0;
   height: 12rem;
+
+  margin-left: 50px;
+  margin-right: 50px;
 }
 
-.image_container{
-  margin: 0;
-  height: 12rem; 
-  align-items: left;
-  position: absolute;
-  top: 68px;
-  left: 0;
+
+.left-image,
+.right-image {
+  flex: 1;
+}
+
+.left-image img,
+.right-image img {
   width: 100%;
-  padding: 1rem;
-  list-style: none;
-  display: flex;  
-  flex-direction: space-between;
-  gap: 1.5rem;
-  
+  height: auto;
+  display: block;
 }
 
-.image_container img{
-  max-width: 150px;
+.container img{
+max-width: 120px;
+max-height: 120px;
+align-items: space-between;
+
 }
-
-
-
 
 .text-center {
   text-align: center;
@@ -171,15 +172,6 @@ body {
   color: var(--white);
 }
 
-.food-rating {
-  padding-top: 1rem;
-  display: flex;
-  gap: 1rem;
-}
-
-.rating ion-icon {
-  color: var(--primary);
-}
 
 .swiper-slide-shadow-left,
 .swiper-slide-shadow-right {
@@ -260,75 +252,64 @@ body {
   background: var(--primary);
 }
 
-.lower {
+.lower{
+  flex-direction: row;
   display: flex;
-  align-items: center;
-  justify-content: space-around;
-  margin-top: 25px;
-}
- .emergeButton{
-  margin-top: -215px;
-  display: flex;
-  align-items: center;
+  align-items: center; 
   justify-content: center;
-  color: white;
-  font-size: 40px;
-  font-family: Roboto;
- }
- .textBelow {
-  color: white;
-  font-size: 40px;
-  font-family: Roboto;
-  text-align: center;
-  margin-top: -5px;
- }
- .textBeside {
-  margin:0px;
- }
- .item:hover {
-  transform: scale(1.1);
-  transition: transform 0.2s ease;
-  box-shadow: 1px 2px 4px 5px white;
-  border-radius: 36px;
- }
+  }
 
- .topbox {
-  margin: auto;
-  margin-top: 25px;
-  color: white;
-  font-size: 80px;
-  font-family: Roboto;
-  /* width: 1920px; */
-  display: flex;
-  /* align-items: center;  */
-  justify-content: space-around;
+  .topbox {
+    margin: auto;
+    margin-top: 25px;
+    color: white;
+    font-size: 80px;
+    font-family: Roboto;
+    /* width: 1920px; */
+    display: flex;
+    /* align-items: center;  */
+    justify-content: space-around;
+    
+    
+  }
+  .glLogo {
+    display: block;
+    margin:auto;
+    /* margin-top: 17px; */
+  }
+  .wrapper{
+    display: flex;
+    align-items: flex-start;
+    gap: 15px;
+  }
   
-  
-}
-.glLogo {
-  display: block;
-  margin:auto;
-  /* margin-top: 17px; */
-}
-
-.wrapper{
-  display: flex;
-  align-items: flex-start;
-  gap: 15px;
-}
-.box{ 
-  width: 453px;
-  height: 261px;
-  color: white;
-  font-family: Roboto;
-  font-size: 35px;
-  border: 15px solid #F3B717;
-  border-radius: 18px;
-  background: #7F8181;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-}
-.container{
-  margin: auto;
-}
+  h1{
+    color: white;
+    font-size: 40px;
+    font-family: Roboto;
+  }
+  .emergeButton{
+    margin-top: -80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 40px;
+    font-family: Roboto;
+   }
+   .textBelow {
+    color: white;
+    font-size: 40px;
+    font-family: Roboto;
+    text-align: center;
+    margin-top: -5px;
+   }
+   .textBeside {
+    margin:0px;
+   }
+   .item:hover {
+    transform: scale(1.1);
+    transition: transform 0.2s ease;
+    box-shadow: 1px 2px 4px 5px white;
+    border-radius: 36px;
+   }
