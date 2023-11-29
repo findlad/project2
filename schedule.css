@@ -1,27 +1,80 @@
 body{
   background-color: black;
-  display: flex;
+  /* display: flex; */
   align-items: center;
+  /* height: 1080px;
+  width: 1980px; */
 }
-.topbox{
-  
+.topbox {
+  margin: auto;
+  margin-top: 25px;
   color: white;
-  font-size: 40px;
+  font-size: 80px;
   font-family: Roboto;
-  width: 1920px;
+  /* width: 1920px; */
   display: flex;
-  align-items: center;
+  /* align-items: center;  */
   justify-content: space-around;
   
+  
 }
+.glLogo {
+  display: block;
+  margin:auto;
+  /* margin-top: 17px; */
+}
+
 .wrapper{
   display: flex;
-align-items: center;
-text-align: center;
-
+  align-items: flex-start;
+  gap: 15px;
 }
+
 h1{
   color: white;
   font-size: 40px;
   font-family: Roboto;
 }
+
+.calendarBox{
+  justify-content: space-around;
+  align-items: center;
+  /* width: 1400px;
+  height: 160px; */
+  text-align: center;
+  margin:auto;
+  margin-top: 25px;
+  color: #000;
+  border-radius: 18px;
+}
+.lower {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 25px;
+}
+ .emergeButton{
+  margin-top: -80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 40px;
+  font-family: Roboto;
+ }
+ .textBelow {
+  color: white;
+  font-size: 40px;
+  font-family: Roboto;
+  text-align: center;
+  margin-top: -5px;
+ }
+ .textBeside {
+  margin:0px;
+ }
+ .item:hover {
+  transform: scale(1.1);
+  transition: transform 0.2s ease;
+  box-shadow: 1px 2px 4px 5px white;
+  border-radius: 36px;
+ }
