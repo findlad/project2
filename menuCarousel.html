@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Menu</title>
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/swiper@8/swiper-bundle.min.css"
+    />
+    <link rel="stylesheet" href="menuCarousel.css" />
+  </head>
+
+  <body>
+    <div class="topbox">
+      <div class="wrapper">
+        <img
+          src="img_Schedule.png"
+          alt="schedule logo"
+          height="120px"
+          padding="25px"
+        />
+        <p class="textBeside">SCHEDULE</p>
+      </div>
+
+      <div>
+        <img
+          src="gardenLoftImage.svg"
+          alt="garden loft logo"
+          class="glLogo"
+          height="227"
+        />
+      </div>
+    </div>
+    <div class="emergeButton">
+      <img
+        src="Emerg.svg"
+        alt="Supporter"
+        height="113px"
+        id="emergency-call"
+        class="item emergency-call"
+      />
+    </div>
+
+    <p class="textBelow">CALL SUPPORTER</p>
+    <section id="tranding">
+      <div class="swiper tranding-slider">
+        <div class="swiper-wrapper">
+          <!-- Slide-start -->
+          <div
+            class="swiper-slide tranding-slide"
+            onclick="window.location.href='smartLoft.html';"
+          >
+            <div class="tranding-slide-img">
+              <img src="img_smartLoft.png" alt="SmartLoft-logo" />
+            </div>
+            <div class="tranding-slide-content">
+              <div class="tranding-slide-content-bottom">
+                <!-- <p>SmartLoft</p> -->
+              </div>
+            </div>
+          </div>
+          <!-- Slide-end -->
+          <!-- Slide-start -->
+          <div
+            class="swiper-slide tranding-slide"
+            onclick="window.location.href='entertainment.html';"
+          >
+            <div class="tranding-slide-img">
+              <img src="img_entertainment.png" alt="Entertainment-logo" />
+            </div>
+            <div class="tranding-slide-content">
+              <div class="tranding-slide-content-bottom">
+                <!-- <p>Entertainment</p> -->
+              </div>
+            </div>
+          </div>
+          <!-- Slide-end -->
+          <!-- Slide-start -->
+          <div
+            class="swiper-slide tranding-slide"
+            onclick="window.location.href='schedule.html';"
+          >
+            <div class="tranding-slide-img">
+              <img
+                src="img_Schedule.png"
+                alt="MySchedule-logo"
+                onclick="window.location.href='schedule.html';"
+              />
+            </div>
+            <div class="tranding-slide-content">
+              <div class="tranding-slide-content-bottom">
+                <!-- <p>Schedule</p> -->
+              </div>
+            </div>
+          </div>
+          <!-- Slide-end -->
+          <!-- Slide-start -->
+          <div
+            class="swiper-slide tranding-slide"
+            onclick="window.location.href='welcome1.html';"
+          >
+            <div class="tranding-slide-img">
+              <img src="np_Excited.jpg" alt="Grandma and Girl" />
+            </div>
+            <div class="tranding-slide-content">
+              <div class="tranding-slide-content-bottom">
+                <!-- <p>Screen Saver</p> -->
+              </div>
+            </div>
+          </div>
+          <!-- Slide-end -->
+          <!-- Slide-start -->
+          <div
+            class="swiper-slide tranding-slide"
+            onclick="window.location.href='contacts.html';"
+          >
+            <div class="tranding-slide-img">
+              <img src="img_Contacts.png" alt="Contacts-logo" />
+            </div>
+            <div class="tranding-slide-content">
+              <div class="tranding-slide-content-bottom">
+                <!-- <p>Contacts</p> -->
+              </div>
+            </div>
+          </div>
+          <!-- Slide-end -->
+        </div>
+
+        <div class="tranding-slider-control">
+          <div class="swiper-button-prev slider-arrow">
+            <ion-icon name="arrow-back-outline"></ion-icon>
+          </div>
+          <div class="swiper-button-next slider-arrow">
+            <ion-icon name="arrow-forward-outline"></ion-icon>
+          </div>
+          <div class="swiper-pagination"></div>
+        </div>
+      </div>
+      <!-- <div class="lower">
+          <img
+            src="homeButton.png"
+            alt="home"
+            onclick="window.location.href='menuGrid.html';"
+            class="item"
+          />
+        </div> -->
+    </section>
+
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"
+    ></script>
+    <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
+    <script src="menuCarousel.js"></script>
+  </body>
+</html>

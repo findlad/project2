@@ -198,3 +198,55 @@ function toggleSwitch() {
   sendMessage(message);
   incrimentalId++;
 }
+
+function allOff() {
+  // manualToggle = true;
+  const message = JSON.stringify({
+    id: incrimentalId,
+    type: "call_service",
+    domain: "switch",
+    service: "Turn off",
+    service_data: {
+      entity_id: "switch.thing2", // Replace with whatever the entity ID is when copying
+    },
+  });
+  sendMessage(message);
+  incrimentalId++;
+  const message1 = JSON.stringify({
+    id: incrimentalId,
+    type: "call_service",
+    domain: "switch",
+    service: "Turn off",
+    service_data: {
+      entity_id: "switch.thing1", // Replace with whatever the entity ID is when copying
+    },
+  });
+  sendMessage(message1);
+  incrimentalId++;
+}
+
+function allOn() {
+  // manualToggle = true;
+  const message = JSON.stringify({
+    id: incrimentalId,
+    type: "call_service",
+    domain: "switch",
+    service: "Turn on",
+    service_data: {
+      entity_id: "switch.thing2", // Replace with whatever the entity ID is when copying
+    },
+  });
+  sendMessage(message);
+  incrimentalId++;
+  const message1 = JSON.stringify({
+    id: incrimentalId,
+    type: "call_service",
+    domain: "switch",
+    service: "Turn on",
+    service_data: {
+      entity_id: "switch.thing1", // Replace with whatever the entity ID is when copying
+    },
+  });
+  sendMessage(message1);
+  incrimentalId++;
+}
