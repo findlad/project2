@@ -1,0 +1,27 @@
+body{
+  background-color: black;
+  display: flex;
+  align-items: center;
+}
+.topbox{
+  
+  color: white;
+  font-size: 40px;
+  font-family: Roboto;
+  width: 1920px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  
+}
+.wrapper{
+  display: flex;
+align-items: center;
+text-align: center;
+
+}
+h1{
+  color: white;
+  font-size: 40px;
+  font-family: Roboto;
+}
