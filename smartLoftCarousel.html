@@ -8,10 +8,7 @@
     <title>Smart Loft</title>
     <link rel="stylesheet" href="https://unpkg.com/swiper@8/swiper-bundle.min.css" />
     <link rel="stylesheet" href="smartLoftCarousel.css">
-    <script src="tvNav.js"></script>
-    <script src="tvNavRemote.js"></script>
-    <script src="sms.js"></script>
-    <script src="iot.js"></script>
+    
 
 
   </head>
@@ -57,7 +54,7 @@
 
 
             <!-- Slide-start -->
-            <div class="swiper-slide tranding-slide">
+            <div class="swiper-slide tranding-slide" onclick="allOn()">
               <div class="tranding-slide-img">
                 <img src="img_ONAlllights.png" alt="All lights on">
               </div>
@@ -74,9 +71,27 @@
             </div>
             <!-- Slide-end -->
             <!-- Slide-start -->
-            <div class="swiper-slide tranding-slide">
+            <div class="swiper-slide tranding-slide" onclick="allOff()">
               <div class="tranding-slide-img">
-                <img src="img_ONlamp.png" alt="Lamp">
+                <img src="img_OFFAlllights.png" alt="All lights off">
+              </div>
+                           
+              <div class="tranding-slide-content">
+                
+               <div class="tranding-slide-content-bottom">
+                 
+                   
+                   
+                 
+                </div>
+              </div>
+            </div>
+            <!-- Slide-end -->
+            <!-- Slide-start -->
+            <div class="swiper-slide tranding-slide"  onclick="toggleSwitch()">
+              <div class="tranding-slide-img">
+                <div id="bedroomLamp"></div>
+                <img id="switch" src="img_ONlamp.png" alt="Lamp" >
               </div>
               <div class="tranding-slide-content">
                 
@@ -140,7 +155,7 @@
               </div>
             </div>
             <!-- Slide-end -->
-           <!-- Slide-start -->
+          </div>
          
           
 
@@ -170,6 +185,10 @@
     <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
     <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
     <script src="smartLoftCarousel.js"></script>
+    <script src="tvNav.js"></script>
+    <script src="tvNavRemote.js"></script>
+    <script src="sms.js"></script>
+    <script src="iot.js"></script>
   </body>
 
 </html>

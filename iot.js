@@ -38,7 +38,6 @@ socket.onopen = async (event) => {
     })
   );
 
-  await delay(500);
   // Call getCurrentSwitchState immediately when the page loads
 
   getCurrentState();
@@ -56,23 +55,25 @@ socket.onmessage = (event) => {
       receivedData.type === "event"
       // && Array.isArray(receivedData.result)
     ) {
-      let background = document.getElementById("background");
-      let iotSwitch = document.getElementById("switch");
+      // let background = document.getElementById("background");
 
-      // console.log("receivedData.event");
+      console.log(receivedData.event);
 
       if (receivedData.event.data.entity_id === "switch.thing2") {
-        switchState = receivedData.event.data.new_state.state === "on";
+        thing2State = receivedData.event.data.new_state.state === "on";
 
-        if (switchState) {
+        let switchPic = document.getElementById("switch");
+        let div = document.getElementById("bedroomLamp");
+
+        if (thing2State) {
           //if its on, check the toggleswithc, and add "on" to the body
-          iotSwitch.checked = true;
-          background.classList.remove("on", "off");
-          background.classList.add("on");
+          div.innerHTML("on");
+          document.getElementById("switch").src = "img_ONlamp.png";
+          // switchPic.src = "img_ONlamp.png";
         } else {
-          iotSwitch.checked = false; //if its off, check the toggle switch, and add "off" to the body
-          background.classList.remove("on", "off");
-          background.classList.add("off");
+          div.innerHTML("off");
+          document.getElementById("switch").src = "img_OFFlamp.png";
+          // switchPic.src = "img_OFFlamp.png";
         }
       }
       if (
@@ -116,23 +117,23 @@ socket.onmessage = (event) => {
             stablebox.innerHTML = stabilityIndex.toFixed(1);
           }
         }
-        if (
-          receivedData.event.data.entity_id ===
-          "binary_sensor.g8t1_sj02_3294_01vr_motion"
-        ) {
-          const closeModalButton = document.getElementById("closeModalButton");
-          const modal = document.getElementById("modalBox");
-          modal.style.display = "flex";
+        // if (
+        //   receivedData.event.data.entity_id ===
+        //   "binary_sensor.g8t1_sj02_3294_01vr_motion"
+        // ) {
+        //   const closeModalButton = document.getElementById("closeModalButton");
+        //   const modal = document.getElementById("modalBox");
+        //   modal.style.display = "flex";
 
-          // Clear the previous chart, if any
-          const modalContent = document.querySelector(".modal-content");
-          modalContent.innerHTML =
-            '<canvas>  <iframe src="URL_TO_YOUR_HOME_ASSISTANT_LOVELACE_UI" width="100%"          height="600px" frameborder="0" allowfullscreen></iframe> </canvas>';
+        //   // Clear the previous chart, if any
+        //   const modalContent = document.querySelector(".modal-content");
+        //   modalContent.innerHTML =
+        //     '<canvas>  <iframe src="URL_TO_YOUR_HOME_ASSISTANT_LOVELACE_UI" width="100%"          height="600px" frameborder="0" allowfullscreen></iframe> </canvas>';
 
-          closeModalButton.addEventListener("click", () => {
-            modal.style.display = "none";
-          });
-        }
+        //   closeModalButton.addEventListener("click", () => {
+        //     modal.style.display = "none";
+        //   });
+        // }
       }
 
       // initial state sensing
@@ -147,11 +148,11 @@ socket.onmessage = (event) => {
           let currentEntry = resultArray[i];
           if (currentEntry.entity_id === "switch.thing2") {
             switchState = currentEntry.state;
-            const iotThing = document.getElementById("switch");
+            const iotThing = document.getElementById("thing2");
             if (switchState === "on") {
-              iotThing.checked = true;
+              iotThing.src = "img_ONlamp.png";
             } else {
-              iotThing.checked = false;
+              iotThing.src = "img_OFFlamp.png";
             }
 
             //console.log(switchState);
@@ -188,6 +189,7 @@ let incrimentalId = 1;
 
 //get the current state of the switch
 function getCurrentState() {
+  // delay(5000);
   const message = JSON.stringify({
     id: incrimentalId,
     type: "get_states",
@@ -196,9 +198,7 @@ function getCurrentState() {
   console.log(message);
   sendMessage(message);
 }
-
-// Call getCurrentSwitchState every 2 seconds, unless theres been a manual switch recently
-// setInterval(getCurrentState, 1000);
+getCurrentState();
 
 //tell the switch to toggle
 function toggleSwitch() {
@@ -213,6 +213,7 @@ function toggleSwitch() {
     },
   });
   sendMessage(message);
+
   incrimentalId++;
 }
 
@@ -222,7 +223,7 @@ function allOff() {
     id: incrimentalId,
     type: "call_service",
     domain: "switch",
-    service: "Turn off",
+    service: "turn_off",
     service_data: {
       entity_id: "switch.thing2", // Replace with whatever the entity ID is when copying
     },
@@ -233,7 +234,7 @@ function allOff() {
     id: incrimentalId,
     type: "call_service",
     domain: "switch",
-    service: "Turn off",
+    service: "turn_off",
     service_data: {
       entity_id: "switch.thing1", // Replace with whatever the entity ID is when copying
     },
@@ -248,7 +249,7 @@ function allOn() {
     id: incrimentalId,
     type: "call_service",
     domain: "switch",
-    service: "Turn on",
+    service: "turn_on",
     service_data: {
       entity_id: "switch.thing2", // Replace with whatever the entity ID is when copying
     },
@@ -259,7 +260,7 @@ function allOn() {
     id: incrimentalId,
     type: "call_service",
     domain: "switch",
-    service: "Turn on",
+    service: "turn_on",
     service_data: {
       entity_id: "switch.thing1", // Replace with whatever the entity ID is when copying
     },
@@ -268,14 +269,14 @@ function allOn() {
   incrimentalId++;
 }
 
-const closeModalButton = document.getElementById("closeModalButton");
-const modal = document.getElementById("modalBox");
-modal.style.display = "flex";
+// const closeModalButton = document.getElementById("closeModalButton");
+// const modal = document.getElementById("modalBox");
+// modal.style.display = "flex";
 
-// Clear the previous chart, if any
-const modalContent = document.querySelector(".modal-content");
-modalContent.innerHTML = '<canvas id="graph"></canvas>';
+// // Clear the previous chart, if any
+// const modalContent = document.querySelector(".modal-content");
+// modalContent.innerHTML = '<canvas id="graph"></canvas>';
 
-closeModalButton.addEventListener("click", () => {
-  modal.style.display = "none";
-});
+// closeModalButton.addEventListener("click", () => {
+//   modal.style.display = "none";
+// });

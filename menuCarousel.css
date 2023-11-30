@@ -21,7 +21,7 @@ html {
   scroll-behavior: smooth;
 }
 
-/* @media (min-width: 1920px) {
+@media (min-width: 1920px) {
   html {
     zoom: 1;
   }
@@ -37,7 +37,7 @@ html {
   html {
     zoom: 3.5;
   }
-} */
+}
 
 ::-webkit-scrollbar {
   width: 1.3rem;
@@ -97,6 +97,10 @@ body {
   
 }
 
+/* #tranding {
+  max-width: 1920px;
+} */
+
 .section-heading {
   font-size: 3rem;
   color: var(--primary);
@@ -117,6 +121,8 @@ body {
   height: 52rem;
   padding: 2rem 0;
   position: relative;
+  margin-left: 15%;
+  margin-right: 15%;
 }
 
 @media (max-width:500px) {

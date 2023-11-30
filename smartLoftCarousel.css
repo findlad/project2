@@ -118,6 +118,8 @@ align-items: space-between;
   height: 52rem;
   padding: 2rem 0;
   position: relative;
+  margin-left: 15%;
+  margin-right: 15%;
 }
 
 @media (max-width:500px) {
@@ -130,6 +132,7 @@ align-items: space-between;
   width: 37rem;
   height: 42rem;
   position: relative;
+  
 }
 
 @media (max-width:500px) {
@@ -140,6 +143,7 @@ align-items: space-between;
   .tranding-slide .tranding-slide-img img {
     width: 28rem !important;
     height: 36rem !important;
+    
   }
 }
 
@@ -148,6 +152,7 @@ align-items: space-between;
   height: 42rem;
   border-radius: 2rem;
   object-fit: cover;
+  border: 15px solid #BCB88A;
 }
 
 .tranding-slide .tranding-slide-content {
