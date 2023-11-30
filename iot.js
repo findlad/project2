@@ -66,14 +66,19 @@ socket.onmessage = (event) => {
         let div = document.getElementById("bedroomLamp");
 
         if (thing2State) {
-          //if its on, check the toggleswithc, and add "on" to the body
-          div.innerHTML("on");
-          document.getElementById("switch").src = "img_ONlamp.png";
-          // switchPic.src = "img_ONlamp.png";
+          //if its on, change the icon image
+          console.log(thing2State);
+          console.log(switchPic.src);
+          div.innerHTML = "on";
+          // document.getElementById("switch").src = "img_ONlamp.png";
+          switchPic.src = "img_ONlamp.png";
         } else {
-          div.innerHTML("off");
-          document.getElementById("switch").src = "img_OFFlamp.png";
-          // switchPic.src = "img_OFFlamp.png";
+          //if its off, change the icon image
+          console.log(thing2State);
+          console.log(switchPic.src);
+          div.innerHTML = "off";
+          // document.getElementById("switch").src = "img_OFFlamp.png";
+          switchPic.src = "img_OFFlamp.png";
         }
       }
       if (
@@ -148,7 +153,7 @@ socket.onmessage = (event) => {
           let currentEntry = resultArray[i];
           if (currentEntry.entity_id === "switch.thing2") {
             switchState = currentEntry.state;
-            const iotThing = document.getElementById("thing2");
+            const iotThing = document.getElementById("switch");
             if (switchState === "on") {
               iotThing.src = "img_ONlamp.png";
             } else {
