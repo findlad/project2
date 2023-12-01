@@ -1,59 +1,171 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
   <head>
-    <link rel="stylesheet" href="globals.css" />
-    <link rel="stylesheet" href="entertainment.css" />
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Entertainment</title>
-    <script src="config.js"></script>
-    <script src="tvNav.js"></script>
-    <script src="tvNavRemote.js"></script>
-    <script src="sms.js"></script>
-    <script src="iot.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/swiper@8/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="entertainment.css">  
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto&display=swap"
+      rel="stylesheet"
+    />  
+    <script src="/js/tvremote.js"></script>
+    <script src="/js/tvspatialnav.js"></script>
+   
+
+
   </head>
+
   <body>
-    <div class="entertainment item">
-      <div class="overlap-wrapper">
-        <div class="overlap">
-          <div class="screen">
-            <div class="overlap-group">
-              <p class="text-wrapper">
-                This frame is to accommodate the Entertainment section being
-                developed by coding support
-              </p>
-              <img
-                class="rectangle"
-                src="https://c.animaapp.com/zyl1Vi56/img/rectangle-33.svg"
-              />
-              <div class="div">Entertainment</div>
-            </div>
-            <div class="call-GLA">
-              <div
-                class="div-wrapper item"
-                onclick="window.location.href='menuCarousel.html';"
-              >
-                <div class="text-wrapper-2">Back to Menu</div>
-              </div>
-            </div>
-            <div class="masks-wrapper">
-              <img
-                class="masks"
-                src="https://c.animaapp.com/zyl1Vi56/img/masks@2x.png"
-              />
-            </div>
-            <div class="text-wrapper-3">Entertainment</div>
-            <div class="group">
-              <div class="emergency-call item" id="emergency-call">
-                <img
-                  class="vector"
-                  src="https://c.animaapp.com/zyl1Vi56/img/vector.svg"
-                />
-              </div>
-              <div class="EMERGENCY-CALL item">Emergency Call</div>
-            </div>
-          </div>
-        </div>
+    <div class="topbox">
+      <div class="wrapper">
+        <img
+          src="img_entertainment.png"
+          alt="schedule logo"
+          height="120px"
+          padding="25px"
+        />
+        <p class="textBeside">ENTERTAINMENT</p>
+      </div>
+
+      <div>
+        <img
+          src="gardenLoftImage.svg"
+          alt="garden loft logo"
+          class="glLogo"
+          height="227"
+        />
       </div>
     </div>
+    <div class="emergeButton">
+      <img
+        src="img_callSupport.png"
+        alt="Supporter"
+        height="113px"
+        id="emergency-call"
+        class="emergency-call item"
+      />
+    </div>
+
+
+
+    <section id="tranding">      
+
+  
+      
+        <div class="swiper tranding-slider" >
+          <div class="swiper-wrapper" >
+            <!-- Slide-start -->
+            <div class="swiper-slide tranding-slide" onclick="window.location.href='smartLoft.html' " alt="SmartLoft-logo">
+              <div class="tranding-slide-img" >
+                
+                <img src="entertainment/5.png" alt="movie-5">
+              </div>
+              <div class="tranding-slide-content">                
+              <div class="tranding-slide-content-bottom">
+                                 
+                </div>
+              </div>
+            </div>
+            <!-- Slide-end -->
+            <!-- Slide-start -->
+            <div class="swiper-slide tranding-slide">
+              <div class="tranding-slide-img">
+                <img src="entertainment/1.png" alt="movie-1" >
+              </div>
+              <div class="tranding-slide-content">                
+                <div class="tranding-slide-content-bottom">
+                                  
+                </div>
+              </div>
+            </div>
+            <!-- Slide-end -->
+            <!-- Slide-start -->
+            <div class="swiper-slide tranding-slide">
+              <div class="tranding-slide-img">
+                <img src="entertainment/2.png" alt="movie-2">
+              </div>
+              <div class="tranding-slide-content">               
+                <div class="tranding-slide-content-bottom">
+                                  
+                </div>
+              </div>
+            </div>
+            <!-- Slide-end -->
+            <!-- Slide-start -->
+            <div class="swiper-slide tranding-slide">
+              <div class="tranding-slide-img">
+                <img src="entertainment/3.png" alt="movie-3">
+              </div>
+              <div class="tranding-slide-content">
+                
+                <div class="tranding-slide-content-bottom">
+                 
+                </div>
+              </div>
+            </div>
+            <!-- Slide-end -->
+            <!-- Slide-start -->
+            <div class="swiper-slide tranding-slide">
+              <div class="tranding-slide-img">
+                <img src="entertainment/4.png" alt="movie-4">
+              </div>
+              <div class="tranding-slide-content">                
+                <div class="tranding-slide-content-bottom">
+                 
+                </div>
+              </div>
+            </div>
+            <!-- Slide-end -->
+            <!-- Slide-start -->
+            <div class="swiper-slide tranding-slide">
+              <div class="tranding-slide-img">
+                <img src="entertainment/6.jpg" alt="movie-4">
+              </div>
+              <div class="tranding-slide-content">                
+                <div class="tranding-slide-content-bottom">
+                 
+                </div>
+              </div>
+            </div>
+            <!-- Slide-end -->
+           
+          </div>
+
+          <div class="tranding-slider-control">
+            <div class="swiper-button-prev slider-arrow">
+              <ion-icon name="arrow-back-outline"></ion-icon>
+            </div>
+            <div class="swiper-button-next slider-arrow">
+              <ion-icon name="arrow-forward-outline"></ion-icon>
+            </div>
+            <div class="swiper-pagination"></div>
+          </div>
+        
+        </div>
+      </div>
+      <div class="lower">
+        <img
+          src="homeButton.png"
+          alt="home"
+          onclick="window.location.href='menuCarousel.html';"
+          class="item"
+        />
+      </div>
+    </section>
+
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+    <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
+    <script src="entertainment.js"></script>
+    <script src="sms.js"></script>
+    <script src="iot.js"></script>
     <script src="calling.js"></script>
   </body>
+
 </html>
