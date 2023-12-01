@@ -64,22 +64,28 @@ socket.onmessage = (event) => {
 
         let switchPic = document.getElementById("switch");
         let div = document.getElementById("bedroomLamp");
+        // Update the image source based on the state
+        var newImageSrc = thing2State ? "img_ONlamp.png" : "img_OFFlamp.png";
 
-        if (thing2State) {
-          //if its on, change the icon image
-          console.log(thing2State);
-          console.log(switchPic.src);
-          div.innerHTML = "on";
-          // document.getElementById("switch").src = "img_ONlamp.png";
-          switchPic.src = "img_ONlamp.png";
-        } else {
-          //if its off, change the icon image
-          console.log(thing2State);
-          console.log(switchPic.src);
-          div.innerHTML = "off";
-          // document.getElementById("switch").src = "img_OFFlamp.png";
-          switchPic.src = "img_OFFlamp.png";
-        }
+        document.querySelectorAll('.slide2 .tranding-slide-img img').forEach(function(el) {
+          el.src = newImageSrc;
+        });
+
+        // if (thing2State) {
+        //   //if its on, change the icon image
+        //   console.log(thing2State);
+        //   console.log(switchPic.src);
+        //   div.innerHTML = "on";
+        //   // document.getElementById("switch").src = "img_ONlamp.png";
+        //   switchPic.src = "img_ONlamp.png";
+        // } else {
+        //   //if its off, change the icon image
+        //   console.log(thing2State);
+        //   console.log(switchPic.src);
+        //   div.innerHTML = "off";
+        //   // document.getElementById("switch").src = "img_OFFlamp.png";
+        //   switchPic.src = "img_OFFlamp.png";
+        // }
       }
       if (
         receivedData.event.data.entity_id ===
