@@ -18,51 +18,52 @@
     />
     <script src="https://unpkg.com/i18next@23.7.7/dist/umd/i18next.min.js"></script>
     <script>
-
-      var curLanguage = 'en'
+      var curLanguage = "en";
       const translationResources = {
-          en: {
-            translation: {
-              "settings_image": "img_supportedSettingsButton_en.png"
-            }
+        en: {
+          translation: {
+            settings_image: "img_supportedSettingsButton_en.png",
           },
-          fr: {
-            translation: {
-              "settings_image": "img_supportedSettingsButton_fr.png"
-            }
-          }
-        };
+        },
+        fr: {
+          translation: {
+            settings_image: "img_supportedSettingsButton_fr.png",
+          },
+        },
+      };
 
-      i18next.init({
-        lng: 'en', // If you want to start with English
-        debug: true,
-        resources: translationResources
-      }, function(err, t) {
-        // Initialize your UI
-      });
-  
+      i18next.init(
+        {
+          lng: "en", // If you want to start with English
+          debug: true,
+          resources: translationResources,
+        },
+        function (err, t) {
+          // Initialize your UI
+        }
+      );
+
       function changeLanguage(lng) {
-        i18next.changeLanguage(lng, function(err, t) {
-          document.getElementById("settings_button").src = i18next.t('settings_image');
-          if (curLanguage == 'en') {
-            curLanguage = 'fr';
+        i18next.changeLanguage(lng, function (err, t) {
+          document.getElementById("settings_button").src =
+            i18next.t("settings_image");
+          if (curLanguage == "en") {
+            curLanguage = "fr";
           } else {
-            curLanguage = 'en';
+            curLanguage = "en";
           }
           // update your UI
         });
       }
-  
+
       function toggleLanguage() {
         //console.log("language changed")
-        if (curLanguage == 'en') {
-          changeLanguage('fr');
+        if (curLanguage == "en") {
+          changeLanguage("fr");
         } else {
-          changeLanguage('en');
+          changeLanguage("en");
         }
-        
       }
-  
     </script>
   </head>
 
@@ -132,7 +133,7 @@
             </div>
             <div class="tranding-slide-content">
               <div class="tranding-slide-content-bottom">
-                <!-- <p>SmartLoft</p> -->
+                <p>SmartLoft</p>
               </div>
             </div>
           </div>
@@ -147,7 +148,7 @@
             </div>
             <div class="tranding-slide-content">
               <div class="tranding-slide-content-bottom">
-                <!-- <p>Entertainment</p> -->
+                <p>Entertainment</p>
               </div>
             </div>
           </div>
@@ -166,7 +167,7 @@
             </div>
             <div class="tranding-slide-content">
               <div class="tranding-slide-content-bottom">
-                <!-- <p>Schedule</p> -->
+                <p>Schedule</p>
               </div>
             </div>
           </div>
@@ -181,7 +182,7 @@
             </div>
             <div class="tranding-slide-content">
               <div class="tranding-slide-content-bottom">
-                <!-- <p>Screen Saver</p> -->
+                <p>Screen Saver</p>
               </div>
             </div>
           </div>
@@ -196,7 +197,7 @@
             </div>
             <div class="tranding-slide-content">
               <div class="tranding-slide-content-bottom">
-                <!-- <p>Contacts</p> -->
+                <p>Contacts</p>
               </div>
             </div>
           </div>

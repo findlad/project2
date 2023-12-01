@@ -17,9 +17,10 @@
 
 html {
   font-size: 62.5%;
-  font-family: "Montserrat", sans-serif;
+  font-family: Roboto;
   scroll-behavior: smooth;
 }
+
 
 /* @media (min-width: 1920px) {
   html {
@@ -311,6 +312,9 @@ align-items: space-between;
    }
    .textBeside {
     margin:0px;
+    color: white;
+    font-size: 80px;
+    font-family: Roboto;
    }
    .item:hover {
     transform: scale(1.1);
@@ -318,3 +322,13 @@ align-items: space-between;
     box-shadow: 1px 2px 4px 5px white;
     border-radius: 36px;
    }
+   p { color: #414141;
+    font-size: 40px;
+    font-family: Roboto;
+    text-align: center;}
+
+  .tranding-slide-content {
+      display: flex;
+      justify-content: center;
+      font-weight: bold;
+    }
