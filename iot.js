@@ -223,6 +223,7 @@ function toggleSwitch() {
 }
 
 function allOff() {
+  console.log("lightsOff");
   // manualToggle = true;
   const message = JSON.stringify({
     id: incrimentalId,
@@ -249,6 +250,7 @@ function allOff() {
 }
 
 function allOn() {
+  console.log("lightsOn");
   // manualToggle = true;
   const message = JSON.stringify({
     id: incrimentalId,

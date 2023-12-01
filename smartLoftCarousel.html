@@ -44,36 +44,14 @@
       />
     </div>
     <section id="tranding">      
-    
-
-      
-    
-      </div>
         <div class="swiper tranding-slider">
           <div class="swiper-wrapper">
 
 
             <!-- Slide-start -->
-            <div class="swiper-slide tranding-slide" onclick="allOn()">
+            <div class="swiper-slide tranding-slide slide1" onclick="allOnOffLocal()">
               <div class="tranding-slide-img">
-                <img src="img_ONAlllights.png" alt="All lights on">
-              </div>
-                           
-              <div class="tranding-slide-content">
-                
-               <div class="tranding-slide-content-bottom">
-                 
-                   
-                   
-                 
-                </div>
-              </div>
-            </div>
-            <!-- Slide-end -->
-            <!-- Slide-start -->
-            <div class="swiper-slide tranding-slide" onclick="allOff()">
-              <div class="tranding-slide-img">
-                <img src="img_OFFAlllights.png" alt="All lights off">
+                <img id="allLightsIcon" src="img_ONAlllights.png" alt="All lights on">
               </div>
                            
               <div class="tranding-slide-content">
@@ -190,6 +168,32 @@
     <script src="sms.js"></script>
     <script src="iot.js"></script>
     <script src="calling.js"></script>
+
+    <script>
+      // Global variable to track the state of the lights
+      var lightsAreOn = true;
+    
+      function allOnOffLocal() {
+        TrandingSlider.observer = true;
+        TrandingSlider.observeSlideChildren = true;
+    
+        // Toggle the state
+        lightsAreOn = !lightsAreOn;
+    
+        // Update the image source based on the state
+        var newImageSrc = lightsAreOn ? "img_ONAlllights.png" : "img_OFFAlllights.png";
+        document.querySelectorAll('.slide1 .tranding-slide-img img').forEach(function(el) {
+          el.src = newImageSrc;
+        });
+    
+        // Call the appropriate function based on the state
+        if (lightsAreOn) {
+          allOn();
+        } else {
+          allOff(); // Assuming you have an allOff function
+        }
+      }
+    </script>
   </body>
 
 </html>
