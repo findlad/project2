@@ -10,7 +10,6 @@
     <script src="tvNavRemote.js"></script>
     <script src="sms.js"></script>
     <script src="iot.js"></script>
-    <script src="calling.js"></script>
     <script src="time_script.js" defer></script>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -41,12 +40,11 @@
         />
       </div>
     </div>
-    <div class="emergeButton">
+    <div class="emergeButton" id="emergency-call">
       <img
         src="img_callSupport.png"
         alt="Supporter"
         height="113px"
-        id="emergency-call"
         class="emergency-call item"
       />
     </div>
@@ -68,5 +66,6 @@
         class="item"
       />
     </div>
+    <script src="calling.js"></script>
   </body>
 </html>
