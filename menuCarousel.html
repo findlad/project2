@@ -16,6 +16,49 @@
       href="https://fonts.googleapis.com/css2?family=Roboto&display=swap"
       rel="stylesheet"
     />
+    <script src="https://unpkg.com/i18next@23.7.7/dist/umd/i18next.min.js"></script>
+    <script>
+
+      var curLanguage = 'en'
+      const translationResources = {
+          en: {
+            translation: {
+              "settings_image": "img_supportedSettingsButton_en.png"
+            }
+          },
+          fr: {
+            translation: {
+              "settings_image": "img_supportedSettingsButton_fr.png"
+            }
+          }
+        };
+
+      i18next.init({
+        lng: 'en', // If you want to start with English
+        debug: true,
+        resources: translationResources
+      }, function(err, t) {
+        // Initialize your UI
+      });
+  
+      function changeLanguage(lng) {
+        i18next.changeLanguage(lng, function(err, t) {
+          document.getElementById("banner1").innerHTML = i18next.t('settings_label');
+          // update your UI
+        });
+      }
+  
+      function toggleLanguage() {
+        //console.log("language changed")
+        if (curLanguage == 'en') {
+          changeLanguage('fr');
+        } else {
+          changeLanguage('en');
+        }
+        
+      }
+  
+    </script>
   </head>
 
   <body>
@@ -165,10 +208,10 @@
           <div class="swiper-pagination"></div>
         </div>
       </div>
-      <div class="lower">
+      <div class="lower" onclick="toggleLanguage()">
         <img src="img_enFr.png" alt="english or french" class="item" />
         <img
-          src="img_supportedSettingsButton.png"
+          src="img_supportedSettingsButton_en.png"
           alt="settings"
           class="item"
         />
