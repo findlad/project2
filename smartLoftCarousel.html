@@ -87,7 +87,7 @@
             </div>
             <!-- Slide-end -->
             <!-- Slide-start -->
-            <div class="swiper-slide tranding-slide" onclick="toggleSwitchKitchen()">
+            <div class="swiper-slide tranding-slide slide3" onclick="localToggleSwitchKitchen()">
               <div class="tranding-slide-img">
                 <img src="img_ONKitchenLight.png" alt="Kitchen light">
               </div>
@@ -177,7 +177,7 @@
 
     <script>
       // Global variable to track the state of the lights
-      var lightsAreOn = true;
+      var lightsAreOn = false;
     
       function allOnOffLocal() {
     
@@ -199,24 +199,43 @@
       }
     </script>
 
-<script>
-  // Global variable to track the state of the lights
-  var lampIsOn = true;
+    <script>
+      // Global variable to track the state of the lights
+      var lampIsOn = false;
 
-  function localToggleSwitch() {
+      function localToggleSwitch() {
 
-    // Toggle the state
-    lampIsOn = !lampIsOn;
+        // Toggle the state
+        lampIsOn = !lampIsOn;
 
-    // Update the image source based on the state
-    var newImageSrc = lampIsOn ? "img_ONlamp.png" : "img_OFFlamp.png";
-    document.querySelectorAll('.slide2 .tranding-slide-img img').forEach(function(el) {
-      el.src = newImageSrc;
-    });
+        // Update the image source based on the state
+        var newImageSrc = lampIsOn ? "img_ONlamp.png" : "img_OFFlamp.png";
+        document.querySelectorAll('.slide2 .tranding-slide-img img').forEach(function(el) {
+          el.src = newImageSrc;
+        });
 
-    toggleSwitch();
-  }
-</script>
+        toggleSwitch();
+      }
+    </script>
+
+    <script>
+      // Global variable to track the state of the lights
+      var kitchenLampIsOn = false;
+
+      function localToggleSwitchKitchen() {
+
+        // Toggle the state
+        kitchenLampIsOn = !kitchenLampIsOn;
+
+        // Update the image source based on the state
+        var newImageSrc = kitchenLampIsOn ? "img_ONKitchenLight.png" : "img_OFFKitchenLight.png";
+        document.querySelectorAll('.slide3 .tranding-slide-img img').forEach(function(el) {
+          el.src = newImageSrc;
+        });
+
+        toggleSwitchKitchen()
+      }
+    </script>
 
   </body>
 

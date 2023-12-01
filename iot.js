@@ -62,8 +62,8 @@ socket.onmessage = (event) => {
       if (receivedData.event.data.entity_id === "switch.thing2") {
         thing2State = receivedData.event.data.new_state.state === "on";
 
-        let switchPic = document.getElementById("switch");
-        let div = document.getElementById("bedroomLamp");
+        // let switchPic = document.getElementById("switch");
+        // let div = document.getElementById("bedroomLamp");
         // Update the image source based on the state
         var newImageSrc = thing2State ? "img_ONlamp.png" : "img_OFFlamp.png";
 
@@ -86,6 +86,15 @@ socket.onmessage = (event) => {
         //   // document.getElementById("switch").src = "img_OFFlamp.png";
         //   switchPic.src = "img_OFFlamp.png";
         // }
+      }
+
+      if (receivedData.event.data.entity_id === "switch.thing1") {
+        thing1State = receivedData.event.data.new_state.state === "on";
+        var newImageSrc = thing1State ? "img_ONKitchenLight.png" : "img_OFFKitchenLight.png";
+
+        document.querySelectorAll('.slide3 .tranding-slide-img img').forEach(function(el) {
+          el.src = newImageSrc;
+        });
       }
       if (
         receivedData.event.data.entity_id ===
