@@ -207,7 +207,7 @@ getCurrentState();
 
 //tell the switch to toggle
 function toggleSwitch() {
-  console.log("switch toggled")
+  console.log("switch toggled");
   // manualToggle = true;
   const message = JSON.stringify({
     id: incrimentalId,
@@ -222,7 +222,23 @@ function toggleSwitch() {
 
   incrimentalId++;
 }
+//tell the switch to toggle
+function toggleSwitchKitchen() {
+  console.log("switch toggled");
+  // manualToggle = true;
+  const message = JSON.stringify({
+    id: incrimentalId,
+    type: "call_service",
+    domain: "switch",
+    service: "Toggle",
+    service_data: {
+      entity_id: "switch.thing1", // Replace with whatever the entity ID is when copying
+    },
+  });
+  sendMessage(message);
 
+  incrimentalId++;
+}
 function allOff() {
   console.log("lightsOff");
   // manualToggle = true;
