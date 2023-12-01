@@ -207,6 +207,7 @@ getCurrentState();
 
 //tell the switch to toggle
 function toggleSwitch() {
+  console.log("switch toggled")
   // manualToggle = true;
   const message = JSON.stringify({
     id: incrimentalId,

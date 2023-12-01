@@ -66,7 +66,7 @@
             </div>
             <!-- Slide-end -->
             <!-- Slide-start -->
-            <div class="swiper-slide tranding-slide"  onclick="toggleSwitch()">
+            <div class="swiper-slide tranding-slide slide2"  onclick="localToggleSwitch()">
               <div class="tranding-slide-img">
                 <div id="bedroomLamp"></div>
                 <img id="switch" src="img_ONlamp.png" alt="Lamp" >
@@ -174,8 +174,6 @@
       var lightsAreOn = true;
     
       function allOnOffLocal() {
-        TrandingSlider.observer = true;
-        TrandingSlider.observeSlideChildren = true;
     
         // Toggle the state
         lightsAreOn = !lightsAreOn;
@@ -194,6 +192,26 @@
         }
       }
     </script>
+
+<script>
+  // Global variable to track the state of the lights
+  var lampIsOn = true;
+
+  function localToggleSwitch() {
+
+    // Toggle the state
+    lampIsOn = !lampIsOn;
+
+    // Update the image source based on the state
+    var newImageSrc = lampIsOn ? "img_ONlamp.png" : "img_OFFlamp.png";
+    document.querySelectorAll('.slide2 .tranding-slide-img img').forEach(function(el) {
+      el.src = newImageSrc;
+    });
+
+    toggleSwitch();
+  }
+</script>
+
   </body>
 
 </html>
