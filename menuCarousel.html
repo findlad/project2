@@ -18,7 +18,7 @@
     />
     <script src="https://unpkg.com/i18next@23.7.7/dist/umd/i18next.min.js"></script>
     <script>
-      var curLanguage = "en";
+      var curLanguage = localStorage.getItem('language') || 'en';;
       const translationResources = {
         en: {
           translation: {
@@ -44,9 +44,10 @@
         },
       };
 
+      const savedLanguage = localStorage.getItem('language') || 'en';
       i18next.init(
         {
-          lng: "en", // If you want to start with English
+          lng: savedLanguage, // If you want to start with English
           debug: true,
           resources: translationResources,
         },
@@ -74,11 +75,9 @@
             el.innerHTML = i18next.t("contacts");
           });
           document.getElementById("emergency-call").setAttribute('src', i18next.t("call_support_image"));
-          if (curLanguage == "en") {
-            curLanguage = "fr";
-          } else {
-            curLanguage = "en";
-          }
+          localStorage.setItem('language', lng);
+          curLanguage = lng;
+        
           // update your UI
         });
       }
@@ -265,5 +264,12 @@
     <script src="sms.js"></script>
     <script src="iot.js"></script>
     <script src="calling.js"></script>
+
+    <script>
+      document.addEventListener('DOMContentLoaded', (event) => {
+        const savedLanguage = localStorage.getItem('language') || 'en'; // Use saved language or default to 'en'
+        changeLanguage(savedLanguage);
+      });
+    </script>
   </body>
 </html>
