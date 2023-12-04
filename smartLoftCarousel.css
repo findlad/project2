@@ -270,6 +270,7 @@ align-items: space-between;
   display: flex;
   align-items: center; 
   justify-content: center;
+  margin: auto;
   }
 
   .topbox {
@@ -339,3 +340,13 @@ align-items: space-between;
       justify-content: center;
       font-weight: bold;
     }
+  #weightbox{
+    display: flex;
+      justify-content: center;
+      font-weight: bold;
+      font-size: 40px;
+    font-family: Roboto;
+    text-align: center;
+    align-content: center;
+    align-items: center;
+  }

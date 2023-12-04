@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="google" content="notranslate">
+    <meta name="google" content="notranslate" />
     <title>Menu</title>
     <link
       rel="stylesheet"
@@ -19,7 +19,7 @@
     />
     <script src="https://unpkg.com/i18next@23.7.7/dist/umd/i18next.min.js"></script>
     <script>
-      var curLanguage = localStorage.getItem('language') || 'en';;
+      var curLanguage = localStorage.getItem("language") || "en";
       const translationResources = {
         en: {
           translation: {
@@ -29,7 +29,7 @@
             contacts: "Contacts",
             schedule: "Schedule",
             screensaver: "ScreenSaver",
-            call_support_image: "img_CallSupport_en.png"
+            // call_support_image: "img_CallSupport_en.png",
           },
         },
         fr: {
@@ -40,12 +40,12 @@
             contacts: "Contacts", // Same in French
             schedule: "Calendrier",
             screensaver: "Économiseur d'écran",
-            call_support_image: "img_CallSupport_fr.png"
+            // call_support_image: "img_CallSupport_fr.png",
           },
         },
       };
 
-      const savedLanguage = localStorage.getItem('language') || 'en';
+      const savedLanguage = localStorage.getItem("language") || "en";
       i18next.init(
         {
           lng: savedLanguage, // If you want to start with English
@@ -59,27 +59,49 @@
 
       function changeLanguage(lng) {
         i18next.changeLanguage(lng, function (err, t) {
-          document.getElementById("settings_button").src = i18next.t("settings_image");
-          document.querySelectorAll('.slide1 .tranding-slide-content .tranding-slide-content-bottom p').forEach(function(el) {
-            el.innerHTML = i18next.t("smart_loft");
-          });
-          document.querySelectorAll('.slide2 .tranding-slide-content .tranding-slide-content-bottom p').forEach(function(el) {
-            el.innerHTML = i18next.t("entertainment");
-          });
-          document.querySelectorAll('.slide3 .tranding-slide-content .tranding-slide-content-bottom p').forEach(function(el) {
-            el.innerHTML = i18next.t("schedule");
-          });
-          document.querySelectorAll('.slide4 .tranding-slide-content .tranding-slide-content-bottom p').forEach(function(el) {
-            el.innerHTML = i18next.t("screensaver");
-          });
-          document.querySelectorAll('.slide5 .tranding-slide-content .tranding-slide-content-bottom p').forEach(function(el) {
-            el.innerHTML = i18next.t("contacts");
-          });
-          document.getElementById("emergency-call").setAttribute('src', i18next.t("call_support_image"));
-          updateDateTime(lng)
-          localStorage.setItem('language', lng);
+          document.getElementById("settings_button").src =
+            i18next.t("settings_image");
+          document
+            .querySelectorAll(
+              ".slide1 .tranding-slide-content .tranding-slide-content-bottom p"
+            )
+            .forEach(function (el) {
+              el.innerHTML = i18next.t("smart_loft");
+            });
+          document
+            .querySelectorAll(
+              ".slide2 .tranding-slide-content .tranding-slide-content-bottom p"
+            )
+            .forEach(function (el) {
+              el.innerHTML = i18next.t("entertainment");
+            });
+          document
+            .querySelectorAll(
+              ".slide3 .tranding-slide-content .tranding-slide-content-bottom p"
+            )
+            .forEach(function (el) {
+              el.innerHTML = i18next.t("schedule");
+            });
+          document
+            .querySelectorAll(
+              ".slide4 .tranding-slide-content .tranding-slide-content-bottom p"
+            )
+            .forEach(function (el) {
+              el.innerHTML = i18next.t("screensaver");
+            });
+          document
+            .querySelectorAll(
+              ".slide5 .tranding-slide-content .tranding-slide-content-bottom p"
+            )
+            .forEach(function (el) {
+              el.innerHTML = i18next.t("contacts");
+            });
+          document.getElementById("emergency-call");
+          // .setAttribute("src", i18next.t("call_support_image"));
+          updateDateTime(lng);
+          localStorage.setItem("language", lng);
           curLanguage = lng;
-        
+
           // update your UI
         });
       }
@@ -139,7 +161,7 @@
     </div>
     <div class="emergeButton">
       <img
-        src="img_callSupport.png"
+        src="img_Supporter.png"
         alt="Supporter"
         height="113px"
         id="emergency-call"
@@ -147,14 +169,16 @@
       />
     </div>
 
-    <!-- <p class="textBelow">CALL SUPPORTER</p> -->
+    <p class="textBelow">CALL SUPPORTER</p>
+
     <section id="tranding">
       <div class="swiper tranding-slider">
         <div class="swiper-wrapper">
           <!-- Slide-start -->
           <div
             class="swiper-slide tranding-slide slide1"
-            onclick="window.location.href='smartLoftCarousel.html';">
+            onclick="window.location.href='smartLoftCarousel.html';"
+          >
             <div class="tranding-slide-img">
               <img src="img_smartLoft.png" alt="SmartLoft-logo" />
             </div>
@@ -205,7 +229,7 @@
             onclick="window.location.href='welcome1.html';"
           >
             <div class="tranding-slide-img">
-              <img src="np_Excited.jpg" alt="Grandma and Girl" />
+              <img src="img_screensaver.png" alt="Screensaver" />
             </div>
             <div class="tranding-slide-content">
               <div class="tranding-slide-content-bottom">
@@ -268,8 +292,8 @@
     <script src="calling.js"></script>
 
     <script>
-      document.addEventListener('DOMContentLoaded', (event) => {
-        const savedLanguage = localStorage.getItem('language') || 'en'; // Use saved language or default to 'en'
+      document.addEventListener("DOMContentLoaded", (event) => {
+        const savedLanguage = localStorage.getItem("language") || "en"; // Use saved language or default to 'en'
         changeLanguage(savedLanguage);
       });
     </script>

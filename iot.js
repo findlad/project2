@@ -1,6 +1,57 @@
 const delay = (milliseconds) =>
   new Promise((resolve) => setTimeout(resolve, milliseconds));
 
+function getWeight() {
+  let allWeights = localStorage.getItem("weightHistory"); // assuming "weightHistory" is the correct key
+  allWeights = JSON.parse(allWeights || "[]"); // Parse the data, and handle the case where it's null or undefined
+  // Sort the array of weights by date
+  allWeights.sort((a, b) => new Date(b.date) - new Date(a.date));
+  const latestWeight = allWeights[0];
+
+  // console.log("reaches the query selector");
+  document.querySelectorAll("#weightbox").forEach(function (el) {
+    console.log("weight log", latestWeight);
+    el.innerHTML = latestWeight
+      ? latestWeight.weight + " Kg"
+      : "No weight data available";
+  });
+  const x = allWeights.map((entry) => entry.date);
+  const y = allWeights.map((entry) => entry.weight);
+  const y2 = allWeights.map((entry) => entry.Stability);
+  const ctx = document.getElementById("graph").getContext("2d");
+  new Chart(ctx, {
+    type: "line",
+    data: {
+      labels: x,
+      datasets: [
+        {
+          label: `Weight History`,
+          data: y,
+        },
+      ],
+    },
+    options: {
+      // Add any chart options you need here
+      responsive: true, // Make the chart responsive
+      maintainAspectRatio: false, // Allow the aspect ratio to change
+      // Add any other chart options you need here
+    },
+  });
+  const scale = document.querySelectorAll(".scale");
+  scale.addEventListener("click", () => {
+    modal.style.display = "flex";
+
+    // Clear the previous chart, if any
+    const modalContent = document.querySelector(".modal-content");
+    modalContent.innerHTML = '<canvas id="graph"></canvas>';
+
+    // Add your chart creation code here based on the thing and store
+    fetchChartJSON(thing, store);
+  });
+}
+
+getWeight();
+
 // Function to calculate the mean of an array
 function calculateMean(array) {
   if (array.length === 0) {
@@ -70,6 +121,7 @@ socket.onmessage = (event) => {
         document
           .querySelectorAll(".slide2 .tranding-slide-img img")
           .forEach(function (el) {
+            console.log("el", el);
             el.src = newImageSrc;
           });
 
@@ -181,6 +233,8 @@ socket.onmessage = (event) => {
 
               // Log the updated data
               console.log("Updated Weight History:", allWeights);
+
+              getWeight();
             } else {
               console.log("No valid weights to calculate. Skipping update.");
             }
