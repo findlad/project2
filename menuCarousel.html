@@ -23,11 +23,23 @@
         en: {
           translation: {
             settings_image: "img_supportedSettingsButton_en.png",
+            smart_loft: "SmartLoft",
+            entertainment: "Entertainment",
+            contacts: "Contacts",
+            schedule: "Schedule",
+            screensaver: "ScreenSaver",
+            call_support_image: "img_CallSupport_en.png"
           },
         },
         fr: {
           translation: {
             settings_image: "img_supportedSettingsButton_fr.png",
+            smart_loft: "Loft Astucieux",
+            entertainment: "Divertissement",
+            contacts: "Contacts", // Same in French
+            schedule: "Calendrier",
+            screensaver: "Économiseur d'écran",
+            call_support_image: "img_CallSupport_fr.png"
           },
         },
       };
@@ -45,8 +57,23 @@
 
       function changeLanguage(lng) {
         i18next.changeLanguage(lng, function (err, t) {
-          document.getElementById("settings_button").src =
-            i18next.t("settings_image");
+          document.getElementById("settings_button").src = i18next.t("settings_image");
+          document.querySelectorAll('.slide1 .tranding-slide-content .tranding-slide-content-bottom p').forEach(function(el) {
+            el.innerHTML = i18next.t("smart_loft");
+          });
+          document.querySelectorAll('.slide2 .tranding-slide-content .tranding-slide-content-bottom p').forEach(function(el) {
+            el.innerHTML = i18next.t("entertainment");
+          });
+          document.querySelectorAll('.slide3 .tranding-slide-content .tranding-slide-content-bottom p').forEach(function(el) {
+            el.innerHTML = i18next.t("schedule");
+          });
+          document.querySelectorAll('.slide4 .tranding-slide-content .tranding-slide-content-bottom p').forEach(function(el) {
+            el.innerHTML = i18next.t("screensaver");
+          });
+          document.querySelectorAll('.slide5 .tranding-slide-content .tranding-slide-content-bottom p').forEach(function(el) {
+            el.innerHTML = i18next.t("contacts");
+          });
+          document.getElementById("emergency-call").setAttribute('src', i18next.t("call_support_image"));
           if (curLanguage == "en") {
             curLanguage = "fr";
           } else {
@@ -125,9 +152,8 @@
         <div class="swiper-wrapper">
           <!-- Slide-start -->
           <div
-            class="swiper-slide tranding-slide"
-            onclick="window.location.href='smartLoftCarousel.html';"
-          >
+            class="swiper-slide tranding-slide slide1"
+            onclick="window.location.href='smartLoftCarousel.html';">
             <div class="tranding-slide-img">
               <img src="img_smartLoft.png" alt="SmartLoft-logo" />
             </div>
@@ -140,7 +166,7 @@
           <!-- Slide-end -->
           <!-- Slide-start -->
           <div
-            class="swiper-slide tranding-slide"
+            class="swiper-slide tranding-slide slide2"
             onclick="window.location.href='entertainment.html';"
           >
             <div class="tranding-slide-img">
@@ -155,7 +181,7 @@
           <!-- Slide-end -->
           <!-- Slide-start -->
           <div
-            class="swiper-slide tranding-slide"
+            class="swiper-slide tranding-slide slide3"
             onclick="window.location.href='schedule.html';"
           >
             <div class="tranding-slide-img">
@@ -174,7 +200,7 @@
           <!-- Slide-end -->
           <!-- Slide-start -->
           <div
-            class="swiper-slide tranding-slide"
+            class="swiper-slide tranding-slide slide4"
             onclick="window.location.href='welcome1.html';"
           >
             <div class="tranding-slide-img">
@@ -189,7 +215,7 @@
           <!-- Slide-end -->
           <!-- Slide-start -->
           <div
-            class="swiper-slide tranding-slide"
+            class="swiper-slide tranding-slide slide5"
             onclick="window.location.href='contacts.html';"
           >
             <div class="tranding-slide-img">

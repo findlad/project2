@@ -157,6 +157,9 @@ body {
 
 
 .tranding-slide .tranding-slide-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   position: absolute;
   left: 0;
   top: 0;
@@ -172,12 +175,18 @@ body {
 }
 
 .tranding-slide-content .tranding-slide-content-bottom {
-  display: flex;
   position: absolute;
-  bottom: 2rem;
-  left: 2rem;
+  bottom: 4rem; /* Adjust this value as needed */
+  left: 0;
+  right: 0;
   color: var(--white);
-  align-items: center;
+  text-align: center; /* Center text horizontally */
+}
+
+.tranding-slide-content .tranding-slide-content-bottom p {
+  font-family: roboto;
+  font-weight: 800;
+  font-size: 42px;
 }
 
 .food-rating {
