@@ -15,6 +15,90 @@
       rel="stylesheet"
     />
     
+    <script src="https://unpkg.com/i18next@23.7.7/dist/umd/i18next.min.js"></script>
+    <script>
+      var curLanguage = localStorage.getItem('language') || 'en';;
+      const translationResources = {
+        en: {
+          translation: {
+            home_image: "homeButton_en.png",
+            smart_loft: "SmartLoft",
+            all_lights: "All Lights",
+            bedroom: "Bedroom",
+            kitchen: "Kitchen",
+            temperature: "Temperature",
+            doorlock: "Door Lock",
+            outside: "Outside",
+            call_support_image: "img_CallSupport_en.png"
+          },
+        },
+        fr: {
+          translation: {
+          home_image: "homeButton_fr.png",
+          smart_loft: "LoftAstucieux",
+          all_lights: "Toutes Lumières",
+          bedroom: "Chambre",
+          kitchen: "Cuisine",
+          temperature: "Température",
+          doorlock: "Serrure de porte",
+          outside: "Extérieur",
+          call_support_image: "img_CallSupport_fr.png"
+      },
+
+        },
+      };
+
+      const savedLanguage = localStorage.getItem('language') || 'en';
+      i18next.init(
+        {
+          lng: savedLanguage, // If you want to start with English
+          debug: true,
+          resources: translationResources,
+        },
+        function (err, t) {
+          // Initialize your UI
+        }
+      );
+
+      function changeLanguage(lng) {
+        i18next.changeLanguage(lng, function (err, t) {
+          document.querySelectorAll('.slide1 .tranding-slide-content .tranding-slide-content-bottom p').forEach(function(el) {
+            el.innerHTML = i18next.t("all_lights");
+          });
+          document.querySelectorAll('.slide2 .tranding-slide-content .tranding-slide-content-bottom p').forEach(function(el) {
+            el.innerHTML = i18next.t("bedroom");
+          });
+          document.querySelectorAll('.slide3 .tranding-slide-content .tranding-slide-content-bottom p').forEach(function(el) {
+            el.innerHTML = i18next.t("kitchen");
+          });
+          document.querySelectorAll('.slide4 .tranding-slide-content .tranding-slide-content-bottom p').forEach(function(el) {
+            el.innerHTML = i18next.t("outside");
+          });
+          document.querySelectorAll('.slide5 .tranding-slide-content .tranding-slide-content-bottom p').forEach(function(el) {
+            el.innerHTML = i18next.t("doorlock");
+          });
+          document.querySelectorAll('.slide6 .tranding-slide-content .tranding-slide-content-bottom p').forEach(function(el) {
+            el.innerHTML = i18next.t("temperature");
+          });
+          document.getElementById("emergency-call").setAttribute('src', i18next.t("call_support_image"));
+          document.getElementById("homeButtonID").setAttribute('src', i18next.t("home_image"));
+          document.getElementById("smartLoftTitleID").innerText = i18next.t("smart_loft");
+          localStorage.setItem('language', lng);
+          curLanguage = lng;
+        
+          // update your UI
+        });
+      }
+
+      function toggleLanguage() {
+        //console.log("language changed")
+        if (curLanguage == "en") {
+          changeLanguage("fr");
+        } else {
+          changeLanguage("en");
+        }
+      }
+    </script>
 
 
   </head>
@@ -28,7 +112,7 @@
           height="120px"
           padding="25px"
         />
-        <p class="textBeside">SMARTLOFT</p>
+        <p id="smartLoftTitleID" class="textBeside">SmartLoft</p>
       </div>
 
       <div>
@@ -104,7 +188,7 @@
             </div>
             <!-- Slide-end -->
             <!-- Slide-start -->
-            <div class="swiper-slide tranding-slide">
+            <div class="swiper-slide tranding-slide slide4">
               <div class="tranding-slide-img">
                 <img src="img_ONoutdoorlight.png" alt="outdoor light">
               </div>
@@ -118,7 +202,7 @@
             </div>
             <!-- Slide-end -->
             <!-- Slide-start -->
-            <div class="swiper-slide tranding-slide">
+            <div class="swiper-slide tranding-slide slide5">
               <div class="tranding-slide-img">
                 <img src="img_ONdoorlock.png" alt="Door lock">
               </div>
@@ -132,7 +216,7 @@
             </div>
             <!-- Slide-end -->
              <!-- Slide-start -->
-             <div class="swiper-slide tranding-slide">
+             <div class="swiper-slide tranding-slide slide6">
               <div class="tranding-slide-img">
                 <img src="img_ONTemp.png" alt="Temp">
               </div>
@@ -163,6 +247,7 @@
       </div>
       <div class="lower">
         <img
+          id="homeButtonID"
           src="homeButton.png"
           alt="home"
           onclick="window.location.href='menuCarousel.html';"
@@ -241,6 +326,15 @@
 
         toggleSwitchKitchen()
       }
+    </script>
+
+
+    <script>
+      document.addEventListener('DOMContentLoaded', (event) => {
+        const savedLanguage = localStorage.getItem('language') || 'en'; // Use saved language or default to 'en'
+        console.log(savedLanguage);
+        changeLanguage(savedLanguage);
+      });
     </script>
 
   </body>
