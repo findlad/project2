@@ -22,7 +22,7 @@
       const translationResources = {
         en: {
           translation: {
-            home_image: "homeButton_en.png",
+            // home_image: "homeButton_en.png",
             smart_loft: "SmartLoft",
             all_lights: "All Lights",
             bedroom: "Bedroom",
@@ -35,7 +35,7 @@
         },
         fr: {
           translation: {
-          home_image: "homeButton_fr.png",
+          // home_image: "homeButton_fr.png",
           smart_loft: "LoftAstucieux",
           all_lights: "Toutes Lumières",
           bedroom: "Chambre",
@@ -142,7 +142,7 @@
             <!-- Slide-start -->
             <div class="swiper-slide tranding-slide slide1" onclick="allOnOffLocal()">
               <div class="tranding-slide-img">
-                <img id="allLightsIcon" src="img_ONAlllights.png" alt="All lights on">
+                <img id="allLightsIcon" src="img_ONallLights.png" alt="All lights on">
               </div>
                            
               <div class="tranding-slide-content">
@@ -161,7 +161,7 @@
             <div class="swiper-slide tranding-slide slide2"  onclick="localToggleSwitch()">
               <div class="tranding-slide-img">
                 <div id="bedroomLamp"></div>
-                <img id="switch" src="img_ONlamp.png" alt="Lamp" >
+                <img id="switch" src="img_OnLamp.png" alt="Lamp" >
               </div>
               <div class="tranding-slide-content">
                 
@@ -176,7 +176,7 @@
             <!-- Slide-start -->
             <div class="swiper-slide tranding-slide slide3" onclick="localToggleSwitchKitchen()">
               <div class="tranding-slide-img">
-                <img src="img_ONKitchenLight.png" alt="Kitchen light">
+                <img src="img_OnKitchenLight.png" alt="Kitchen light">
               </div>
               <div class="tranding-slide-content">
                
@@ -191,7 +191,7 @@
             <!-- Slide-start -->
             <div class="swiper-slide tranding-slide slide4">
               <div class="tranding-slide-img">
-                <img src="img_ONoutdoorlight.png" alt="outdoor light">
+                <img src="img_OnOutdoorLight.png" alt="outdoor light">
               </div>
               <div class="tranding-slide-content">
                 
@@ -205,7 +205,7 @@
             <!-- Slide-start -->
             <div class="swiper-slide tranding-slide slide5">
               <div class="tranding-slide-img">
-                <img src="img_ONdoorlock.png" alt="Door lock">
+                <img src="img_OnDoorLock.png" alt="Door lock">
               </div>
               <div class="tranding-slide-content">
                 
@@ -219,10 +219,10 @@
              <!-- Slide-start -->
              <div class="swiper-slide tranding-slide slide6">
               <div class="tranding-slide-img">
-                <img src="img_ONTemp.png" alt="Temp">
+                <img src="img_Temp.png" alt="Temp">
               </div>
               <div class="tranding-slide-content">
-                
+                <div id="Temp"></div>
                 <div class="tranding-slide-content-bottom">
                   <p>Temperature</p>
                  
@@ -249,7 +249,7 @@
       <div class="lower">
         <img
           id="homeButtonID"
-          src="homeButton.png"
+          src="img_Home.png"
           alt="home"
           onclick="window.location.href='menuCarousel.html';"
           class="item"
@@ -277,7 +277,7 @@
         lightsAreOn = !lightsAreOn;
     
         // Update the image source based on the state
-        var newImageSrc = lightsAreOn ? "img_ONAlllights.png" : "img_OFFAlllights.png";
+        var newImageSrc = lightsAreOn ? "img_OnAllLights.png" : "img_OffAllLights.png";
         document.querySelectorAll('.slide1 .tranding-slide-img img').forEach(function(el) {
           el.src = newImageSrc;
         });
@@ -301,7 +301,7 @@
         lampIsOn = !lampIsOn;
 
         // Update the image source based on the state
-        var newImageSrc = lampIsOn ? "img_ONlamp.png" : "img_OFFlamp.png";
+        var newImageSrc = lampIsOn ? "img_OnLamp.png" : "img_OffLamp.png";
         document.querySelectorAll('.slide2 .tranding-slide-img img').forEach(function(el) {
           el.src = newImageSrc;
         });
@@ -320,7 +320,7 @@
         kitchenLampIsOn = !kitchenLampIsOn;
 
         // Update the image source based on the state
-        var newImageSrc = kitchenLampIsOn ? "img_ONKitchenLight.png" : "img_OFFKitchenLight.png";
+        var newImageSrc = kitchenLampIsOn ? "img_OnKitchenLight.png" : "img_OffKitchenLight.png";
         document.querySelectorAll('.slide3 .tranding-slide-img img').forEach(function(el) {
           el.src = newImageSrc;
         });

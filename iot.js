@@ -67,9 +67,11 @@ socket.onmessage = (event) => {
         // Update the image source based on the state
         var newImageSrc = thing2State ? "img_ONlamp.png" : "img_OFFlamp.png";
 
-        document.querySelectorAll('.slide2 .tranding-slide-img img').forEach(function(el) {
-          el.src = newImageSrc;
-        });
+        document
+          .querySelectorAll(".slide2 .tranding-slide-img img")
+          .forEach(function (el) {
+            el.src = newImageSrc;
+          });
 
         // if (thing2State) {
         //   //if its on, change the icon image
@@ -90,11 +92,15 @@ socket.onmessage = (event) => {
 
       if (receivedData.event.data.entity_id === "switch.thing1") {
         thing1State = receivedData.event.data.new_state.state === "on";
-        var newImageSrc = thing1State ? "img_ONKitchenLight.png" : "img_OFFKitchenLight.png";
+        var newImageSrc = thing1State
+          ? "img_ONKitchenLight.png"
+          : "img_OFFKitchenLight.png";
 
-        document.querySelectorAll('.slide3 .tranding-slide-img img').forEach(function(el) {
-          el.src = newImageSrc;
-        });
+        document
+          .querySelectorAll(".slide3 .tranding-slide-img img")
+          .forEach(function (el) {
+            el.src = newImageSrc;
+          });
       }
       if (
         receivedData.event.data.entity_id ===
@@ -124,40 +130,71 @@ socket.onmessage = (event) => {
           console.log("Weight Array: " + weightArray);
 
           if (instantWeight < 30) {
+            // Assuming weightArray is defined and populated elsewhere in your code
+
+            // Trim the array
             weightArray.splice(0, 3);
             weightArray.splice(weightArray.length - 3, 3);
-            console.log("trimmed Weight Array: " + weightArray);
-            aveWeight = calculateMean(weightArray);
-            console.log("average weight = " + aveWeight);
-            let stabilityIndex =
-              Math.max(...weightArray) - Math.min(...weightArray);
-            const weightbox = document.getElementById("weightbox");
-            weightbox.innerHTML = aveWeight.toFixed(1) + " Kg";
-            const stablebox = document.getElementById("stablebox");
-            stablebox.innerHTML = stabilityIndex.toFixed(1);
+
+            // Filter out NaN and Infinity values from weightArray
+            weightArray = weightArray.filter(
+              (weight) => !isNaN(weight) && isFinite(weight)
+            );
+
+            // Check if there are valid values in weightArray
+            if (weightArray.length > 0) {
+              // Calculate the average weight
+              const aveWeight = calculateMean(weightArray);
+
+              // Calculate stability index
+              const stabilityIndex =
+                Math.max(...weightArray) - Math.min(...weightArray);
+
+              // Create an object for today's weight
+              const todaysWeight = {
+                weight: aveWeight.toFixed(1),
+                Stability: stabilityIndex.toFixed(1),
+                date: new Date(),
+              };
+
+              // Display the results on the page
+              const weightbox = document.getElementById("weightbox");
+              weightbox.innerHTML = todaysWeight.weight + " Kg";
+
+              const stablebox = document.getElementById("stablebox");
+              stablebox.innerHTML = todaysWeight.Stability;
+
+              // Retrieve existing data from localStorage
+              let existingData = localStorage.getItem("weightHistory");
+
+              // Parse the existing data or initialize with an empty array if it doesn't exist yet
+              let allWeights = existingData ? JSON.parse(existingData) : [];
+
+              // Log the existing data
+              console.log("Existing Weight History:", allWeights);
+
+              // Add today's weight to the array
+              allWeights.push(todaysWeight);
+
+              // Stringify the array and store it back in localStorage
+              localStorage.setItem("weightHistory", JSON.stringify(allWeights));
+
+              // Log the updated data
+              console.log("Updated Weight History:", allWeights);
+            } else {
+              console.log("No valid weights to calculate. Skipping update.");
+            }
           }
         }
-        // if (
-        //   receivedData.event.data.entity_id ===
-        //   "binary_sensor.g8t1_sj02_3294_01vr_motion"
-        // ) {
-        //   const closeModalButton = document.getElementById("closeModalButton");
-        //   const modal = document.getElementById("modalBox");
-        //   modal.style.display = "flex";
-
-        //   // Clear the previous chart, if any
-        //   const modalContent = document.querySelector(".modal-content");
-        //   modalContent.innerHTML =
-        //     '<canvas>  <iframe src="URL_TO_YOUR_HOME_ASSISTANT_LOVELACE_UI" width="100%"          height="600px" frameborder="0" allowfullscreen></iframe> </canvas>';
-
-        //   closeModalButton.addEventListener("click", () => {
-        //     modal.style.display = "none";
-        //   });
-        // }
       }
 
       // initial state sensing
-
+      if (receivedData.type === sensor.temperature_sensor) {
+        const instantTemp = receivedData.event.data.new_state.state;
+        console.log("instantTemp", instantTemp);
+        const tempbox = document.getElementById("Temp");
+        tempbox.innerHTML = instantTemp + " &deg;C";
+      }
       if (
         receivedData.type === "result" &&
         Array.isArray(receivedData.result)

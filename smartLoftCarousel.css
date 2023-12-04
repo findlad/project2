@@ -152,8 +152,8 @@ align-items: space-between;
   width: 37rem;
   height: 42rem;
   border-radius: 2rem;
-  object-fit: cover;
-  border: 15px solid #BCB88A;
+  object-fit: fill;
+  /* border: 10px solid #BCB88A; */
 }
 
 .tranding-slide .tranding-slide-content {
