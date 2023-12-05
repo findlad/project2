@@ -10,11 +10,11 @@ function getWeight() {
 
   // console.log("reaches the query selector");
   document.querySelectorAll("#weightbox").forEach(function (el) {
-    console.log("weight log", latestWeight);
+    // console.log("weight log", latestWeight);
     el.innerHTML = latestWeight ? latestWeight.weight + " Kg" : "---- Kg";
   });
   document.querySelectorAll("#stablebox").forEach(function (el) {
-    console.log("stability index ", latestWeight.Stability);
+    // console.log("stability index ", latestWeight.Stability);
     el.innerHTML = latestWeight ? latestWeight.Stability + " II" : "---- II";
   });
 
@@ -123,55 +123,31 @@ socket.onopen = async (event) => {
 
   getCurrentState();
 };
+
 let weightArray = [];
 let switchState;
-let manualToggle = false; // Flag to track manual switch toggles
-//process recieved messages
+
+// process incoming events json
 socket.onmessage = (event) => {
   try {
     // console.log(event);
     const receivedData = JSON.parse(event.data);
+    console.log("recievedData", recievedData);
 
-    if (
-      receivedData.type === "event"
-      // && Array.isArray(receivedData.result)
-    ) {
-      // let background = document.getElementById("background");
-
-      console.log(receivedData.event);
-
+    if (receivedData.type === "event") {
+      //bedroom lamp
       if (receivedData.event.data.entity_id === "switch.thing2") {
         thing2State = receivedData.event.data.new_state.state === "on";
-
-        // let switchPic = document.getElementById("switch");
-        // let div = document.getElementById("bedroomLamp");
-        // Update the image source based on the state
         var newImageSrc = thing2State ? "img_ONlamp.png" : "img_OFFlamp.png";
-
         document
           .querySelectorAll(".slide2 .tranding-slide-img img")
           .forEach(function (el) {
             console.log("el", el);
             el.src = newImageSrc;
           });
-
-        // if (thing2State) {
-        //   //if its on, change the icon image
-        //   console.log(thing2State);
-        //   console.log(switchPic.src);
-        //   div.innerHTML = "on";
-        //   // document.getElementById("switch").src = "img_ONlamp.png";
-        //   switchPic.src = "img_ONlamp.png";
-        // } else {
-        //   //if its off, change the icon image
-        //   console.log(thing2State);
-        //   console.log(switchPic.src);
-        //   div.innerHTML = "off";
-        //   // document.getElementById("switch").src = "img_OFFlamp.png";
-        //   switchPic.src = "img_OFFlamp.png";
-        // }
       }
 
+      // kitchen lamp
       if (receivedData.event.data.entity_id === "switch.thing1") {
         thing1State = receivedData.event.data.new_state.state === "on";
         var newImageSrc = thing1State
@@ -184,6 +160,8 @@ socket.onmessage = (event) => {
             el.src = newImageSrc;
           });
       }
+
+      //fall sensor
       if (
         receivedData.event.data.entity_id ===
         "binary_sensor.presence_sensor_fp2_1708_presence_sensor_1"
@@ -198,11 +176,23 @@ socket.onmessage = (event) => {
         fallbox.classList.remove("fall");
         fallbox.classList.add("fall");
       }
+      // temperature
+      if (receivedData.type === sensor.temperature_sensor) {
+        const instantTemp = receivedData.event.data.new_state.state;
+        console.log("instantTemp", instantTemp);
+        const tempbox = document.getElementById("tempbox");
+        // tempbox.innerHTML = instantTemp + " &deg;C";
+        document.querySelectorAll("#tempbox").forEach(function (el) {
+          console.log("temp  ", instantTemp);
+          el.innerHTML = instantTemp ? instantTemp + " &deg;C" : "----  &deg;C";
+        });
+      }
+      // weight
       if (
         receivedData.event.data.entity_id ===
         "sensor.smart_scale_c1_real_time_weight"
       ) {
-        //console.log(receivedData);
+        console.log(receivedData);
 
         const instantWeight = receivedData.event.data.new_state.state;
         console.log(instantWeight);
@@ -270,18 +260,6 @@ socket.onmessage = (event) => {
             }
           }
         }
-      }
-
-      // initial state sensing
-      if (receivedData.type === sensor.temperature_sensor) {
-        const instantTemp = receivedData.event.data.new_state.state;
-        console.log("instantTemp", instantTemp);
-        const tempbox = document.getElementById("tempbox");
-        tempbox.innerHTML = instantTemp + " &deg;C";
-        document.querySelectorAll("#tempbox").forEach(function (el) {
-          console.log("temp  ", instantTemp);
-          el.innerHTML = instantTemp ? instantTemp + " &deg;C" : "----  &deg;C";
-        });
       } else {
         // console.warn(
         //   "Received data does not match the expected format:",

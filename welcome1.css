@@ -62,7 +62,9 @@ letter-spacing: 0.1px;
     
   }
 
-body {background: url(<path-to-image>), lightgray 50% / cover no-repeat;}
+body {background: url(<path-to-image>);
+
+}
 
 p {
   color: #000;
@@ -71,16 +73,14 @@ p {
   text-align: center;
 }
 body {
-  width: 100vw;
-  height: 100vh;
-  background-size: cover;
+
   transition: background-image 1s ease-in-out;
   background-repeat: no-repeat;
   background-position: center center;
 }
 #backdrop {
   width: 100vw;
-  height: 100vh; background-size: cover; background-position: center;
+  height: 100vh; background-size: cover;
 }
 .weather{
   font-size: 36px;

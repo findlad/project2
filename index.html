@@ -12,55 +12,68 @@
     <script src="iot.js"></script>
     <script src="calling.js"></script>
     <script src="remote.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto&display=swap"
+      rel="stylesheet"
+    />
   </head>
   <body class="item" onclick="window.location.href='welcome1.html';">
-    <div class="one-time-pass-code">
-      <div class="screen-wrapper">
-        <div class="screen">
-          <div class="overlap-group">
-            <div class="rectangle"></div>
-            <p class="welcome-home-please">
-              <span class="text-wrapper">Welcome Home!<br /></span>
-              <span class="span"><br /></span>
-              <span class="text-wrapper-2"
-                >Please enter your six digit code</span
-              >
-            </p>
-            <img class="asset" src="gardenLoftImage.svg" />
-            <div class="verification-code">
-              <div class="input-with-label">
-                <div class="label">Secure code</div>
-                <div class="input">
-                  <div class="verification-input">
-                    <div class="div-wrapper"><div class="text">0</div></div>
-                  </div>
-                  <div class="verification-input">
-                    <div class="div-wrapper"><div class="text">0</div></div>
-                  </div>
-                  <div class="verification-input">
-                    <div class="div-wrapper"><div class="text">0</div></div>
-                  </div>
-                  <div class="verification-input">
-                    <div class="div-wrapper"><div class="text">0</div></div>
-                  </div>
-                  <div class="verification-input">
-                    <div class="div-wrapper"><div class="text">0</div></div>
-                  </div>
-                  <div class="verification-input">
-                    <div class="div-wrapper"><div class="text">0</div></div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="group">
-            <div class="emergency-call">
-              <img class="vector" src="Emerg.svg" />
-            </div>
-            <div class="EMERGENCY-CALL">Emergency Call</div>
-          </div>
-        </div>
+    <div class="topbox">
+      <div class="wrapper">
+        <!-- <img
+          src="img_Schedule.png"
+          alt="schedule logo"
+          height="120px"
+          padding="25px"
+        />
+        <p id="titleID" class="textBeside">Schedule</p> -->
+      </div>
+
+      <div>
+        <img
+          src="gardenLoftImage.svg"
+          alt="garden loft logo"
+          class="glLogo"
+          height="227"
+        />
       </div>
     </div>
+    <div class="emergeButton">
+      <img
+        src="img_Supporter.png"
+        alt="Supporter"
+        height="113px"
+        id="emergency-call"
+        class="emergency-call item"
+      />
+    </div>
+    <p id="callSupporterID" class="textBelow">CALL SUPPORTER</p>
+
+    <div class="box">
+      <h1 class="text">Welcome Home!</h1>
+      <p class="text">Please enter your six digit code</p>
+    </div>
+
+    <div class="grid_container">
+      <div class="numberbox">1</div>
+      <div class="numberbox">2</div>
+      <div class="numberbox">3</div>
+      <div class="numberbox">4</div>
+      <div class="numberbox">5</div>
+      <div class="numberbox">6</div>
+    </div>
+    <div class="lower">
+      <!-- <img
+        id="homeButtonID"
+        src="img_HomeEng.png"
+        alt="home"
+        onclick="window.location.href='menuCarousel.html';"
+        class="item"
+        height="113px"
+      /> -->
+    </div>
+    <!-- <div><p id="homeButtonTextID" class="textBelow">HOME</p></div> -->
   </body>
 </html>
