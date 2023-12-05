@@ -337,14 +337,16 @@ align-items: space-between;
 
   .tranding-slide-content {
       display: flex;
+      flex-direction: column;
       justify-content: center;
       font-weight: bold;
     }
-  #weightbox{
+  #weightbox , #stablebox{
     display: flex;
-      justify-content: center;
-      font-weight: bold;
-      font-size: 40px;
+    flex-direction: column;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 35px;
     font-family: Roboto;
     text-align: center;
     align-content: center;

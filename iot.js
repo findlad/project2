@@ -11,10 +11,13 @@ function getWeight() {
   // console.log("reaches the query selector");
   document.querySelectorAll("#weightbox").forEach(function (el) {
     console.log("weight log", latestWeight);
-    el.innerHTML = latestWeight
-      ? latestWeight.weight + " Kg"
-      : "---- Kg";
+    el.innerHTML = latestWeight ? latestWeight.weight + " Kg" : "---- Kg";
   });
+  document.querySelectorAll("#stablebox").forEach(function (el) {
+    console.log("stability index ", latestWeight.Stability);
+    el.innerHTML = latestWeight ? latestWeight.Stability + " II" : "---- II";
+  });
+
   const x = allWeights.map((entry) => entry.date);
   const y = allWeights.map((entry) => entry.weight);
   const y2 = allWeights.map((entry) => entry.Stability);
@@ -248,6 +251,10 @@ socket.onmessage = (event) => {
         console.log("instantTemp", instantTemp);
         const tempbox = document.getElementById("Temp");
         tempbox.innerHTML = instantTemp + " &deg;C";
+        document.querySelectorAll("#tempbox").forEach(function (el) {
+          console.log("temp  ", instantTemp);
+          el.innerHTML = instantTemp ? instantTemp + " &deg;C" : "----  &deg;C";
+        });
       }
       if (
         receivedData.type === "result" &&
