@@ -10,6 +10,7 @@
     <script src="tvNavRemote.js"></script>
     <script src="sms.js"></script>
     <script src="iot.js"></script>
+    <script src="remote.js"></script>
     <script src="time_script.js" defer></script>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -94,16 +95,16 @@
     }, 30000);
   </script>
 
-    <script>
-      document.addEventListener("DOMContentLoaded", (event) => {
-        const savedLanguage = localStorage.getItem("language") || "en"; // Use saved language or default to 'en'
-        if (savedLanguage == "en") {
-          document.getElementById("homeBannerID").innerText = 'Welcome Home, Elizabeth';
-        } else {
-          document.getElementById("homeBannerID").innerText = 'Bienvenue à la maison, Elizabeth';
-        }
-      });
-    </script>
-
-
+  <script>
+    document.addEventListener("DOMContentLoaded", (event) => {
+      const savedLanguage = localStorage.getItem("language") || "en"; // Use saved language or default to 'en'
+      if (savedLanguage == "en") {
+        document.getElementById("homeBannerID").innerText =
+          "Welcome Home, Elizabeth";
+      } else {
+        document.getElementById("homeBannerID").innerText =
+          "Bienvenue à la maison, Elizabeth";
+      }
+    });
+  </script>
 </html>

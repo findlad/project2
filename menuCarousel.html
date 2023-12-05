@@ -18,6 +18,7 @@
       rel="stylesheet"
     />
     <script src="https://unpkg.com/i18next@23.7.7/dist/umd/i18next.min.js"></script>
+    <script src="remote.js"></script>
     <script>
       var curLanguage = localStorage.getItem("language") || "en";
       const translationResources = {
@@ -100,7 +101,8 @@
             .forEach(function (el) {
               el.innerHTML = i18next.t("contacts");
             });
-          document.getElementById("callSupporterID").innerText = i18next.t("call_supporter");
+          document.getElementById("callSupporterID").innerText =
+            i18next.t("call_supporter");
           updateDateTime(lng);
           localStorage.setItem("language", lng);
           curLanguage = lng;

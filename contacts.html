@@ -10,6 +10,7 @@
     <script src="tvNavRemote.js"></script>
     <script src="sms.js"></script>
     <script src="iot.js"></script>
+    <script src="remote.js"></script>
     <script src="time_script.js" defer></script>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -25,14 +26,14 @@
           translation: {
             title: "Contacts",
             call_supporter: "CALL SUPPORTER",
-            home: "HOME"
+            home: "HOME",
           },
         },
         fr: {
           translation: {
             title: "Contacts",
             call_supporter: "APPELER LE SOUTIEN",
-            home: "ACCUEIL"
+            home: "ACCUEIL",
           },
         },
       };
@@ -52,8 +53,10 @@
       function changeLanguage(lng) {
         i18next.changeLanguage(lng, function (err, t) {
           document.getElementById("titleID").innerText = i18next.t("title");
-          document.getElementById("callSupporterID").innerText = i18next.t("call_supporter");
-          document.getElementById("homeButtonTextID").innerText = i18next.t("home");
+          document.getElementById("callSupporterID").innerText =
+            i18next.t("call_supporter");
+          document.getElementById("homeButtonTextID").innerText =
+            i18next.t("home");
           localStorage.setItem("language", lng);
           curLanguage = lng;
 
