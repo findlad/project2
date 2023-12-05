@@ -28,7 +28,7 @@ function getWeight() {
     // Clear the previous chart, if any
     const modalContent = document.querySelector(".modal-content");
     modalContent.style.width = "80%"; // Set the desired width here
-    modalContent.style.width = "80%";
+    modalContent.style.height = "80%";
     modalContent.innerHTML = '<canvas id="graph"></canvas>';
 
     // Add your chart creation code here based on the thing and store
@@ -61,6 +61,9 @@ function getWeight() {
       options: {
         responsive: true,
         maintainAspectRatio: false,
+        scales: {
+          x: { reverse: true },
+        },
         // Add any other chart options you need here
       },
     });
