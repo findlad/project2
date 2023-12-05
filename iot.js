@@ -276,36 +276,12 @@ socket.onmessage = (event) => {
       if (receivedData.type === sensor.temperature_sensor) {
         const instantTemp = receivedData.event.data.new_state.state;
         console.log("instantTemp", instantTemp);
-        const tempbox = document.getElementById("Temp");
+        const tempbox = document.getElementById("tempbox");
         tempbox.innerHTML = instantTemp + " &deg;C";
         document.querySelectorAll("#tempbox").forEach(function (el) {
           console.log("temp  ", instantTemp);
           el.innerHTML = instantTemp ? instantTemp + " &deg;C" : "----  &deg;C";
         });
-      }
-      if (
-        receivedData.type === "result" &&
-        Array.isArray(receivedData.result)
-      ) {
-        const resultArray = receivedData.result;
-        console.log(resultArray);
-        for (let i = 0; i < resultArray.length; i++) {
-          let currentEntry = resultArray[i];
-          if (currentEntry.entity_id === "switch.thing2") {
-            switchState = currentEntry.state;
-            const iotThing = document.getElementById("switch");
-            if (switchState === "on") {
-              iotThing.src = "img_ONlamp.png";
-            } else {
-              iotThing.src = "img_OFFlamp.png";
-            }
-
-            //console.log(switchState);
-            switchContainer.classList.remove("on", "off"); //Remove both classes
-            switchContainer.classList.add(switchState); // Add the current state as a class
-            break;
-          }
-        }
       } else {
         // console.warn(
         //   "Received data does not match the expected format:",
@@ -314,7 +290,7 @@ socket.onmessage = (event) => {
       }
     }
   } catch (error) {
-    console.error("Error parsing JSON:", error);
+    // console.error("Error parsing JSON:", error);
   }
 
   // manualToggle = false; // make sure we know the button hasnt been pushed in the last wee bit

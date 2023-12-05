@@ -97,9 +97,11 @@ body {
   
 }
 
-/* #tranding {
+#tranding {
+  
   max-width: 1920px;
-} */
+  padding: 4rem 0;
+}
 
 .section-heading {
   font-size: 3rem;
@@ -107,37 +109,35 @@ body {
   padding: 2rem 0;
 }
 
-#tranding {
-  padding: 4rem 0;
-}
 
-@media (max-width:1440px) {
+
+/* @media (max-width:1440px) {
   #tranding {
     padding: 7rem 0;
   }
-}
+} */
 
 #tranding .tranding-slider {
-  height: 52rem;
+  height: 60rem;
   padding: 2rem 0;
   position: relative;
-  margin-left: 15%;
-  margin-right: 15%;
+  margin-left: 10%;
+  margin-right: 10%;
 }
 
-@media (max-width:500px) {
+/* @media (max-width:500px) {
   #tranding .tranding-slider {
     height: 45rem;
   }
-}
+} */
 
 .tranding-slide {
-  width: 37rem;
-  height: 42rem;
+  width: 55rem;
+  height: 55rem;
   position: relative;
 }
 
-@media (max-width:500px) {
+/* @media (max-width:500px) {
   .tranding-slide {
     width: 28rem !important;
     height: 36rem !important;
@@ -146,11 +146,11 @@ body {
     width: 28rem !important;
     height: 36rem !important;
   }
-}
+} */
 
 .tranding-slide .tranding-slide-img img {
-  width: 37rem;
-  height: 42rem;
+  width: 55rem;
+  height: 55rem;
   border-radius: 2rem;
   object-fit: cover;
 }
@@ -189,15 +189,6 @@ body {
   font-size: 42px;
 }
 
-.food-rating {
-  padding-top: 1rem;
-  display: flex;
-  gap: 1rem;
-}
-
-.rating ion-icon {
-  color: var(--primary);
-}
 
 .swiper-slide-shadow-left,
 .swiper-slide-shadow-right {
@@ -278,12 +269,14 @@ body {
   background: var(--primary);
 }
 
-.lower {
+.lower{
+  flex-direction: row;
   display: flex;
-  align-items: center;
-  justify-content: space-around;
-  margin-top: 25px;
-}
+  align-items: center; 
+  justify-content: center;
+  margin: auto;
+  }
+  
 .emergeButton{
   margin-top: -80px;
   display: flex;
