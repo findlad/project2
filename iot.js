@@ -27,6 +27,8 @@ function getWeight() {
 
     // Clear the previous chart, if any
     const modalContent = document.querySelector(".modal-content");
+    modalContent.style.width = "80%"; // Set the desired width here
+    modalContent.style.width = "80%";
     modalContent.innerHTML = '<canvas id="graph"></canvas>';
 
     // Add your chart creation code here based on the thing and store
@@ -45,12 +47,14 @@ function getWeight() {
             data: y,
             borderColor: "rgba(75, 192, 192, 1)", // Add a border color for the first dataset
             fill: false, // Don't fill the area under the line
+            yAxisID: "Weight", // Assign the dataset to the primary y-axis
           },
           {
             label: "Stability",
             data: y2,
             borderColor: "rgba(255, 99, 132, 1)", // Add a different border color for the second dataset
             fill: false,
+            yAxisID: "Stability Index", // Assign the dataset to the primary y-axis
           },
         ],
       },
