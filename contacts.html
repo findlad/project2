@@ -17,6 +17,50 @@
       href="https://fonts.googleapis.com/css2?family=Roboto&display=swap"
       rel="stylesheet"
     />
+    <script src="https://unpkg.com/i18next@23.7.7/dist/umd/i18next.min.js"></script>
+    <script>
+      var curLanguage = localStorage.getItem("language") || "en";
+      const translationResources = {
+        en: {
+          translation: {
+            title: "Contacts",
+            call_supporter: "CALL SUPPORTER",
+            home: "HOME"
+          },
+        },
+        fr: {
+          translation: {
+            title: "Contacts",
+            call_supporter: "APPELER LE SOUTIEN",
+            home: "ACCUEIL"
+          },
+        },
+      };
+
+      const savedLanguage = localStorage.getItem("language") || "en";
+      i18next.init(
+        {
+          lng: savedLanguage, // If you want to start with English
+          debug: true,
+          resources: translationResources,
+        },
+        function (err, t) {
+          // Initialize your UI
+        }
+      );
+
+      function changeLanguage(lng) {
+        i18next.changeLanguage(lng, function (err, t) {
+          document.getElementById("titleID").innerText = i18next.t("title");
+          document.getElementById("callSupporterID").innerText = i18next.t("call_supporter");
+          document.getElementById("homeButtonTextID").innerText = i18next.t("home");
+          localStorage.setItem("language", lng);
+          curLanguage = lng;
+
+          // update your UI
+        });
+      }
+    </script>
   </head>
 
   <body>
@@ -28,7 +72,7 @@
           height="120px"
           padding="25px"
         />
-        <p class="textBeside">Contacts</p>
+        <p id="titleID" class="textBeside">Contacts</p>
       </div>
 
       <div>
@@ -50,7 +94,7 @@
       />
     </div>
 
-    <p class="textBelow">CALL SUPPORTER</p>
+    <p id="callSupporterID" class="textBelow">CALL SUPPORTER</p>
     <div class="calendarBox">
       <!-- <img
         src="img_Calendar.png"
@@ -69,8 +113,14 @@
         height="113px"
       />
     </div>
-    <div><p style="color: white">Home</p></div>
+    <div><p id="homeButtonTextID" class="textBelow">HOME</p></div>
 
     <script src="calling.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", (event) => {
+        const savedLanguage = localStorage.getItem("language") || "en"; // Use saved language or default to 'en'
+        changeLanguage(savedLanguage);
+      });
+    </script>
   </body>
 </html>

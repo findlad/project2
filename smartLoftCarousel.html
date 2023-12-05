@@ -22,7 +22,8 @@
       const translationResources = {
         en: {
           translation: {
-            home_image: "img_HomeEng.png",
+            call_supporter: "CALL SUPPORTER",
+            home: "HOME",
             smart_loft: "SmartLoft",
             all_lights: "All Lights",
             bedroom: "Bedroom",
@@ -30,12 +31,14 @@
             temperature: "Temperature",
             doorlock: "Door Lock",
             outside: "Outside",
+            weight: "Weight"
             // call_support_image: "img_CallSupport_en.png"
           },
         },
         fr: {
           translation: {
-          home_image: "ing_HomeEng.png",
+          call_supporter: "APPELER LE SOUTIEN",
+          home: "ACCUEIL",
           smart_loft: "LoftAstucieux",
           all_lights: "Toutes Lumières",
           bedroom: "Chambre",
@@ -43,6 +46,7 @@
           temperature: "Température",
           doorlock: "Serrure de porte",
           outside: "Extérieur",
+          weight: "Poids"
           // call_support_image: "img_CallSupport_fr.png"
       },
 
@@ -81,9 +85,14 @@
           document.querySelectorAll('.slide6 .tranding-slide-content .tranding-slide-content-bottom p').forEach(function(el) {
             el.innerHTML = i18next.t("temperature");
           });
+          document.querySelectorAll('.slide7 .tranding-slide-content .tranding-slide-content-bottom p').forEach(function(el) {
+            el.innerHTML = i18next.t("weight");
+          });
           // document.getElementById("emergency-call").setAttribute('src', i18next.t("call_support_image"));
-          document.getElementById("homeButtonID").setAttribute('src', i18next.t("home_image"));
+          //document.getElementById("homeButtonID").setAttribute('src', i18next.t("home_image"));
           document.getElementById("smartLoftTitleID").innerText = i18next.t("smart_loft");
+          document.getElementById("callSupporterID").innerText = i18next.t("call_supporter");
+          document.getElementById("homeButtonTextID").innerText = i18next.t("home");
           localStorage.setItem('language', lng);
           curLanguage = lng;
         
@@ -134,7 +143,7 @@
         class="emergency-call item"
       />
     </div>
-    <p class="textBelow">CALL SUPPORTER</p>
+    <p id="callSupporterID" class="textBelow">CALL SUPPORTER</p>
 
     <section id="tranding">      
         <div class="swiper tranding-slider">
@@ -273,7 +282,7 @@
         />
         
       </div>
-      <div><p style="color: white;">Home</p></div>
+      <div><p id="homeButtonTextID" class="textBelow">HOME</p></div>
 
       <div id="modalBox" class="modal">
         <div class="modal-content">

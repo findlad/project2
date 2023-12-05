@@ -31,7 +31,7 @@
             class="glLogo"
           />
         </div>
-        <div class="banner">Welcome home Elizabeth</div>
+        <div id="homeBannerID" class="banner">Welcome Home, Elizabeth</div>
         <div class="avatar">
           <img src="avatar.svg" alt="old lady logo" width="93" height="129" />
         </div>
@@ -93,4 +93,17 @@
       backdrop.style.backgroundImage = `url(${imageArray[i]})`;
     }, 30000);
   </script>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", (event) => {
+        const savedLanguage = localStorage.getItem("language") || "en"; // Use saved language or default to 'en'
+        if (savedLanguage == "en") {
+          document.getElementById("homeBannerID").innerText = 'Welcome Home, Elizabeth';
+        } else {
+          document.getElementById("homeBannerID").innerText = 'Bienvenue à la maison, Elizabeth';
+        }
+      });
+    </script>
+
+
 </html>

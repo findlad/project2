@@ -23,6 +23,8 @@
       const translationResources = {
         en: {
           translation: {
+            call_supporter: "CALL SUPPORTER",
+            home: "HOME",
             settings_image: "img_supportedSettingsButton_en.png",
             smart_loft: "SmartLoft",
             entertainment: "Entertainment",
@@ -34,6 +36,8 @@
         },
         fr: {
           translation: {
+            call_supporter: "APPELER LE SOUTIEN",
+            home: "ACCUEIL",
             settings_image: "img_supportedSettingsButton_fr.png",
             smart_loft: "LoftAstucieux",
             entertainment: "Divertissement",
@@ -96,8 +100,7 @@
             .forEach(function (el) {
               el.innerHTML = i18next.t("contacts");
             });
-          document.getElementById("emergency-call");
-          // .setAttribute("src", i18next.t("call_support_image"));
+          document.getElementById("callSupporterID").innerText = i18next.t("call_supporter");
           updateDateTime(lng);
           localStorage.setItem("language", lng);
           curLanguage = lng;
@@ -169,7 +172,7 @@
       />
     </div>
 
-    <p class="textBelow">CALL SUPPORTER</p>
+    <p id="callSupporterID" class="textBelow">CALL SUPPORTER</p>
 
     <section id="tranding">
       <div class="swiper tranding-slider">

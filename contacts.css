@@ -64,11 +64,11 @@ h1{
  }
  .textBelow {
   color: white;
-  font-size: 40px;
+  font-size: 32px;
   font-family: Roboto;
   text-align: center;
-  margin-top: -5px;
- }
+  margin-top: 12px;
+}
  .textBeside {
   margin:0px;
  }

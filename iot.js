@@ -13,7 +13,7 @@ function getWeight() {
     console.log("weight log", latestWeight);
     el.innerHTML = latestWeight
       ? latestWeight.weight + " Kg"
-      : "No weight data available";
+      : "---- Kg";
   });
   const x = allWeights.map((entry) => entry.date);
   const y = allWeights.map((entry) => entry.weight);
