@@ -287,21 +287,13 @@
       </div>
       <div><p id="homeButtonTextID" class="textBelow">HOME</p></div>
 
-<!-- The Modal -->
-<div class="modal fade" id="chartModal" tabindex="-1" aria-labelledby="chartModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-lg">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="chartModalLabel">Weight History Chart</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      <div id="modalBox" class="modal">
+        <div class="modal-content">
+          <!-- Canvas element for your chart -->
+          <canvas id="graph"></canvas>
+          <span class="close" id="closeModalButton">&times;</span>
+        </div>
       </div>
-      <div class="modal-body">
-        <!-- Canvas for the Chart -->
-        <canvas id="graph"></canvas>
-      </div>
-    </div>
-  </div>
-</div>
       
     </section>
     <script src="config.js"></script>

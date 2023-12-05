@@ -18,47 +18,58 @@ function getWeight() {
     el.innerHTML = latestWeight ? latestWeight.Stability + " II" : "---- II";
   });
 
-  if (chart) {
-    chart.destroy();
-  }
-  const x = allWeights.map((entry) => entry.date);
-  const y = allWeights.map((entry) => entry.weight);
-  const y2 = allWeights.map((entry) => entry.Stability);
-  const ctx = document.getElementById("graph").getContext("2d");
+  const weightButton = document.getElementById("openModalBtn");
+  const closeModalButton = document.getElementById("closeModalButton");
+  const modal = document.getElementById("modalBox");
 
-  new Chart(ctx, {
-    type: "line",
-    data: {
-      labels: x,
-      datasets: [
-        {
-          label: "Weight History",
-          data: y,
-          borderColor: "rgba(75, 192, 192, 1)", // Add a border color for the first dataset
-          fill: false, // Don't fill the area under the line
-        },
-        {
-          label: "Stability",
-          data: y2,
-          borderColor: "rgba(255, 99, 132, 1)", // Add a different border color for the second dataset
-          fill: false,
-        },
-      ],
-    },
-    options: {
-      responsive: true,
-      maintainAspectRatio: false,
-      // Add any other chart options you need here
-    },
+  weightButton.addEventListener("click", () => {
+    modal.style.display = "flex";
+
+    // Clear the previous chart, if any
+    const modalContent = document.querySelector(".modal-content");
+    modalContent.innerHTML = '<canvas id="graph"></canvas>';
+
+    // Add your chart creation code here based on the thing and store
+    const x = allWeights.map((entry) => entry.date);
+    const y = allWeights.map((entry) => entry.weight);
+    const y2 = allWeights.map((entry) => entry.Stability);
+    const ctx = document.getElementById("graph").getContext("2d");
+
+    new Chart(ctx, {
+      type: "line",
+      data: {
+        labels: x,
+        datasets: [
+          {
+            label: "Weight History",
+            data: y,
+            borderColor: "rgba(75, 192, 192, 1)", // Add a border color for the first dataset
+            fill: false, // Don't fill the area under the line
+          },
+          {
+            label: "Stability",
+            data: y2,
+            borderColor: "rgba(255, 99, 132, 1)", // Add a different border color for the second dataset
+            fill: false,
+          },
+        ],
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        // Add any other chart options you need here
+      },
+    });
   });
 
-  // Open the modal when the button is clicked
-  const openModalBtn = document.getElementById("openModalBtn");
-  openModalBtn.addEventListener("click", function () {
-    const chartModal = new bootstrap.Modal(
-      document.getElementById("chartModal")
-    );
-    chartModal.show();
+  closeModalButton.addEventListener("click", () => {
+    modal.style.display = "none";
+  });
+
+  window.addEventListener("click", (event) => {
+    if (event.target == modal) {
+      modal.style.display = "none";
+    }
   });
 }
 
@@ -414,15 +425,3 @@ function allOn() {
   sendMessage(message1);
   incrimentalId++;
 }
-
-// const closeModalButton = document.getElementById("closeModalButton");
-// const modal = document.getElementById("modalBox");
-// modal.style.display = "flex";
-
-// // Clear the previous chart, if any
-// const modalContent = document.querySelector(".modal-content");
-// modalContent.innerHTML = '<canvas id="graph"></canvas>';
-
-// closeModalButton.addEventListener("click", () => {
-//   modal.style.display = "none";
-// });
