@@ -121,8 +121,8 @@ body {
   height: 60rem;
   padding: 2rem 0;
   position: relative;
-  margin-left: 10%;
-  margin-right: 10%;
+  margin-left: 5%;
+  margin-right: 5%;
 }
 
 /* @media (max-width:500px) {
@@ -276,7 +276,7 @@ body {
   justify-content: center;
   margin: auto;
   }
-  
+
 .emergeButton{
   margin-top: -80px;
   display: flex;
