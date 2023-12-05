@@ -18,6 +18,14 @@ function getWeight() {
     el.innerHTML = latestWeight ? latestWeight.Stability + " II" : "---- II";
   });
 
+  let lastTemp = Number(localStorage.getItem("lastTemp"));
+  document.querySelectorAll("#tempbox").forEach(function (el) {
+    console.log("temp  ", lastTemp);
+    el.innerHTML = lastTemp.toFixed(1)
+      ? lastTemp.toFixed(1) + " &deg;C"
+      : "----  &deg;C";
+  });
+
   const weightButton = document.getElementById("openModalBtn");
   const closeModalButton = document.getElementById("closeModalButton");
   const modal = document.getElementById("modalBox");
@@ -132,7 +140,7 @@ socket.onmessage = (event) => {
   try {
     // console.log(event);
     const receivedData = JSON.parse(event.data);
-    console.log("recievedData", recievedData);
+    console.log("receivedData", receivedData);
 
     if (receivedData.type === "event") {
       //bedroom lamp
@@ -177,16 +185,24 @@ socket.onmessage = (event) => {
         fallbox.classList.add("fall");
       }
       // temperature
-      if (receivedData.type === sensor.temperature_sensor) {
-        const instantTemp = receivedData.event.data.new_state.state;
-        console.log("instantTemp", instantTemp);
-        const tempbox = document.getElementById("tempbox");
-        // tempbox.innerHTML = instantTemp + " &deg;C";
+      if (receivedData.event.data.entity_id === "sensor.temperature_sensor") {
+        const instantTemp = Number(
+          receivedData.event.data.new_state.state
+        ).toFixed(1);
+
+        localStorage.setItem("lastTemp", instantTemp);
+
         document.querySelectorAll("#tempbox").forEach(function (el) {
           console.log("temp  ", instantTemp);
           el.innerHTML = instantTemp ? instantTemp + " &deg;C" : "----  &deg;C";
         });
+        if (instantTemp > 28 || instantTemp < 15) {
+          sendSMS(
+            "Elizabeth`s Loft temperature is outside the comfortable range"
+          );
+        }
       }
+
       // weight
       if (
         receivedData.event.data.entity_id ===
@@ -254,6 +270,18 @@ socket.onmessage = (event) => {
               // Log the updated data
               console.log("Updated Weight History:", allWeights);
 
+              if (
+                todaysWeight.weight - Number(existingData.weight) > 5 ||
+                todaysWeight.weight - Number(existingData.weight) < -5
+              ) {
+                console.log("weight change");
+                sendSMS("Elizabeth`s weight is fluctuating a lot");
+              }
+              if (todaysWeight.Stability > 5) {
+                console.log("wobbly");
+                sendSMS("Elizabeth`s weight is unsteady on her feet");
+              }
+
               getWeight();
             } else {
               console.log("No valid weights to calculate. Skipping update.");
@@ -261,17 +289,15 @@ socket.onmessage = (event) => {
           }
         }
       } else {
-        // console.warn(
-        //   "Received data does not match the expected format:",
-        //   receivedData
-        // );
+        console.warn(
+          "Received data does not match the expected format:",
+          receivedData
+        );
       }
     }
   } catch (error) {
-    // console.error("Error parsing JSON:", error);
+    console.error("Error parsing JSON:", error);
   }
-
-  // manualToggle = false; // make sure we know the button hasnt been pushed in the last wee bit
 };
 
 //closing the websocket

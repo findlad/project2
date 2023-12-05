@@ -344,7 +344,7 @@ align-items: space-between;
       justify-content: center;
       font-weight: bold;
     }
-  #weightbox , #stablebox, #tempbox{
+  #weightbox , #stablebox{
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -354,6 +354,19 @@ align-items: space-between;
     text-align: center;
     align-content: center;
     align-items: center;
+  }
+  #tempbox{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 40px;
+    font-family: Roboto;
+    text-align: center;
+    align-content: center;
+    align-items: center;
+    
+    margin-top: -15%;
   }
  
 
