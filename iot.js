@@ -18,38 +18,47 @@ function getWeight() {
     el.innerHTML = latestWeight ? latestWeight.Stability + " II" : "---- II";
   });
 
+  if (chart) {
+    chart.destroy();
+  }
   const x = allWeights.map((entry) => entry.date);
   const y = allWeights.map((entry) => entry.weight);
   const y2 = allWeights.map((entry) => entry.Stability);
   const ctx = document.getElementById("graph").getContext("2d");
+
   new Chart(ctx, {
     type: "line",
     data: {
       labels: x,
       datasets: [
         {
-          label: `Weight History`,
+          label: "Weight History",
           data: y,
+          borderColor: "rgba(75, 192, 192, 1)", // Add a border color for the first dataset
+          fill: false, // Don't fill the area under the line
+        },
+        {
+          label: "Stability",
+          data: y2,
+          borderColor: "rgba(255, 99, 132, 1)", // Add a different border color for the second dataset
+          fill: false,
         },
       ],
     },
     options: {
-      // Add any chart options you need here
-      responsive: true, // Make the chart responsive
-      maintainAspectRatio: false, // Allow the aspect ratio to change
+      responsive: true,
+      maintainAspectRatio: false,
       // Add any other chart options you need here
     },
   });
-  const scale = document.querySelectorAll(".scale");
-  scale.addEventListener("click", () => {
-    modal.style.display = "flex";
 
-    // Clear the previous chart, if any
-    const modalContent = document.querySelector(".modal-content");
-    modalContent.innerHTML = '<canvas id="graph"></canvas>';
-
-    // Add your chart creation code here based on the thing and store
-    fetchChartJSON(thing, store);
+  // Open the modal when the button is clicked
+  const openModalBtn = document.getElementById("openModalBtn");
+  openModalBtn.addEventListener("click", function () {
+    const chartModal = new bootstrap.Modal(
+      document.getElementById("chartModal")
+    );
+    chartModal.show();
   });
 }
 
