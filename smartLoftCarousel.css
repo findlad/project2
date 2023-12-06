@@ -71,12 +71,12 @@
     font-family: Roboto;
     text-align: center;}
 
-  .tranding-slide-content {
+  /* .tranding-slide-content {
       display: flex;
       flex-direction: column;
       justify-content: center;
       font-weight: bold;
-    }
+    } */
   #weightbox , #stablebox{
     display: flex;
     flex-direction: column;
