@@ -7,7 +7,7 @@ function sendSMS(message) {
   const smsData = {
     To: config.callTo, //Duncan
     //To: "+14036148363", // John
-    // From: "+19496823519",
+    From: "+19496823519",
     Body: message,
   };
 
