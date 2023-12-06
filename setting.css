@@ -1,0 +1,234 @@
+.container {
+    display:flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-content: space-between;
+    align-items: center;
+    flex-wrap: nowrap;
+    width: 100%;
+    /* min-height: 100vh; */
+
+}
+
+.gridContainer{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  
+}
+/* Additional CSS for items inside the container */
+.item1, .item2, .item3 {
+    /* Example styling for flex items */
+    display: inline-table;
+    background: rgba(255,249,230,0.60);  
+    margin: 15px;
+    justify-content: center;
+    background-color:#FFF9E6;
+    align-items: center;
+    flex-wrap: nowrap;
+    border-radius: 18px;
+    width: 120px;
+}
+.item4, .item5,.item6 {
+  display: inline-table;
+  background: #FFF9E6;  
+  margin: 15px;
+  border: 15px solid  #FFF9E6;
+  justify-content: center;
+  background-color: #FFF9E6;
+  align-items: center;
+  flex-wrap: nowrap;
+  border-radius: 18px;
+  width: 50px;
+
+
+}
+body{
+    background-color: black;
+    /* display: flex; */
+    align-items: center;
+    /* height: 1080px;
+    width: 1980px; */
+  }
+  .topbox {
+    margin: auto;
+    margin-top: 100px;
+    color: #FFF9E6;
+    font-size: 80px;
+    font-family: Roboto;
+    /* width: 1920px; */
+    display: flex;
+    /* align-items: center;  */
+    justify-content: space-around;
+    
+    
+  }
+  .glLogo {
+    display: block;
+    margin:auto;
+    /* margin-top: 17px; */
+  }
+  
+  .wrapper{
+    display: flex;
+    align-items: flex-start;
+    gap: 15px;
+  }
+  
+  h1{
+    color: #FFF9E6;
+    font-size: 40px;
+    font-family: Roboto;
+  }
+  
+  .calendarBox{
+    justify-content: space-around;
+    align-items: center;
+    /* width: 1400px;
+    height: 160px; */
+    text-align: center;
+    margin:auto;
+    margin-top: 25px;
+    color: #000;
+    border-radius: 18px;
+  }
+  .lower {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 25px;
+  }
+   .emergeButton{
+    margin-top: -80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color:  #FFF9E6;;
+    font-size: 40px;
+    font-family: Roboto;
+   }
+   .textBelow {
+    color:  #FFF9E6;e;
+    font-size: 40px;
+    font-family: Roboto;
+    text-align: center;
+    margin-top: -5px;
+   }
+   .textBeside {
+    margin:0px;
+   }
+   .item:hover {
+    transform: scale(1.1);
+    transition: transform 0.2s ease;
+    box-shadow: 1px 2px 4px 5px white;
+    border-radius: 36px;
+   } 
+   
+   
+   /* Page styles
+   ================================ */
+   
+   nav {margin-top: 40px; }
+   
+   
+   /* Drop Down Styles
+   ================================ */
+   nav .drop-down {
+     list-style: none; 
+     overflow: hidden; /* When ul height is reduced, ensure overflowing li are not shown */
+     height: 172px; /* 172px = (38 (li) + 5 (li border)) * 4 (number of li) */
+     font-family: Arial;
+     width: 200px;
+     margin: 0 auto;
+     padding: 0;
+     text-align: center;
+     -webkit-transition: height 0.3s ease;
+             transition: height 0.3s ease;
+   }
+   drop-down.closed {
+     /*  When toggled via jQuery this class will reduce the height of the ul which inconjuction
+         with overflow: hidden set on the ul will hide all list items apart from the first */
+     /* current li height 38px + 5px border */
+     height: 43px;
+   }
+   
+   drop-down {
+     border-bottom: 5px solid #FFF9E6;
+   }
+   
+   drop-down {
+     display: block;
+     text-decoration: none;
+     padding: 10px; /* Larger touch target area */
+   }
+   
+   drop-down {
+     content: "\25BC";
+     float: right;
+     margin-left: -30px; /* Excessive -margin to bring link text back to center */
+     margin-right: 5px;
+   }
+   
+   .dropbtn {
+    font-family: Roboto;
+     background-color: #bcb88a;;
+     color: white;
+     margin: 15px;
+     font-size: 36px;
+     border: none;
+     cursor: pointer;
+     width: 500px;
+     height: 200px;
+     border-radius: 15px;
+     
+   }
+   
+   .dropbtn:hover, .dropbtn:focus {
+     background-color: rgba(255,249,230,0.60);
+   }
+   
+   .dropdown {
+     position: relative;
+     display: inline-block;
+   }
+   
+   .dropdown-content {
+     display: none;
+     position: absolute;
+     background-color:#ddd;;
+     min-width: 160px;
+     overflow: auto;
+     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+     z-index: 1;
+     font-size: 36px;
+   }
+   
+   .dropdown-content a {
+     color:black;
+     padding: 12px 16px;
+     text-decoration: none;
+     display: block;
+   }
+   
+   .dropdown a:hover {background-color: #ddd;}
+   
+   .show {display: block;}
+   .drop {
+     width:500px;
+     height: 200px;
+   }
+   .top3 {
+     
+       width:500px;
+       height: 200px;
+   
+   }
+
+   .qrbox{
+     display: flex;
+     align-items: center;
+     justify-content: center;
+     /* width: 600px; */
+     /* height: 300; */
+     margin: 15px;
+     margin-top: 50px;
+   }
