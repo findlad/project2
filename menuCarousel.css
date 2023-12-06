@@ -67,7 +67,7 @@
   
   .box{ 
     width: 400px;
-    height: 160px;
+    height: 170px;
     color: white;
     font-family: Roboto;
     font-size: 20px;
@@ -78,12 +78,15 @@
     justify-content: center;
     text-align: center;
   }
-  .container{
+  .container {
     margin: auto;
     height: auto;
-    padding:0%;
+    padding: 0%;
     padding-top: 10px;
+    display: flex;
+    flex-direction: column; /* Updated to stack elements vertically */
   }
+  
   .currentWeather {
     padding: 0%;
   }
@@ -93,4 +96,7 @@
     justify-content: center;
     font-weight: bold;
   }
-  
+  p {font-size: 24px;
+  text-align: center;
+margin-top: -5px;}
+
