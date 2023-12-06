@@ -15,14 +15,8 @@
       href="https://fonts.googleapis.com/css2?family=Roboto&display=swap"
       rel="stylesheet"
     />  
-    <script src="/js/tvremote.js"></script>
-    <script src="/js/tvspatialnav.js"></script>
-    <script src="sms.js"></script>
-    <script src="iot.js"></script>
-    <script src="calling.js"></script>
-    <script src="remote.js"></script>
+   
 
-    <script src="https://unpkg.com/i18next@23.7.7/dist/umd/i18next.min.js"></script>
     <script>
       var curLanguage = localStorage.getItem("language") || "en";
       const translationResources = {
@@ -218,6 +212,9 @@
     <script src="sms.js"></script>
     <script src="iot.js"></script>
     <script src="calling.js"></script>
+    <script src="remote.js"></script>
+
+    <script src="https://unpkg.com/i18next@23.7.7/dist/umd/i18next.min.js"></script>
     <script>
       document.addEventListener("DOMContentLoaded", (event) => {
         const savedLanguage = localStorage.getItem("language") || "en"; // Use saved language or default to 'en'
