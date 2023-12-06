@@ -6,10 +6,10 @@ try {
     centeredSlides: true,
     loop: true,
     slidesPerView: "auto",
-    autoplay: {
-      delay: 5000,
-      disableOnInteraction: false,
-    },
+    // autoplay: {
+    //   delay: 5000,
+    //   disableOnInteraction: false,
+    // },
     coverflowEffect: {
       rotate: 10,
       stretch: 100,
