@@ -15,7 +15,7 @@ function getWeight() {
   });
   document.querySelectorAll("#stablebox").forEach(function (el) {
     // console.log("stability index ", latestWeight.Stability);
-    el.innerHTML = latestWeight ? latestWeight.Stability + " II" : "---- II";
+    el.innerHTML = latestWeight ? latestWeight.Stability + " WI" : "---- WI";
   });
 
   let lastTemp = Number(localStorage.getItem("lastTemp"));
