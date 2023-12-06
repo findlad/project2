@@ -8,7 +8,7 @@
   list-style-type: none;
   text-decoration: none;
 }
-
+body{zoom: 90%;}
 :root {
   --primary: #ecc49c;
   --white: #ffffff;
