@@ -59,8 +59,8 @@
         <div class="Selectlanguage drop">
           <button onclick="myFunction(event)" class="dropbtn" aria-controls="LanguageDropdown">Select Language</button>
           <div id="LanguageDropdown" class="dropdown-content">
-            <a href="#English">English</a>
-            <a href="#French">French</a>
+            <a onclick="changeLanguageLocal('en')">English</a>
+            <a onclick="changeLanguageLocal('fr')">French</a>
           </div>
         </div>
         
@@ -90,5 +90,64 @@
     </div>
   </body>
     <script src="calling.js"></script>
+
+    <script>
+      function changeLanguageLocal(lng) {
+        i18next.changeLanguage(lng, function (err, t) {
+          // document.getElementById("settings_button").src =
+          //   i18next.t("settings_image");
+          // document
+          //   .querySelectorAll(
+          //     ".slide1 .tranding-slide-content .tranding-slide-content-bottom p"
+          //   )
+          //   .forEach(function (el) {
+          //     el.innerHTML = i18next.t("smart_loft");
+          //   });
+          // document
+          //   .querySelectorAll(
+          //     ".slide2 .tranding-slide-content .tranding-slide-content-bottom p"
+          //   )
+          //   .forEach(function (el) {
+          //     el.innerHTML = i18next.t("entertainment");
+          //   });
+          // document
+          //   .querySelectorAll(
+          //     ".slide3 .tranding-slide-content .tranding-slide-content-bottom p"
+          //   )
+          //   .forEach(function (el) {
+          //     el.innerHTML = i18next.t("schedule");
+          //   });
+          // document
+          //   .querySelectorAll(
+          //     ".slide4 .tranding-slide-content .tranding-slide-content-bottom p"
+          //   )
+          //   .forEach(function (el) {
+          //     el.innerHTML = i18next.t("screensaver");
+          //   });
+          // document
+          //   .querySelectorAll(
+          //     ".slide5 .tranding-slide-content .tranding-slide-content-bottom p"
+          //   )
+          //   .forEach(function (el) {
+          //     el.innerHTML = i18next.t("contacts");
+          //   });
+          document.getElementById("callSupporterID").innerText =
+            i18next.t("call_supporter");
+          //updateDateTime(lng);
+          localStorage.setItem("language", lng);
+          curLanguage = lng;
+
+          // update your UI
+        });
+      }
+
+    </script>
+
+<script>
+  document.addEventListener("DOMContentLoaded", (event) => {
+    const savedLanguage = localStorage.getItem("language") || "en"; // Use saved language or default to 'en'
+    changeLanguage(savedLanguage);
+  });
+</script>
   </body>
 </html>
