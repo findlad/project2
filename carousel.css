@@ -22,24 +22,6 @@ html {
 }
 
 
-/* @media (min-width: 1920px) {
-  html {
-    zoom: 1.5;
-  }
-}
-
-@media (min-width: 2560px) {
-  html {
-    zoom: 1.7;
-  }
-}
-
-@media (min-width: 3860px) {
-  html {
-    zoom: 3.5;
-  }
-} */
-
 ::-webkit-scrollbar {
   width: 1.3rem;
 }
@@ -70,8 +52,8 @@ body {
   margin: 0;
   height: 12rem;
 
-  margin-left: 50px;
-  margin-right: 50px;
+  margin-left: 10px;
+  margin-right: 10px;
 }
 
 
@@ -106,7 +88,7 @@ align-items: space-between;
 }
 
 #tranding {
- margin-top: 1%;
+ margin-top: 0.5%;
 }
 
 /* @media (max-width:1440px) {
@@ -116,11 +98,11 @@ align-items: space-between;
 } */
 
 #tranding .tranding-slider {
-  height: 70%;
+  /* height: 70%; */
   /* padding: 2rem 0; */
   position: relative;
-  margin-left: 5%;
-  margin-right: 5%;
+  margin-left: 2%;
+  margin-right: 2%;
 }
 
 /* @media (max-width:500px) {

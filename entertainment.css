@@ -1,16 +1,16 @@
 
-
-
 .lower{
+  margin-top: -130px;
   flex-direction: row;
   display: flex;
   align-items: center; 
   justify-content: center;
+  margin: auto;
   }
 
   .topbox {
     margin: auto;
-    margin-top: 50px;
+    margin-top: 20px;
     color: white;
     font-size: 80px;
     font-family: Roboto;
@@ -38,7 +38,7 @@
     font-family: Roboto;
   }
   .emergeButton{
-    margin-top: -80px;
+    margin-top: -130px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -47,14 +47,18 @@
     font-family: Roboto;
    }
    .textBelow {
+    
     color: white;
     font-size: 32px;
     font-family: Roboto;
     text-align: center;
-    margin-top: 12px;
+   
   }
    .textBeside {
     margin:0px;
+    color: white;
+    font-size: 80px;
+    font-family: Roboto;
    }
    .item:hover {
     transform: scale(1.1);
@@ -62,7 +66,7 @@
     box-shadow: 1px 2px 4px 5px white;
     border-radius: 36px;
    }
-   p { color: white;
+   p { color: #414141;
     font-size: 40px;
     font-family: Roboto;
     text-align: center;}

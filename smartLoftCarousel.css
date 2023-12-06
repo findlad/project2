@@ -1,5 +1,6 @@
 
 .lower{
+  margin-top: -130px;
   flex-direction: row;
   display: flex;
   align-items: center; 
@@ -9,7 +10,7 @@
 
   .topbox {
     margin: auto;
-    margin-top: 50px;
+    margin-top: 20px;
     color: white;
     font-size: 80px;
     font-family: Roboto;
@@ -37,7 +38,7 @@
     font-family: Roboto;
   }
   .emergeButton{
-    margin-top: -80px;
+    margin-top: -130px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -46,11 +47,12 @@
     font-family: Roboto;
    }
    .textBelow {
+    
     color: white;
     font-size: 32px;
     font-family: Roboto;
     text-align: center;
-    margin-top: 12px;
+   
   }
    .textBeside {
     margin:0px;
@@ -134,7 +136,6 @@
   border-radius: 25px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
   max-width: 80%; /*Adjust the maximum width as needed */
-  
   display: flex;
   align-self: center;
   align-items: center;
