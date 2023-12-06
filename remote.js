@@ -1,3 +1,6 @@
+/*const swiper = document.querySelector('.swiper').swiper;
+swiper.slideNext();
+*/
 window.onkeydown = function (e) {
   if (e.keyCode === 37) {
     document.getElementById("navigate-left").click();
@@ -16,9 +19,13 @@ window.onkeydown = function (e) {
     console.log(e.keyCode);
   }
   if (e.keyCode === 13) {
+    const swiper = document.querySelector(".swiper").swiper;
+
+    /* document.getElementById(e.target.id).classList.add("active");
+     */
     document
-      .getElementsByClass("swiper tranding-slider")
-      [swiper.clickedIndex].click();
+      .getElementsByClassName("swiper-slide tranding-slide")
+      [swiper.realIndex].click();
     console.log(e.keyCode);
   }
 };
