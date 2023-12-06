@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Schedule Viewer</title>
+    <link rel="stylesheet" href="setting.css" />
+    <script src="config.js"></script>
+    <script src="tvNav.js"></script>
+    <script src="tvNavRemote.js"></script>
+    <script src="sms.js"></script>
+    <script src="iot.js"></script>
+    <script src="setting.js"></script>
+    <script src="time_script.js" defer></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body>
+    <div class="topbox">
+      <div class="wrapper">
+        <img
+          src="Vector.png"
+          alt="contacts logo" 
+          height="120px"
+          padding="25px"
+        />
+        <p class="textBeside">SETTING</p>
+      </div>
+      <div>
+        <img
+          src="gardenLoftImage.svg"
+          alt="garden loft logo"
+          class="glLogo"
+          height="227"
+        />
+      </div>
+    </div>
+    <div class="emergeButton">
+      <img
+        src="img_callSupport.png"
+        alt="Supporter"
+        height="166px"
+        id="emergency-call"
+        class="emergency-call item"
+      />
+    </div>
+    <div class="container">
+      <!-- Your flex items go here -->
+      <div class="gridContainer">
+        <img src="LANGUAGE.png" alt="Language">
+        <img src="HOME DISPLAY.png" alt="Home display">
+        <img src="COLOUR.png" alt="COLOUR">
+
+        <div class="Selectlanguage drop">
+          <button onclick="myFunction(event)" class="dropbtn" aria-controls="LanguageDropdown">Select Language</button>
+          <div id="LanguageDropdown" class="dropdown-content">
+            <a href="#English">English</a>
+            <a href="#French">French</a>
+          </div>
+        </div>
+        
+        <div class="SelectCarousal drop">
+          <button onclick="myFunction(event)" class="dropbtn" aria-controls="Carouseldropdown">Carousel</button>
+          <div id="Carouseldropdown" class="dropdown-content">
+            <a href="#Carousal">Carousal</a>
+            <a href="#Grid">Grid</a>
+          </div>
+        </div>
+        
+        <div class="SelectOriginal drop">
+          <button onclick="myFunction(event)" class="dropbtn" aria-controls="Originaldropdown">Original</button>
+          <div id="Originaldropdown" class="dropdown-content">
+            <a href="#Original">Original</a>
+          </div>
+        </div>
+      </div>  
+    </div>
+  <div class="qrbox">
+    <img src="SUPPORTER SETTINGS.png" alt="qrcode">
+  </div>
+    <div class="lower">
+      <img src="phone call.png" alt="home"
+        onclick="window.location.href='menuCarousel.html';"
+        class="item"/>
+    </div>
+  </body>
+    <script src="calling.js"></script>
+  </body>
+</html>
