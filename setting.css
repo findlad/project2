@@ -111,7 +111,8 @@ body{
     font-size: 40px;
     font-family: Roboto;
     text-align: center;
-    margin-top: -5px;
+    margin-top: 8px;
+    margin-bottom: 32px;
    }
    .textBeside {
     margin:0px;

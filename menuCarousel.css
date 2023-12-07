@@ -5,6 +5,7 @@
   align-items: center; 
   justify-content: center;
   margin: auto;
+  margin-top: 24px;
   }
 
 .emergeButton{
@@ -21,7 +22,8 @@
   font-size: 32px;
   font-family: Roboto;
   text-align: center;
-  margin-top: 12px;
+  margin-top: 8px;
+  margin-bottom: 32px;
 }
 .textBeside {
   margin:0px;
@@ -58,6 +60,10 @@
   gap: 15px;
 }
 
+.timetext {
+  margin-top: 2px;
+}
+
 .tranding-slide-content-bottom { 
   color: white;
   font-size: 40px;
@@ -67,7 +73,7 @@
   
   .box{ 
     width: 400px;
-    height: 170px;
+    height: 180px;
     color: white;
     font-family: Roboto;
     font-size: 20px;

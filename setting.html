@@ -18,6 +18,52 @@
       href="https://fonts.googleapis.com/css2?family=Roboto&display=swap"
       rel="stylesheet"
     />
+    <script src="https://unpkg.com/i18next@23.7.7/dist/umd/i18next.min.js"></script>
+    <script>
+      var curLanguage = localStorage.getItem("language") || "en";
+      const translationResources = {
+        en: {
+          translation: {
+            title: "Contacts",
+            call_supporter: "CALL SUPPORTER",
+            home: "HOME",
+          },
+        },
+        fr: {
+          translation: {
+            title: "Contacts",
+            call_supporter: "APPELER LE SOUTIEN",
+            home: "ACCUEIL",
+          },
+        },
+      };
+
+      const savedLanguage = localStorage.getItem("language") || "en";
+      i18next.init(
+        {
+          lng: savedLanguage, // If you want to start with English
+          debug: true,
+          resources: translationResources,
+        },
+        function (err, t) {
+          // Initialize your UI
+        }
+      );
+
+      function changeLanguage(lng) {
+        i18next.changeLanguage(lng, function (err, t) {
+          document.getElementById("titleID").innerText = i18next.t("title");
+          document.getElementById("callSupporterID").innerText =
+            i18next.t("call_supporter");
+          document.getElementById("homeButtonTextID").innerText =
+            i18next.t("home");
+          localStorage.setItem("language", lng);
+          curLanguage = lng;
+
+          // update your UI
+        });
+      }
+    </script>
   </head>
 
   <body>

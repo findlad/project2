@@ -74,7 +74,8 @@ body{
     font-size: 32px;
     font-family: Roboto;
     text-align: center;
-    margin-top: 12px;
+    margin-top: 8px;
+    margin-bottom: 32px;
   }
    .textBeside {
     margin:0px;

@@ -19,7 +19,7 @@
       href="https://fonts.googleapis.com/css2?family=Roboto&display=swap"
       rel="stylesheet"
     />
-
+    <script src="https://unpkg.com/i18next@23.7.7/dist/umd/i18next.min.js"></script>
     <script>
       var curLanguage = localStorage.getItem("language") || "en";
       const translationResources = {
@@ -64,9 +64,13 @@
       );
 
       function changeLanguage(lng) {
+        console.log("chag");
+      
         i18next.changeLanguage(lng, function (err, t) {
           document.getElementById("settings_button").src =
             i18next.t("settings_image");
+            console.log(lng)
+            console.log(i18next.t("settings_image"));
           document
             .querySelectorAll(
               ".slide1 .tranding-slide-content .tranding-slide-content-bottom p"
@@ -130,7 +134,7 @@
           <p>
             <span class="span" id="date"></span>
           </p>
-          <p class="text"><span class="span" id="time"></span></p>
+          <p class="text timetext"><span class="span" id="time"></span></p>
         </div>
         <a
           class="weatherwidget-io container"
@@ -273,13 +277,9 @@
       </div>
       <div class="lower">
         <img
-          src="img_enFr.png"
-          alt="english or french"
-          class="item"
-          onclick="toggleLanguage()"
-        />
-        <img
           id="settings_button"
+          height="80px"
+          width="290px"
           src="img_supportedSettingsButton_en.png"
           alt="settings"
           class="item"
@@ -302,13 +302,13 @@
     <script src="sms.js"></script>
     <script src="iot.js"></script>
     <script src="calling.js"></script>
-    <script src="https://unpkg.com/i18next@23.7.7/dist/umd/i18next.min.js"></script>
     <script src="remote.js"></script>
     <script src="carousel.js"></script>
 
     <script>
       document.addEventListener("DOMContentLoaded", (event) => {
         const savedLanguage = localStorage.getItem("language") || "en"; // Use saved language or default to 'en'
+        console.log(savedLanguage);
         changeLanguage(savedLanguage);
       });
     </script>
