@@ -15,12 +15,14 @@ function getWeight() {
   });
   document.querySelectorAll("#stablebox").forEach(function (el) {
     // console.log("stability index ", latestWeight.Stability);
-    el.innerHTML = latestWeight ? latestWeight.Stability + " WI" : "Wobble: ----";
+    el.innerHTML = latestWeight
+      ? latestWeight.Stability + " WI"
+      : "Wobble: ----";
   });
 
   let lastTemp = Number(localStorage.getItem("lastTemp"));
   document.querySelectorAll("#tempbox").forEach(function (el) {
-    console.log("temp  ", lastTemp);
+    // console.log("temp  ", lastTemp);
     el.innerHTML = lastTemp.toFixed(1)
       ? lastTemp.toFixed(1) + " &deg;C"
       : "----  &deg;C";
@@ -31,6 +33,7 @@ function getWeight() {
   const modal = document.getElementById("modalBox");
 
   weightButton.addEventListener("click", () => {
+    console.log("click detected");
     modal.style.display = "flex";
 
     // Clear the previous chart, if any
@@ -44,7 +47,7 @@ function getWeight() {
     const y = allWeights.map((entry) => entry.weight);
     const y2 = allWeights.map((entry) => entry.Stability);
     const ctx = document.getElementById("graph").getContext("2d");
-
+    console.log(x);
     new Chart(ctx, {
       type: "line",
       data: {
