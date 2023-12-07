@@ -84,14 +84,14 @@
     flex-direction: column;
     justify-content: center;
     font-weight: bold;
-    font-size: 80px;
+    font-size: 68px;
     font-family: Roboto;
     text-align: center;
     align-content: center;
     align-items: center;
   }
   .weightsbox {display: flex;
-  flex-direction: row;}
+  flex-direction: column;}
   #tempbox{
     display: flex;
     flex-direction: column;

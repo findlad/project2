@@ -24,16 +24,30 @@
       const translationResources = {
         en: {
           translation: {
-            title: "Contacts",
+            title: "Settings",
             call_supporter: "CALL SUPPORTER",
             home: "HOME",
+            select_language: "Select Language",
+            carousel: "Carousel",
+            original: "Original",
+            img_language: "LANGUAGE_en.png",
+            img_colour: "COLOUR_en.png",
+            img_home_display: "HOME DISPLAY_en.png",
+            img_supporter_settings: "SUPPORTER SETTINGS_en.png"
           },
         },
         fr: {
           translation: {
-            title: "Contacts",
+            title: "Paramètres",
             call_supporter: "APPELER LE SOUTIEN",
             home: "ACCUEIL",
+            select_language: "Sélectionner la Langue",
+            carousel: "Carrousel",
+            original: "Originale",
+            img_language: "LANGUAGE_fr.png",
+            img_colour: "COLOUR_fr.png",
+            img_home_display: "HOME DISPLAY_fr.png",
+            img_supporter_settings: "SUPPORTER SETTINGS_fr.png"
           },
         },
       };
@@ -50,19 +64,6 @@
         }
       );
 
-      function changeLanguage(lng) {
-        i18next.changeLanguage(lng, function (err, t) {
-          document.getElementById("titleID").innerText = i18next.t("title");
-          document.getElementById("callSupporterID").innerText =
-            i18next.t("call_supporter");
-          document.getElementById("homeButtonTextID").innerText =
-            i18next.t("home");
-          localStorage.setItem("language", lng);
-          curLanguage = lng;
-
-          // update your UI
-        });
-      }
     </script>
   </head>
 
@@ -75,7 +76,7 @@
           height="120px"
           padding="25px"
         />
-        <p class="textBeside">SETTING</p>
+        <p id="titleID" class="textBeside">Settings</p>
       </div>
       <div>
         <img
@@ -99,12 +100,12 @@
     <div class="container">
       <!-- Your flex items go here -->
       <div class="gridContainer">
-        <img src="LANGUAGE.png" alt="Language">
-        <img src="HOME DISPLAY.png" alt="Home display">
-        <img src="COLOUR.png" alt="COLOUR">
+        <img id="languageImageID" src="LANGUAGE.png" alt="Language">
+        <img id="homeDisplayImageID" src="HOME DISPLAY.png" alt="Home display">
+        <img id="colourImageID" src="COLOUR.png" alt="COLOUR">
 
         <div class="Selectlanguage drop">
-          <button onclick="myFunction(event)" class="dropbtn" aria-controls="LanguageDropdown">Select Language</button>
+          <button id="selectLanguageID" onclick="myFunction(event)" class="dropbtn" aria-controls="LanguageDropdown">Select Language</button>
           <div id="LanguageDropdown" class="dropdown-content">
             <a onclick="changeLanguageLocal('en')">English</a>
             <a onclick="changeLanguageLocal('fr')">French</a>
@@ -112,15 +113,15 @@
         </div>
         
         <div class="SelectCarousal drop">
-          <button onclick="myFunction(event)" class="dropbtn" aria-controls="Carouseldropdown">Carousel</button>
+          <button id="carouselID" onclick="myFunction(event)" class="dropbtn" aria-controls="Carouseldropdown">Carousel</button>
           <div id="Carouseldropdown" class="dropdown-content">
-            <a href="#Carousal">Carousal</a>
+            <a href="#Carousal">Carousel</a>
             <a href="#Grid">Grid</a>
           </div>
         </div>
         
         <div class="SelectOriginal drop">
-          <button onclick="myFunction(event)" class="dropbtn" aria-controls="Originaldropdown">Original</button>
+          <button id="originalID" onclick="myFunction(event)" class="dropbtn" aria-controls="Originaldropdown">Original</button>
           <div id="Originaldropdown" class="dropdown-content">
             <a href="#Original">Original</a>
           </div>
@@ -128,7 +129,7 @@
       </div>  
     </div>
   <div class="qrbox">
-    <img src="SUPPORTER SETTINGS.png" alt="qrcode">
+    <img id="supporterSettingsImageID" src="SUPPORTER SETTINGS.png" alt="qrcode">
   </div>
   <div class="lower">
     <img
@@ -185,8 +186,18 @@
           //   .forEach(function (el) {
           //     el.innerHTML = i18next.t("contacts");
           //   });
+          document.getElementById("titleID").innerText = i18next.t("title");
           document.getElementById("callSupporterID").innerText =
             i18next.t("call_supporter");
+          document.getElementById("homeButtonTextID").innerText =
+            i18next.t("home");
+          document.getElementById("selectLanguageID").innerText = i18next.t("select_language");
+          document.getElementById("carouselID").innerText = i18next.t("carousel");
+          document.getElementById("originalID").innerText = i18next.t("original");
+          document.getElementById("homeDisplayImageID").src = i18next.t("img_home_display");
+          document.getElementById("languageImageID").src = i18next.t("img_language");
+          document.getElementById("colourImageID").src = i18next.t("img_colour");
+          document.getElementById("supporterSettingsImageID").src = i18next.t("img_supporter_settings");
           //updateDateTime(lng);
           localStorage.setItem("language", lng);
           curLanguage = lng;
@@ -200,7 +211,7 @@
 <script>
   document.addEventListener("DOMContentLoaded", (event) => {
     const savedLanguage = localStorage.getItem("language") || "en"; // Use saved language or default to 'en'
-    changeLanguage(savedLanguage);
+    changeLanguageLocal(savedLanguage);
   });
 </script>
   </body>
